@@ -10,8 +10,13 @@ in
       <nixos-hardware/framework/13-inch/7040-amd>
       ./hardware-configuration.nix
       <home-manager/nixos>
-      <nix-ld/modules/nix-ld.nix>
+      #<nix-ld/modules/nix-ld.nix>
     ];
+
+  programs.nix-ld.enable = true;
+
+  system.autoUpgrade.enable  = true;
+  system.autoUpgrade.allowReboot  = true;
 
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   #boot.kernelPackages = pkgs.linuxPackages_6_6;
@@ -22,9 +27,11 @@ in
   services.gnome.gnome-keyring.enable = true;
 
   services.udev.extraRules = ''
-# DFU (Internal bootloader for STM32 and AT32 MCUs)
-SUBSYSTEM=="usb", ATTRS{idVendor}=="2e3c", ATTRS{idProduct}=="df11", MODE="0664", GROUP="dialout"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="0664", GROUP="dialout"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="2e3c", ATTRS{idProduct}=="df11", MODE="0666"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="0666"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e20", MODE="0666"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e2a", MODE="0666"
+    SUBSYSTEM=="usb", MODE="0666", group="input"
   '';
 
   networking.hostName = "FizzyApple12-LA";
@@ -59,9 +66,21 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="0664"
   };
 
   security.polkit.enable = true;
-  hardware.opengl.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [ 
+      rocmPackages.clr.icd
+      #amdvlk
+      #driversi686Linux.amdvlk
+    ];
+  };
+  #hardware.opengl = {
+  #  enable = true;
+  #  driSupport = true;
+  #  driSupport32Bit = true;
+  #};
 
-  # Enable the X11 windowing system
   services.xserver = {
     enable = true;
     videoDrivers = [ "amdgpu" "displaylink" "modesetting" ];
@@ -96,12 +115,12 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="0664"
     ];
     browsing = true;
     browsedConf = ''
-BrowseDNSSDSubTypes _cups,_print
-BrowseLocalProtocols all
-BrowseRemoteProtocols all
-CreateIPPPrinterQueues All
+      BrowseDNSSDSubTypes _cups,_print
+      BrowseLocalProtocols all
+      BrowseRemoteProtocols all
+      CreateIPPPrinterQueues All
 
-BrowseProtocols all
+      BrowseProtocols all
     '';
   };
   hardware.printers.ensureDefaultPrinter = "itap-printing";
@@ -130,9 +149,12 @@ BrowseProtocols all
   services.avahi = {
     enable = true;
     nssmdns4 = true;
+    nssmdns6 = true;
+    nssmdns = true;
+    reflector = true;
+    wideArea = true;
   };
 
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -170,7 +192,7 @@ BrowseProtocols all
   users.users.fizzyapple12 = {
     isNormalUser = true;
     description = "FizzyApple12";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" "kvm" "video" "plugdev" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" "kvm" "video" "plugdev" "input" "wireshark" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -227,6 +249,7 @@ BrowseProtocols all
         terminal = "kitty"; 
         startup = [
           { command = "exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-Dark'"; }
+          { command = "export BRIGHTNESS_NOTIFICATION=0"; }
         ];
         keybindings = let
           modifier = "Mod4";
@@ -305,9 +328,12 @@ BrowseProtocols all
           "${modifier}+Ctrl+Up" = "resize shrink height 10 px";
           "${modifier}+Ctrl+Right" = "resize grow width 10 px";
 
-          "XF86MonBrightnessDown" = "exec light -U 10";
-          "XF86MonBrightnessUp" = "exec light -A 10";
+          #"XF86MonBrightnessDown" = "exec 'light -U 10 && swaymsg 'set \$BRIGHTNESS_NOTIFICATION $(notify-send --replace-id=\$\$BRIGHTNESS_NOTIFICATION --print-id \"Brightness: $(light -G)\"')'";
+          #"XF86MonBrightnessUp" = "exec 'light -A 10 && swaymsg 'set \$BRIGHTNESS_NOTIFICATION $(notify-send --replace-id=\$\$BRIGHTNESS_NOTIFICATION --print-id \"Brightness: $(light -G)\"')'";
         
+          "XF86MonBrightnessDown" = "exec 'light -U 10'";
+          "XF86MonBrightnessUp" = "exec 'light -A 10'";
+          
           "XF86AudioRaiseVolume" = "exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'";
           "XF86AudioLowerVolume" = "exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'";
           "XF86AudioMute" = "exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'";
@@ -336,17 +362,25 @@ BrowseProtocols all
   };
 
   environment.systemPackages = with pkgs; [
+    fuse
+
+    hyfetch
+
+    speedcrunch
+
     google-fonts
 
     pulseaudio
     bluez 
     #ldacBT
 
+    libnotify
     wlr-randr
     grim
     slurp
     wl-clipboard
     mako
+    dmenu
 
     kitty
     vim
@@ -354,14 +388,20 @@ BrowseProtocols all
     wget    
     usbutils
     dotnet-runtime
+    
+    jmtpfs
+    cifs-utils
 
-    ((pkgs.vscode.override { isInsiders = true; }).overrideAttrs (oldAttrs: rec {
-      src = (builtins.fetchTarball {
-        url = "https://update.code.visualstudio.com/latest/linux-x64/insider";
-      });
-    }))
+    zed-editor
+    #((pkgs.vscode.override { isInsiders = true; }).overrideAttrs (oldAttrs: rec {
+    #  src = (builtins.fetchTarball {
+    #    url = "https://update.code.visualstudio.com/latest/linux-x64/insider";
+    #  });
+    #}))
 
     (pkgs.discord-canary.override { withVencord = true; })
+    element-desktop
+
     fprintd
     parsec-bin
     steam
@@ -373,7 +413,7 @@ BrowseProtocols all
     winetricks
     wineWowPackages.waylandFull
     
-    gnome.gnome-boxes
+    gnome-boxes
     spice-gtk    
 
     glib
@@ -386,6 +426,7 @@ BrowseProtocols all
     blender 
     reaper
     vlc
+    unzip
 
     prismlauncher
  
@@ -393,6 +434,11 @@ BrowseProtocols all
     teams-for-linux
     prusa-slicer
   ];
+
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
 
   services.fprintd.enable = true;
   
