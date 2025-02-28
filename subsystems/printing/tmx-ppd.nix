@@ -1,22 +1,26 @@
-{ stdenv, pkgs }:
-stdenv.mkDerivation rec {
+{
+  lib,
+  stdenv,
+  pkgs,
+}:
+stdenv.mkDerivation {
   name = "tmx-ppd";
   version = "1.0";
-  
+
   src = builtins.fetchTarball {
     url = "https://ftp.epson.com/drivers/pos/tmx-cups-2.0.2.101.tar.gz";
   };
 
   dpkg = pkgs.dpkg;
 
-  buildInputs = [ pkgs.dpkg pkgs.bintools ];
-  libPath = lib.makeLibraryPath [ stdenv.cc.cc zlib ];
+  buildInputs = [pkgs.dpkg pkgs.bintools];
+  libPath = lib.makeLibraryPath [stdenv.cc.cc pkgs.zlib];
 
   buildPhase = ''
     ar -x backend/pcs-3.15.0.0-1.amd64.deb data.tar.gz
     tar xfz data.tar.gz
-    
-    
+
+
   '';
 
   installPhase = ''
