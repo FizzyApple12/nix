@@ -43,6 +43,7 @@
       pkgs.hyfetch
       pkgs.unzip
       pkgs.btop
+      pkgs.ffmpeg-full
 
       pkgs.fuse
       pkgs.samba
