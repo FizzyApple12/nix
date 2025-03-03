@@ -1,0 +1,124 @@
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    # TODO: nixos-hardware?
+    ../subsystems/networking.nix
+    ../subsystems/audio.nix
+    ../subsystems/graphics
+    ../subsystems/bluetooth.nix
+    ../subsystems/printing
+    ../subsystems/virtualisation.nix
+  ];
+
+  nixpkgs = {
+    hostPlatform = lib.mkDefault "x86_64-linux";
+  };
+
+  hardware = {
+    cpu = {
+      amd = {
+        updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+      };
+    };
+    nvidia = {
+      modesetting = {
+        enable = true;
+      };
+
+      powerManagement = {
+        enable = true;
+        finegrained = false;
+      };
+
+      open = false;
+
+      nvidiaSettings = true;
+
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
+
+  boot = {
+    initrd = {
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
+      kernelModules = [
+        "nvidia"
+      ];
+    };
+
+    kernelModules = [
+      "kvm-amd"
+      "nested=1"
+    ];
+    kernelParams = [
+      "amd_pstate=active"
+    ];
+    # latest doesn't work with nvidia's drivers >:( (will fix this soon :3c)
+    kernelPackages = pkgs.linuxPackages;
+    extraModulePackages = [];
+
+    loader = {
+      timeout = 0;
+      systemd-boot = {
+        enable = true;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
+    };
+  };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/af867164-3415-4348-a294-69d6b5c63317";
+      fsType = "ext4";
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/D48A-B62A";
+      fsType = "vfat";
+      options = ["fmask=0022" "dmask=0022"];
+    };
+  };
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/1a1177b1-acc2-4a1a-89f5-14d0819fe645";}
+  ];
+
+  time = {
+    timeZone = "America/Indiana/Indianapolis";
+  };
+
+  networking = {
+    hostName = "FizzyApple12-PC";
+  };
+
+  services = {
+    xserver = {
+      videoDrivers = ["nvidia" "modesetting"];
+    };
+    fwupd = {
+      enable = true;
+      extraRemotes = [
+        "lvfs-testing"
+      ];
+      uefiCapsuleSettings = {
+        DisableCapsuleUpdateOnDisk = "true";
+      };
+    };
+  };
+
+  # TODO: QT Session Variables
+}

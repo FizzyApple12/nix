@@ -1,8 +1,11 @@
 {pkgs, ...}: {
-  services = {
+  hardware = {
     pulseaudio = {
       enable = false;
     };
+  };
+
+  services = {
     pipewire = {
       enable = true;
       alsa = {
