@@ -54,7 +54,7 @@
           appindicator.extensionUuid
           blur-my-shell.extensionUuid
           gsconnect.extensionUuid
-          paperwm.extensionUuid
+          #paperwm.extensionUuid
           unblank.extensionUuid
         ];
       };

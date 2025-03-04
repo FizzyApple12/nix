@@ -76,11 +76,17 @@
       pkgs.element-desktop
       pkgs.thunderbird
       pkgs.teams-for-linux
+      pkgs.kdePackages.kclock
 
       pkgs.parsec-bin
 
       #pkgs.lutris
       pkgs.steam
+      pkgs.alvr
+      pkgs.vrcx
+      pkgs.wlx-overlay-s
+      pkgs.gamemode
+      pkgs.protonplus
 
       pkgs.prismlauncher
 
