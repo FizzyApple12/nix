@@ -42,9 +42,6 @@
 
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
-    opengl = {
-      enable = true;
-    };
   };
 
   boot = {

@@ -7,6 +7,9 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = [
+        pkgs.libGL
+      ];
     };
   };
   services = {
@@ -22,6 +25,15 @@
   environment = {
     systemPackages = [
       pkgs.vulkan-tools
+      pkgs.libGL
     ];
+    
+  };
+  programs = {
+    nix-ld = {
+      libraries = [
+        pkgs.libGL
+      ];
+    };
   };
 }

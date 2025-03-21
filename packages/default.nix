@@ -66,11 +66,13 @@
       pkgs.numbat
       pkgs.vim
       pkgs.zed-editor
-      #((pkgs.vscode.override { isInsiders = true; }).overrideAttrs (oldAttrs: rec {
-      #  src = (builtins.fetchTarball {
-      #    url = "https://update.code.visualstudio.com/latest/linux-x64/insider";
-      #  });
-      #}))
+
+      ((pkgs.vscode.override {isInsiders = true;}).overrideAttrs (oldAttrs: rec {
+        src = builtins.fetchTarball {
+          url = "https://update.code.visualstudio.com/latest/linux-x64/insider";
+        };
+      }))
+      pkgs.craftos-pc
 
       (pkgs.discord-canary.override {withVencord = true;})
       pkgs.element-desktop

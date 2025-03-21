@@ -23,7 +23,7 @@
     stateVersion = "23.11";
     autoUpgrade = {
       enable = true;
-      allowReboot = true;
+      allowReboot = false;
     };
   };
 
@@ -61,6 +61,7 @@
         SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e20", MODE="0666"
         SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e2a", MODE="0666"
         SUBSYSTEM=="usb", MODE="0666", group="input"
+        KERNEL=="uinput", MODE="0666", GROUP="input"
       '';
     };
   };
@@ -83,9 +84,6 @@
         util-linux
         xz
         systemd
-        libGL
-        libGLX
-        libGLU
       ];
     };
     dconf = {
