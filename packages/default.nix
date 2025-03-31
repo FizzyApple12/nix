@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -104,5 +108,14 @@
       pkgs.unityhub
       pkgs.alcom
     ];
+  };
+  fonts = {
+    enableDefaultPackages = true;
+    enableGhostscriptFonts = true;
+    packages =
+      [
+        pkgs.google-fonts
+      ]
+      ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };
 }
