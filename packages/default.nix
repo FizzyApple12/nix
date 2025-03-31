@@ -58,6 +58,7 @@
       #pkgs.gnome-terminal
 
       pkgs.gitFull
+      pkgs.git-lfs
       pkgs.nil
       pkgs.nixd
       pkgs.alejandra
@@ -100,6 +101,8 @@
       pkgs.reaper
       pkgs.vlc
       pkgs.prusa-slicer
+      pkgs.unityhub
+      pkgs.alcom
     ];
   };
 }

@@ -8,6 +8,12 @@
       experimental-features = ["flakes" "nix-command"];
     };
   };
+  nixpkgs = {
+    config = {
+      allowBroken = true;
+      allowUnfree = true;
+    };
+  };
 
   imports = [
     ./hardware-configuration.nix
