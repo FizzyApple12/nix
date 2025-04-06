@@ -66,8 +66,9 @@
         SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", MODE="0666"
         SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e20", MODE="0666"
         SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e2a", MODE="0666"
-        SUBSYSTEM=="usb", MODE="0666", group="input"
-        KERNEL=="uinput", MODE="0666", GROUP="input"
+
+        SUBSYSTEM=="usb", MODE="0666"
+        KERNEL=="uinput", MODE="0666"
       '';
     };
   };

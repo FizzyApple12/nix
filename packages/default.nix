@@ -35,6 +35,14 @@
         enableSSHSupport = true;
       };
     };
+    steam = {
+      enable = true;
+    };
+  };
+  hardware = {
+    steam-hardware = {
+      enable = true;
+    };
   };
 
   environment = {
@@ -88,7 +96,6 @@
       pkgs.parsec-bin
 
       #pkgs.lutris
-      pkgs.steam
       pkgs.alvr
       pkgs.vrcx
       pkgs.wlx-overlay-s
@@ -107,6 +114,8 @@
       pkgs.prusa-slicer
       pkgs.unityhub
       pkgs.alcom
+
+      pkgs.mongodb-compass
     ];
   };
   fonts = {
