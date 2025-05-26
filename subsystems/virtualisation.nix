@@ -10,6 +10,9 @@
     spiceUSBRedirection = {
       enable = true;
     };
+    docker = {
+      enable = true;
+    };
   };
   environment = {
     systemPackages = [

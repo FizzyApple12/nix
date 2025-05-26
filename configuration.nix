@@ -67,6 +67,8 @@
         SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e20", MODE="0666"
         SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e2a", MODE="0666"
 
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="445A", ATTRS{idProduct}=="1426", MODE="0666"
+
         SUBSYSTEM=="usb", MODE="0666"
         KERNEL=="uinput", MODE="0666"
       '';
