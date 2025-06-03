@@ -157,6 +157,7 @@
       pkgs.kdePackages.kclock
 
       pkgs.parsec-bin
+      pkgs.moonlight-qt
 
       #pkgs.lutris
       pkgs.alvr

@@ -14,6 +14,7 @@
     ../subsystems/bluetooth.nix
     ../subsystems/printing
     ../subsystems/virtualisation.nix
+    ../subsystems/remote-desktop.nix
   ];
 
   nixpkgs = {
