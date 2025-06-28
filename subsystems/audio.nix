@@ -26,7 +26,7 @@
 
   environment = {
     systemPackages = [
-      pkgs.pulseaudio
+      pkgs.pulseaudioFull
       pkgs.easyeffects
     ];
   };
