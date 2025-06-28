@@ -14,7 +14,9 @@
       moz-url = builtins.fetchTarball {url = "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz";};
       nightlyOverlay = import "${moz-url}/firefox-overlay.nix";
     in [
-      nightlyOverlay
+      # nightlyOverlay
+      (import ./firefox-overlay.nix)
+      (import ./gconf-overlay.nix)
     ];
   };
   programs = {

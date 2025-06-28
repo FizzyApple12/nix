@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   services = {
     pulseaudio = {
-        enable = false;
-      };
+      enable = false;
+    };
     pipewire = {
       enable = true;
       alsa = {
@@ -26,6 +26,7 @@
   environment = {
     systemPackages = [
       pkgs.pulseaudio
+      pkgs.easyeffects
     ];
   };
 }
