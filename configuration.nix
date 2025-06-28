@@ -30,6 +30,12 @@
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   };
 
+  hardware = {
+    enableAllFirmware = true;
+    enableAllHardware = true;
+    enableRedistributableFirmware = true;
+  };
+
   system = {
     stateVersion = "23.11";
     autoUpgrade = {

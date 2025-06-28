@@ -2,6 +2,7 @@
   services = {
     pulseaudio = {
       enable = false;
+      package = pkgs.pulseaudioFull;
     };
     pipewire = {
       enable = true;
