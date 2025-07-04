@@ -17,6 +17,7 @@
       # nightlyOverlay
       (import ./firefox-overlay.nix)
       (import ./gconf-overlay.nix)
+      # (import ./unityhub-overlay.nix)
     ];
   };
   programs = {
@@ -71,6 +72,10 @@
       pkgs.winetricks
       pkgs.wineasio
       pkgs.wineWowPackages.waylandFull
+      (pkgs.bottles.override {
+        removeWarningPopup = true;
+      })
+      pkgs.protonplus
 
       pkgs.alacritty
       #pkgs.gnome-terminal
@@ -166,7 +171,6 @@
       pkgs.vrcx
       pkgs.wlx-overlay-s
       pkgs.gamemode
-      pkgs.protonplus
       # (
       #   pkgs.callPackage ./openvr-spacecalibrator {
       #     pkgs = pkgs;
@@ -177,14 +181,58 @@
 
       pkgs.spotify
 
-      pkgs.obs-studio
+      (
+        pkgs.callPackage ./ndi/package.nix {
+          lib = pkgs.lib;
+          stdenv = pkgs.stdenv;
+          fetchurl = pkgs.fetchurl;
+          avahi = pkgs.avahi;
+        }
+      )
+      (pkgs.wrapOBS {
+        plugins = [
+          (
+            pkgs.qt6Packages.callPackage ./distroav {
+              lib = pkgs.lib;
+              stdenv = pkgs.stdenv;
+              fetchFromGitHub = pkgs.fetchFromGitHub;
+              obs-studio = pkgs.obs-studio;
+              cmake = pkgs.cmake;
+              ndi = (
+                pkgs.callPackage ./ndi/package.nix {
+                  lib = pkgs.lib;
+                  stdenv = pkgs.stdenv;
+                  fetchurl = pkgs.fetchurl;
+                  avahi = pkgs.avahi;
+                }
+              );
+              curl = pkgs.curl;
+            }
+          )
+        ];
+      })
+
       pkgs.inkscape
       pkgs.gimp
       pkgs.blender
       pkgs.reaper
       pkgs.vlc
       pkgs.prusa-slicer
-      pkgs.unityhub
+      # pkgs.unityhub
+      (pkgs.unityhub.overrideAttrs (oldAttrs: {
+        extraLibs = [
+          (pkgs.libxml2.overrideAttrs (oldAttrs: rec {
+            src = pkgs.fetchFromGitLab {
+              domain = "gitlab.gnome.org";
+              owner = "GNOME";
+              repo = "libxml2";
+              rev = "f502e9b2f6ecb05e89ed31668936286d6f12a6e8"; # some security- and bugfixes ahead of 2.14
+              hash = "sha256-Bmxo7qDI8x0h0v1PpEzxeNWIhl0YJz97QI2yzB8KtRU=";
+            };
+          }))
+          pkgs.xorg.libXrandr
+        ];
+      }))
       pkgs.alcom
       pkgs.audacity
 
