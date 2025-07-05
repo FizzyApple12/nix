@@ -26,8 +26,12 @@
         enable = true;
         shellAliases = {
           ll = "ls -l";
+
           update = "sudo nixos-rebuild switch";
+          full-update = "sudo nix-channel --update && sudo nixos-rebuild switch";
+          cleanup-configuration = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
           configure = "zeditor /etc/nixos";
+
           configuration-git = "git -C /etc/nixos/ ";
         };
         oh-my-zsh = {

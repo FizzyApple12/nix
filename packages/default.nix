@@ -10,15 +10,17 @@
         "electron-25.9.0"
       ];
     };
-    overlays = let
-      moz-url = builtins.fetchTarball {url = "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz";};
-      nightlyOverlay = import "${moz-url}/firefox-overlay.nix";
-    in [
-      # nightlyOverlay
-      (import ./firefox-overlay.nix)
-      (import ./gconf-overlay.nix)
-      # (import ./unityhub-overlay.nix)
-    ];
+    overlays =
+      # let
+      #   moz-url = builtins.fetchTarball {url = "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz";};
+      #   nightlyOverlay = import "${moz-url}/firefox-overlay.nix";
+      # in
+      [
+        # nightlyOverlay
+        (import ./firefox-overlay.nix)
+        (import ./gconf-overlay.nix)
+        # (import ./unityhub-overlay.nix)
+      ];
   };
   programs = {
     firefox = {
@@ -161,6 +163,8 @@
       pkgs.element-desktop
       pkgs.thunderbird
       pkgs.teams-for-linux
+      pkgs.signal-desktop
+
       pkgs.kdePackages.kclock
 
       pkgs.parsec-bin
@@ -181,6 +185,7 @@
 
       pkgs.spotify
 
+      pkgs.sonobus
       (
         pkgs.callPackage ./ndi/package.nix {
           lib = pkgs.lib;
@@ -209,6 +214,9 @@
               curl = pkgs.curl;
             }
           )
+          pkgs.obs-studio-plugins.wlrobs
+          pkgs.obs-studio-plugins.obs-pipewire-audio-capture
+          pkgs.obs-studio-plugins.obs-shaderfilter
         ];
       })
 
@@ -221,7 +229,7 @@
       # pkgs.unityhub
       (pkgs.unityhub.overrideAttrs (oldAttrs: {
         extraLibs = [
-          (pkgs.libxml2.overrideAttrs (oldAttrs: rec {
+          (pkgs.libxml2.overrideAttrs (oldAttrs: {
             src = pkgs.fetchFromGitLab {
               domain = "gitlab.gnome.org";
               owner = "GNOME";

@@ -44,7 +44,6 @@ self: super: let
   # The timestamp argument is a yyyy-mm-dd-hh-mm-ss date, which corresponds to
   # one specific version. This is used mostly for bisecting.
   versionInfo = {
-    name,
     version,
     release,
     system ? arch,

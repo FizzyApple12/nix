@@ -1,7 +1,7 @@
 final: prev: {
   unityhub = prev.unityhub.overrideAttrs (oldAttrs: {
     extraLibs = [
-      (prev.libxml2.overrideAttrs (oldAttrs: rec {
+      (prev.libxml2.overrideAttrs (oldAttrs: {
         src = prev.fetchFromGitLab {
           domain = "gitlab.gnome.org";
           owner = "GNOME";

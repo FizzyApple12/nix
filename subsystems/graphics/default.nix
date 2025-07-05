@@ -27,7 +27,6 @@
       pkgs.vulkan-tools
       pkgs.libGL
     ];
-    
   };
   programs = {
     nix-ld = {
