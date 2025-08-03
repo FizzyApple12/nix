@@ -29,6 +29,17 @@
         updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
       };
     };
+    amdgpu = {
+      initrd = {
+        enable = true;
+      };
+      opencl = {
+        enable = true;
+      };
+      overdrive = {
+        enable = true;
+      };
+    };
     graphics = {
       extraPackages = [
         pkgs.rocmPackages.clr.icd
@@ -74,13 +85,6 @@
       systemd-boot = {
         enable = true;
       };
-      # grub = {
-      #   enable = true;
-      #   copyKernels = true;
-      #   efiSupport = true;
-      #   fsIdentifier = "uuid";
-      #   device = "nodev";
-      # };
       efi = {
         canTouchEfiVariables = true;
       };
@@ -155,11 +159,18 @@
         HandleLidSwitchExternalPower=suspend-then-hibernate
       '';
     };
+
+    lact = {
+      enable = true;
+    };
   };
 
   environment = {
     systemPackages = [
       pkgs.fprintd
+
+      pkgs.clinfo
+      pkgs.lact
     ];
   };
 

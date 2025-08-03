@@ -29,6 +29,7 @@
         updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
       };
     };
+
     nvidia = {
       modesetting = {
         enable = true;
@@ -45,6 +46,25 @@
 
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
+
+    # amdgpu = {
+    #   initrd = {
+    #     enable = true;
+    #   };
+    #   opencl = {
+    #     enable = true;
+    #   };
+    #   overdrive = {
+    #     enable = true;
+    #   };
+    # };
+    #
+    # graphics = {
+    #   extraPackages = [
+    #     pkgs.rocmPackages.clr.icd
+    #   ];
+    # };
+
     spacenavd = {
       enable = true;
     };
@@ -62,6 +82,7 @@
       ];
       kernelModules = [
         "nvidia"
+        # "amdgpu"
       ];
     };
 
@@ -118,7 +139,11 @@
 
   services = {
     xserver = {
-      videoDrivers = ["nvidia" "modesetting"];
+      videoDrivers = [
+        "nvidia"
+        # "amdgpu"
+        "modesetting"
+      ];
     };
     fwupd = {
       enable = true;
@@ -129,12 +154,19 @@
         DisableCapsuleUpdateOnDisk = "true";
       };
     };
+
+    # lact = {
+    #   enable = true;
+    # };
   };
 
   environment = {
     systemPackages = [
       pkgs.scarlett2
       pkgs.alsa-scarlett-gui
+
+      # pkgs.clinfo
+      # pkgs.lact
     ];
   };
 
