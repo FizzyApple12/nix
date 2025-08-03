@@ -10,9 +10,9 @@
 # that PYTHONPATH is still respected enough for the FreeCAD console to
 # successfully run and check that it was included in `sys.path`.
 runCommand "freecad-test-console"
-{
-  nativeBuildInputs = [freecad];
-}
-''
-  HOME="$(mktemp -d)" PYTHONPATH="$(pwd)/test" FreeCADCmd --log-file $out -c "if not '$(pwd)/test' in sys.path: sys.exit(1)" </dev/null
-''
+  {
+    nativeBuildInputs = [ freecad ];
+  }
+  ''
+    HOME="$(mktemp -d)" PYTHONPATH="$(pwd)/test" FreeCADCmd --log-file $out -c "if not '$(pwd)/test' in sys.path: sys.exit(1)" </dev/null
+  ''

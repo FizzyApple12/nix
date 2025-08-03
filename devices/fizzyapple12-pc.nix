@@ -33,7 +33,7 @@
       };
 
       powerManagement = {
-        enable = true;
+        enable = false;
         finegrained = false;
       };
 
@@ -41,7 +41,7 @@
 
       nvidiaSettings = true;
 
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
 
@@ -124,6 +124,13 @@
         DisableCapsuleUpdateOnDisk = "true";
       };
     };
+  };
+
+  environment = {
+    systemPackages = [
+      pkgs.scarlett2
+      pkgs.alsa-scarlett-gui
+    ];
   };
 
   # TODO: QT Session Variables
