@@ -23,7 +23,7 @@
   imports = [
     ./hardware-configuration.nix
     ./users
-    ./packages
+    ./packages/global.nix
   ];
 
   boot = {

@@ -8,6 +8,9 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     <nixos-hardware/framework/13-inch/7040-amd>
+
+    ../packages/desktop
+
     ../subsystems/networking.nix
     ../subsystems/audio.nix
     ../subsystems/graphics
@@ -30,6 +33,9 @@
       extraPackages = [
         pkgs.rocmPackages.clr.icd
       ];
+    };
+    spacenavd = {
+      enable = true;
     };
   };
 

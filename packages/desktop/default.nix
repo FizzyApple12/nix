@@ -26,18 +26,9 @@
       enable = true;
       package = pkgs.latest.firefox-nightly-bin;
     };
-    zsh = {
-      enable = true;
-    };
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
-    };
-    gnupg = {
-      agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
     };
     steam = {
       enable = true;
@@ -56,27 +47,11 @@
   environment = {
     shells = [pkgs.zsh];
     systemPackages = [
-      pkgs.direnv
-
       pkgs.spacenavd
       pkgs.libspnav
       pkgs.spnavcfg
 
       pkgs.filezilla
-
-      pkgs.google-fonts
-
-      pkgs.wget
-      pkgs.usbutils
-      pkgs.hyfetch
-      pkgs.unzip
-      pkgs.btop
-      pkgs.ffmpeg-full
-
-      pkgs.fuse
-      pkgs.samba
-      pkgs.jmtpfs
-      pkgs.cifs-utils
 
       pkgs.winetricks
       pkgs.wineasio
@@ -89,16 +64,6 @@
       pkgs.alacritty
       #pkgs.gnome-terminal
 
-      pkgs.gitFull
-      pkgs.git-lfs
-      pkgs.nil
-      pkgs.nixd
-      pkgs.alejandra
-      pkgs.dotnet-runtime
-      pkgs.cloc
-
-      pkgs.numbat
-      pkgs.vim
       pkgs.zed-editor
 
       # pkgs.freecad
@@ -157,14 +122,5 @@
 
       pkgs.mongodb-compass
     ];
-  };
-  fonts = {
-    enableDefaultPackages = true;
-    enableGhostscriptFonts = true;
-    packages =
-      [
-        pkgs.google-fonts
-      ]
-      ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };
 }

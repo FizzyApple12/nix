@@ -7,7 +7,9 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    # TODO: nixos-hardware?
+
+    ../packages/desktop
+
     ../subsystems/networking.nix
     ../subsystems/audio.nix
     ../subsystems/graphics
@@ -42,6 +44,9 @@
       nvidiaSettings = true;
 
       package = config.boot.kernelPackages.nvidiaPackages.beta;
+    };
+    spacenavd = {
+      enable = true;
     };
   };
 
