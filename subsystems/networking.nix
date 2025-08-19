@@ -6,8 +6,8 @@
     };
     firewall = {
       enable = true;
-      allowedTCPPorts = [80 443 57621 9943 9944 9942 8082 25565 47984 47989 47990 48010];
-      allowedUDPPorts = [80 443 5353 9943 9944 9942 8082 25565];
+      allowedTCPPorts = [80 443 57621 9943 9944 9942 8082 25565 47984 47989 47990 48010 27036 27015];
+      allowedUDPPorts = [80 443 5353 9943 9944 9942 8082 25565 4380 27015 3478 4379 4380];
       allowedTCPPortRanges = [
         {
           from = 1716;
@@ -27,6 +27,22 @@
           from = 8000;
           to = 8010;
         }
+        {
+          from = 27000;
+          to = 27100;
+        }
+        {
+          from = 27031;
+          to = 27036;
+        }
+        {
+          from = 27014;
+          to = 27030;
+        }
+      ];
+      trustedInterfaces = [
+        "virbr0"
+        "vnet8"
       ];
     };
   };

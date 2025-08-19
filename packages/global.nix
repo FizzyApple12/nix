@@ -23,6 +23,8 @@
   environment = {
     shells = [pkgs.zsh];
     systemPackages = [
+      pkgs.lm_sensors
+
       pkgs.direnv
 
       pkgs.google-fonts
@@ -32,6 +34,7 @@
       pkgs.unzip
 
       pkgs.btop
+      pkgs.nvtopPackages.full
 
       pkgs.numbat
 
@@ -53,6 +56,7 @@
       pkgs.alejandra
       pkgs.dotnet-runtime
       pkgs.cloc
+      pkgs.jdk21
     ];
   };
   fonts = {
@@ -61,6 +65,7 @@
     packages =
       [
         pkgs.google-fonts
+        pkgs.corefonts
       ]
       ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };

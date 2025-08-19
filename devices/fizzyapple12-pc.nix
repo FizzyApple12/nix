@@ -30,40 +30,40 @@
       };
     };
 
-    nvidia = {
-      modesetting = {
+    # nvidia = {
+    #   modesetting = {
+    #     enable = true;
+    #   };
+
+    #   powerManagement = {
+    #     enable = false;
+    #     finegrained = false;
+    #   };
+
+    #   open = true;
+
+    #   nvidiaSettings = true;
+
+    #   package = config.boot.kernelPackages.nvidiaPackages.beta;
+    # };
+
+    amdgpu = {
+      initrd = {
         enable = true;
       };
-
-      powerManagement = {
-        enable = false;
-        finegrained = false;
+      opencl = {
+        enable = true;
       };
-
-      open = true;
-
-      nvidiaSettings = true;
-
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      overdrive = {
+        enable = true;
+      };
     };
 
-    # amdgpu = {
-    #   initrd = {
-    #     enable = true;
-    #   };
-    #   opencl = {
-    #     enable = true;
-    #   };
-    #   overdrive = {
-    #     enable = true;
-    #   };
-    # };
-    #
-    # graphics = {
-    #   extraPackages = [
-    #     pkgs.rocmPackages.clr.icd
-    #   ];
-    # };
+    graphics = {
+      extraPackages = [
+        pkgs.rocmPackages.clr.icd
+      ];
+    };
 
     spacenavd = {
       enable = true;
@@ -81,8 +81,8 @@
         "sd_mod"
       ];
       kernelModules = [
-        "nvidia"
-        # "amdgpu"
+        # "nvidia"
+        "amdgpu"
       ];
     };
 
@@ -140,8 +140,8 @@
   services = {
     xserver = {
       videoDrivers = [
-        "nvidia"
-        # "amdgpu"
+        # "nvidia"
+        "amdgpu"
         "modesetting"
       ];
     };
@@ -155,9 +155,9 @@
       };
     };
 
-    # lact = {
-    #   enable = true;
-    # };
+    lact = {
+      enable = true;
+    };
   };
 
   environment = {
@@ -165,8 +165,10 @@
       pkgs.scarlett2
       pkgs.alsa-scarlett-gui
 
-      # pkgs.clinfo
-      # pkgs.lact
+      pkgs.clinfo
+      pkgs.lact
+
+      pkgs.btop-rocm
     ];
   };
 

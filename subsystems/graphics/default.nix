@@ -32,6 +32,7 @@
     nix-ld = {
       libraries = [
         pkgs.libGL
+        pkgs.glfw
       ];
     };
   };

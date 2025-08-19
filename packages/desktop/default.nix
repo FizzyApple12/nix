@@ -9,6 +9,7 @@
       permittedInsecurePackages = [
         "electron-25.9.0"
         "libsoup-2.74.3"
+        "libxml2-2.13.8"
       ];
     };
     overlays =
@@ -67,7 +68,7 @@
       pkgs.zed-editor
 
       # pkgs.freecad
-      (pkgs.callPackage ./freecad/package.nix { })
+      # (pkgs.callPackage ./freecad/package.nix { })
 
       (pkgs.discord-canary.override {withVencord = true;})
       pkgs.element-desktop
@@ -121,6 +122,7 @@
       # pkgs.audacity
 
       pkgs.mongodb-compass
+      (pkgs.callPackage ./dbvisualizer/package.nix { })
     ];
   };
 }
