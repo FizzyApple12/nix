@@ -14,6 +14,7 @@
       packages = [
         pkgs.zsh
         pkgs.oh-my-zsh
+        pkgs.rdesktop
       ];
       stateVersion = "23.11";
     };
@@ -27,10 +28,12 @@
         shellAliases = {
           ll = "ls -l";
 
-          update = "sudo nixos-rebuild switch";
-          full-update = "sudo nix-channel --update && sudo nixos-rebuild switch";
+          update = "nix-prefetch-url --type sha256 file:///etc/nixos/cider-linux-x64.AppImage && sudo nixos-rebuild switch";
+          full-update = "nix-prefetch-url --type sha256 file:///etc/nixos/cider-linux-x64.AppImage && sudo nix-channel --update && sudo nixos-rebuild switch";
           cleanup-configuration = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
           configure = "zeditor /etc/nixos";
+
+          windows = "rdesktop -A \"C:\\\\SeamlessRDP\\\\seamlessrdpshell.exe\" -K -s \"explorer.exe\" -u AD\\\\Administrator 100.74.78.55 -v";
 
           configuration-git = "git -C /etc/nixos/ ";
         };
