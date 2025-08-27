@@ -48,6 +48,9 @@
   environment = {
     shells = [pkgs.zsh];
     systemPackages = [
+      pkgs.google-fonts
+      pkgs.corefonts
+
       pkgs.spacenavd
       pkgs.libspnav
       pkgs.spnavcfg
@@ -110,6 +113,7 @@
         ];
       })
 
+      pkgs.ffmpeg-full
       pkgs.inkscape
       pkgs.gimp
       pkgs.blender
@@ -123,6 +127,24 @@
 
       # pkgs.mongodb-compass
       (pkgs.callPackage ./dbvisualizer/package.nix { })
+
+      pkgs.nil
+      pkgs.nixd
+      pkgs.alejandra
+      pkgs.dotnet-runtime
+      pkgs.cloc
+      pkgs.jdk21
     ];
+  };
+
+  fonts = {
+    enableDefaultPackages = true;
+    enableGhostscriptFonts = true;
+    packages =
+      [
+        pkgs.google-fonts
+        pkgs.corefonts
+      ]
+      ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };
 }
