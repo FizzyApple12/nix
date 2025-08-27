@@ -1,5 +1,6 @@
 {
-  pkgs
+  pkgs,
+  ...
 }:
 let
   publicKeys = let

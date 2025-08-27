@@ -1,5 +1,6 @@
 {
-  config
+  config,
+  ...
 }: {
   age.secrets.cfAPIToken.rekeyFile = ../../secrets/age-files/cfAPIToken.age;
 
