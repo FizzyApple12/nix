@@ -4,7 +4,7 @@
 }: {
   age.secrets.cfAPIToken.rekeyFile = ../../secrets/age-files/cfAPIToken.age;
 
-  services = {
+  security = {
     acme = {
       acceptTerms = true;
       preliminarySelfsigned = true;
@@ -17,7 +17,9 @@
         webroot = null;
       };
     };
+  };
 
+  services = {
     nginx = {
       enable = true;
 
