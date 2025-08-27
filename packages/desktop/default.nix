@@ -95,15 +95,15 @@
 
       pkgs.prismlauncher
 
-      pkgs.spotify
+      # pkgs.spotify
       pkgs.cider-2
 
       pkgs.sonobus
       pkgs.helvum
-      pkgs.ndi-6
+      # pkgs.ndi-6
       (pkgs.wrapOBS {
         plugins = [
-          pkgs.obs-studio-plugins.distroav
+          # pkgs.obs-studio-plugins.distroav
           pkgs.obs-studio-plugins.wlrobs
           pkgs.obs-studio-plugins.obs-pipewire-audio-capture
           pkgs.obs-studio-plugins.obs-shaderfilter
@@ -121,7 +121,7 @@
       pkgs.alcom
       # pkgs.audacity
 
-      pkgs.mongodb-compass
+      # pkgs.mongodb-compass
       (pkgs.callPackage ./dbvisualizer/package.nix { })
     ];
   };

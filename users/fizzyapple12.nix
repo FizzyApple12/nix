@@ -5,6 +5,12 @@
     extraGroups = ["networkmanager" "wheel" "libvirtd" "dialout" "kvm" "video" "plugdev" "input" "wireshark" "docker"];
     packages = [];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = let
+        authorizedKeys = pkgs.fetchurl {
+          url = "https://github.com/fizzyapple12.keys";
+          sha256 = "sha256-O1M67ca/p6kEcs7JJGOnGghHucMOgiSlQ1ALfypfXOk=";
+        };
+      in pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
   };
 
   home-manager.users.fizzyapple12 = {

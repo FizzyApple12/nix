@@ -96,7 +96,7 @@
     # latest doesn't work with nvidia's drivers >:( (will fix this soon :3c)
     kernelPackages = pkgs.linuxPackages;
     extraModulePackages = [
-      config.boot.kernelPackages.v4l2loopback
+      # config.boot.kernelPackages.v4l2loopback
     ];
     extraModprobeConfig = ''
       options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
