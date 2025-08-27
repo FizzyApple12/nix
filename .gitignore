@@ -1,5 +1,3 @@
 hardware-configuration.nix
 
 cider-*.AppImage
-
-secrets/*
