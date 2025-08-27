@@ -23,6 +23,8 @@
   environment = {
     shells = [pkgs.zsh];
     systemPackages = [
+      (pkgs.callPackage <agenix/pkgs/agenix.nix> {})
+
       pkgs.lm_sensors
 
       pkgs.direnv

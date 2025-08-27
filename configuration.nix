@@ -21,6 +21,8 @@
   };
 
   imports = [
+    <agenix/modules/age.nix>
+
     ./hardware-configuration.nix
     ./users
     ./packages/global.nix

@@ -1,22 +1,37 @@
 {
-  # services.nginx = {
-  #     enable = true;
+  config
+}: {
+  age.secrets.cfAPIToken.rekeyFile = ../../secrets/age-files/cfAPIToken.age;
 
-  #     recommendedProxySettings = true;
-  #     recommendedTlsSettings = true;
+  services = {
+    acme = {
+      acceptTerms = true;
+      preliminarySelfsigned = true;
+      defaults = {
+        email = "letsencrypt@fizzyapple12.com";
+        dnsProvider = "cloudflare";
+        credentialFiles = {
+          "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.age.secrets.cfAPIToken.path;
+        };
+        webroot = null;
+      };
+    };
 
-  #     virtualHosts."auth.fizzyapple12.com" =  {
-  #       enableACME = true;
-  #       forceSSL = true;
-  #       locations."/" = {
-  #         proxyPass = "http://127.0.0.1:12345";
-  #         # proxyWebsockets = true;
-  #         extraConfig =
-  #           "proxy_ssl_server_name on;" +
-  #           "proxy_pass_header Authorization;"
-  #           ;
-  #       };
-  #     };
-  # };
+    nginx = {
+      enable = true;
 
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
+
+      virtualHosts."auth.fizzyapple12.com" =  {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "https://100.89.225.120:30141";
+          recommendedProxySettings = true;
+          proxyWebsockets = true;
+        };
+      };
+    };
+  };
 }
