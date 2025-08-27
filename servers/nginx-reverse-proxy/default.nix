@@ -15,12 +15,16 @@
     hostPlatform = lib.mkDefault "aarch64-linux";
   };
 
-  ec2.efi = true;
+  ec2 = {
+    efi = true;
+  };
 
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 4*1024; # 4 GB
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 4*1024; # 4 GB
+    }
+  ];
 
   time = {
     timeZone = "America/Indiana/Indianapolis";
@@ -34,15 +38,15 @@
     tailscale = {
       enable = true;
     };
-  };
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "prohibit-password";
-      AllowUsers = [ "fizzyapple12" ];
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "prohibit-password";
+        AllowUsers = [ "fizzyapple12" ];
+      };
     };
   };
 }
