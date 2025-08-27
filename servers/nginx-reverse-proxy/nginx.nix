@@ -7,7 +7,6 @@
   security = {
     acme = {
       acceptTerms = true;
-      preliminarySelfsigned = true;
       defaults = {
         email = "letsencrypt@fizzyapple12.com";
         dnsProvider = "cloudflare";
