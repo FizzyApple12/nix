@@ -98,7 +98,7 @@
       # pkgs.spotify
       pkgs.cider-2
 
-      pkgs.sonobus
+      # pkgs.sonobus
       pkgs.helvum
       # pkgs.ndi-6
       (pkgs.wrapOBS {
