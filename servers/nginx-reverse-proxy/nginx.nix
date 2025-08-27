@@ -2,7 +2,7 @@
   config,
   ...
 }: {
-  age.secrets.cfAPIToken.rekeyFile = ../../secrets/age-files/cfAPIToken.age;
+  age.secrets.cfAPIToken.file = ../../secrets/age-files/cfAPIToken.age;
 
   security = {
     acme = {
