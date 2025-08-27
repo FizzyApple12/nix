@@ -2,7 +2,7 @@
   config,
   ...
 }: {
-  # age.secrets.cfAPIToken.rekeyFile = ../../secrets/age-files/cfAPIToken.age;
+  age.secrets.cfAPIToken.rekeyFile = ../../secrets/age-files/cfAPIToken.age;
 
   security = {
     acme = {
@@ -11,7 +11,7 @@
         email = "letsencrypt@fizzyapple12.com";
         dnsProvider = "cloudflare";
         credentialFiles = {
-          # "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.age.secrets.cfAPIToken.path;
+          "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.age.secrets.cfAPIToken.path;
         };
         webroot = null;
       };
