@@ -1,12 +1,8 @@
 let
-  publicKeys = let
-      pkgs = import <nixpkgs> {};
-      authorizedKeys = pkgs.fetchurl {
-        url = "https://github.com/fizzyapple12.keys";
-        sha256 = "sha256-n8CVlzwDy+wBA+3fwWQuKBNL69tIcxyaSiNCbgoRnuQ=";
-      };
-    in pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
+  desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm fizzyapple12@FizzyApple12-PC";
+  nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv fizzyapple12@ip-172-31-18-248.ec2.internal";
+  systems = [ desktop nginx-reverse-proxy ];
 in
 {
-  "secrets/age-files/cfAPIToken.age".publicKeys = publicKeys;
+  "secrets/age-files/cfAPIToken.age".publicKeys = systems;
 }
