@@ -14,7 +14,7 @@
 
   swapDevices = [{
     device = "/var/lib/swapfile";
-    size = 12*1024; # 12 GB
+    size = 4*1024; # 4 GB
   }];
 
   services = {
