@@ -32,7 +32,6 @@
       pkgs.unzip
 
       pkgs.btop
-      pkgs.nvtopPackages.full
 
       pkgs.numbat
 

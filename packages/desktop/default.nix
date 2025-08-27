@@ -48,6 +48,8 @@
   environment = {
     shells = [pkgs.zsh];
     systemPackages = [
+      pkgs.nvtopPackages.full
+
       pkgs.google-fonts
       pkgs.corefonts
 
