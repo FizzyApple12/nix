@@ -28,6 +28,11 @@
     ./packages/global.nix
   ];
 
+  # janky hack to fix agenix
+  age = {
+    identityPaths = [ "/root/.ssh/id_ed25519" "/home/fizzyapple12/.ssh/id_ed25519" ];
+  };
+
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   };
