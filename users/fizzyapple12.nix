@@ -39,7 +39,7 @@
           cleanup-configuration = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
           configure = "zeditor /etc/nixos";
 
-          windows = "rdesktop -A \"C:\\\\SeamlessRDP\\\\seamlessrdpshell.exe\" -K -s \"explorer.exe\" -u AD\\\\Administrator 100.74.78.55 -v";
+          windows = "rdesktop -A \"C:\\\\SeamlessRDP\\\\seamlessrdpshell.exe\" -K -s \"explorer.exe\" -u AD\\\\Administrator 100.81.140.43 -v";
 
           configuration-git = "git -C /etc/nixos/ ";
         };
