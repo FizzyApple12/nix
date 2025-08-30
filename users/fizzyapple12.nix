@@ -38,6 +38,7 @@
           full-update = "nix-prefetch-url --type sha256 file:///etc/nixos/cider-linux-x64.AppImage && sudo nix-channel --update && sudo nixos-rebuild switch";
           cleanup-configuration = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
           configure = "zeditor /etc/nixos";
+          doctor-compose = "docker compose"
 
           windows = "rdesktop -A \"C:\\\\SeamlessRDP\\\\seamlessrdpshell.exe\" -K -s \"explorer.exe\" -u AD\\\\Administrator 100.81.140.43 -v";
 
