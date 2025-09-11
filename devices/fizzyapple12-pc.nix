@@ -62,6 +62,7 @@
     graphics = {
       extraPackages = [
         pkgs.rocmPackages.clr.icd
+        pkgs.mesa
       ];
     };
 

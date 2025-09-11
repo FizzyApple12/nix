@@ -34,10 +34,10 @@
     steam = {
       enable = true;
     };
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
+    # alvr = {
+    #   enable = true;
+    #   openFirewall = true;
+    # };
   };
   hardware = {
     steam-hardware = {
@@ -88,6 +88,7 @@
 
       #pkgs.lutris
       # pkgs.alvr
+      (pkgs.callPackage ./alvr/package.nix { })
       pkgs.vrcx
       pkgs.wlx-overlay-s
       pkgs.lighthouse-steamvr

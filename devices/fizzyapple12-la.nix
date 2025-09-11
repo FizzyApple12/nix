@@ -43,6 +43,7 @@
     graphics = {
       extraPackages = [
         pkgs.rocmPackages.clr.icd
+        pkgs.mesa
       ];
     };
     spacenavd = {
@@ -151,14 +152,14 @@
     fprintd = {
       enable = true;
     };
-    logind = {
-      extraConfig = ''
-        HandlePowerKey=suspend-then-hibernate
-        PowerKeyIgnoreInhibited=yes
-        HandleLidSwitch=suspend-then-hibernate
-        HandleLidSwitchExternalPower=suspend-then-hibernate
-      '';
-    };
+    # logind = {
+    #   extraConfig = ''
+    #     HandlePowerKey=suspend-then-hibernate
+    #     PowerKeyIgnoreInhibited=yes
+    #     HandleLidSwitch=suspend-then-hibernate
+    #     HandleLidSwitchExternalPower=suspend-then-hibernate
+    #   '';
+    # };
 
     lact = {
       enable = true;
