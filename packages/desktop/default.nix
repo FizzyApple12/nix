@@ -87,8 +87,8 @@
       pkgs.moonlight-qt
 
       #pkgs.lutris
-      # pkgs.alvr
-      (pkgs.callPackage ./alvr/package.nix { })
+      pkgs.alvr
+      # (pkgs.callPackage ./alvr/package.nix { })
       pkgs.vrcx
       pkgs.wlx-overlay-s
       pkgs.lighthouse-steamvr
@@ -129,7 +129,7 @@
       # pkgs.audacity
 
       # pkgs.mongodb-compass
-      (pkgs.callPackage ./dbvisualizer/package.nix { })
+      # (pkgs.callPackage ./dbvisualizer/package.nix { })
 
       pkgs.nil
       pkgs.nixd
