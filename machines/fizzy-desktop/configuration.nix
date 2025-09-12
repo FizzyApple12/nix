@@ -47,8 +47,6 @@
       ];
     };
 
-    kernelPackages = pkgs.linuxPackages;
-
     extraModulePackages = [
       config.boot.kernelPackages.v4l2loopback
     ];

@@ -1,5 +1,5 @@
-TODO:
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -8,8 +8,7 @@ TODO:
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    # TODO: port these
-    # <nixos-hardware/framework/13-inch/7040-amd>
+    (inputs.nixos-hardware + "/framework/13-inch/7040-amd")
 
     ../../global.nix
 

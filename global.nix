@@ -4,10 +4,10 @@
   lib,
   ...
 }: {
-    imports = [
-      ./users
-      ./packages/global.nix
-    ];
+  imports = [
+    ./users
+    ./packages/global.nix
+  ];
 
   nix = {
     settings = {
@@ -22,7 +22,7 @@
 
   # janky hack to fix agenix
   age = {
-    identityPaths = [ "/root/.ssh/id_ed25519" "/home/fizzyapple12/.ssh/id_ed25519" ];
+    identityPaths = ["/root/.ssh/id_ed25519" "/home/fizzyapple12/.ssh/id_ed25519"];
     rekey = {
       masterIdentities = [
         /home/fizzyapple12/.ssh/id_ed25519.pub
@@ -33,7 +33,7 @@
 
   boot = {
     # kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_6_10;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages;
   };
 
   hardware = {

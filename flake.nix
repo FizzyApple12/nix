@@ -1,11 +1,12 @@
 {
-  # Local Build:
   # sudo nixos-rebuild switch --flake .#
   description = "";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,49 +18,47 @@
     agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      flake-utils,
-      agenix,
-      agenix-rekey,
-      ...
-    }@inputs:
-    let
-      lib = nixpkgs.lib;
-      mkNixosSystem =
-        {
-          hostname,
-          pubkey,
-          configDir,
-          system ? "x86_64-linux",
-          specialArgs ? { },
-          modules ? [ ],
-        }:
-        let
-          mainConfigPath = "${toString configDir}/configuration.nix";
-        in
-        lib.nixosSystem {
-          inherit system;
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    nixos-hardware,
+    home-manager,
+    flake-utils,
+    agenix,
+    agenix-rekey,
+    ...
+  } @ inputs: let
+    lib = nixpkgs.lib;
+    mkNixosSystem = {
+      hostname,
+      pubkey,
+      configDir,
+      system ? "x86_64-linux",
+      specialArgs ? {},
+      modules ? [],
+    }: let
+      mainConfigPath = "${toString configDir}/configuration.nix";
+    in
+      lib.nixosSystem {
+        inherit system;
 
-          specialArgs = {
+        specialArgs =
+          {
             inherit inputs hostname pubkey configDir;
           }
           // specialArgs;
 
-          modules = [
+        modules =
+          [
             mainConfigPath
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
             agenix-rekey.nixosModules.default
           ]
           ++ modules;
-        };
-
-    in
+      };
+  in
     {
       nixosConfigurations = {
         "fizzy-desktop" = mkNixosSystem {
@@ -92,24 +91,23 @@
       hydraJobs = {
         nixosConfigurations.x86_64-linux =
           lib.flip lib.genAttrs
-            (name: { toplevel = self.nixosConfigurations.${name}.config.system.build.toplevel; })
-            [
-              "fizzy-desktop"
-              "fizzy-laptop"
+          (name: {toplevel = self.nixosConfigurations.${name}.config.system.build.toplevel;})
+          [
+            "fizzy-desktop"
+            "fizzy-laptop"
 
-              # TODO: see if the EC2 dependencies break this
-              # "nginx-reverse-proxy"
-            ];
+            # TODO: see if the EC2 dependencies break this
+            # "nginx-reverse-proxy"
+          ];
       };
-
     }
     // flake-utils.lib.eachDefaultSystem (system: rec {
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ agenix-rekey.overlays.default ];
+        overlays = [agenix-rekey.overlays.default];
       };
       devShells.default = pkgs.mkShell {
-        packages = [ pkgs.agenix-rekey ];
+        packages = [pkgs.agenix-rekey];
       };
     });
 }

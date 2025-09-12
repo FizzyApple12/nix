@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   networking = {
     useDHCP = lib.mkDefault true;
     networkmanager = {
