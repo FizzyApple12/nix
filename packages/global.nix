@@ -1,13 +1,21 @@
 {
+  inputs,
   pkgs,
-  lib,
   ...
 }: {
   nixpkgs = {
     config = {
+      allowBroken = true;
       allowUnfree = true;
+
+      permittedInsecurePackages = [
+        "electron-25.9.0"
+        "libsoup-2.74.3"
+        "libxml2-2.13.8"
+      ];
     };
   };
+
   programs = {
     zsh = {
       enable = true;
@@ -23,7 +31,7 @@
   environment = {
     shells = [pkgs.zsh];
     systemPackages = [
-      (pkgs.callPackage <agenix/pkgs/agenix.nix> {})
+      inputs.agenix.packages.x86_64-linux.default
 
       pkgs.lm_sensors
 

@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    <home-manager/nixos>
+    # <home-manager/nixos>
     ./fizzyapple12.nix
   ];
 

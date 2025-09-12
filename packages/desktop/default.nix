@@ -1,52 +1,43 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
 }: {
+  imports = [
+    ./environment
+
+    ./remote-desktop.nix
+    ./wine.nix
+  ];
+
   nixpkgs = {
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [
-        "electron-25.9.0"
-        "libsoup-2.74.3"
-        "libxml2-2.13.8"
-      ];
-    };
     overlays =
-      # let
-      #   moz-url = builtins.fetchTarball {url = "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz";};
-      #   nightlyOverlay = import "${moz-url}/firefox-overlay.nix";
-      # in
       [
-        # nightlyOverlay
-        (import ./firefox-overlay.nix)
+        (
+          self: super:
+          (
+            let
+            nixpkgs-unstable = import inputs.nixpkgs-unstable {
+              inherit (self) system;
+              config.allowUnfree = true;
+            };
+            in
+            {
+              cider-2 = nixpkgs-unstable.cider-2;
+            }
+          )
+        )
       ];
   };
   programs = {
     firefox = {
       enable = true;
-      package = pkgs.latest.firefox-nightly-bin;
-    };
-    wireshark = {
-      enable = true;
-      package = pkgs.wireshark;
-    };
-    steam = {
-      enable = true;
-    };
-    # alvr = {
-    #   enable = true;
-    #   openFirewall = true;
-    # };
-  };
-  hardware = {
-    steam-hardware = {
-      enable = true;
+      # package = pkgs.latest.firefox-nightly-bin;
     };
   };
 
   environment = {
-    shells = [pkgs.zsh];
     systemPackages = [
       pkgs.nvtopPackages.full
 
@@ -59,23 +50,10 @@
 
       pkgs.filezilla
 
-      pkgs.winetricks
-      pkgs.wineasio
-      pkgs.wineWowPackages.waylandFull
-      (pkgs.bottles.override {
-        removeWarningPopup = true;
-      })
-      pkgs.protonplus
-
       pkgs.alacritty
       #pkgs.gnome-terminal
 
-      pkgs.zed-editor
-
-      # pkgs.freecad
-      # (pkgs.callPackage ./freecad/package.nix { })
-
-      (pkgs.discord-canary.override {withVencord = true;})
+      (pkgs.discord-canary.override { withVencord = true; })
       pkgs.element-desktop
       pkgs.thunderbird
       pkgs.teams-for-linux
@@ -83,60 +61,10 @@
 
       pkgs.kdePackages.kclock
 
-      pkgs.parsec-bin
-      pkgs.moonlight-qt
-
-      #pkgs.lutris
-      pkgs.alvr
-      # (pkgs.callPackage ./alvr/package.nix { })
-      pkgs.vrcx
-      pkgs.wlx-overlay-s
-      pkgs.lighthouse-steamvr
-      pkgs.gamemode
-      # (
-      #   pkgs.callPackage ./openvr-spacecalibrator {
-      #     pkgs = pkgs;
-      #   }
-      # )
-
-      pkgs.prismlauncher
+      pkgs.vlc
 
       # pkgs.spotify
       pkgs.cider-2
-
-      # pkgs.sonobus
-      pkgs.helvum
-      # pkgs.ndi-6
-      (pkgs.wrapOBS {
-        plugins = [
-          # pkgs.obs-studio-plugins.distroav
-          pkgs.obs-studio-plugins.wlrobs
-          pkgs.obs-studio-plugins.obs-pipewire-audio-capture
-          pkgs.obs-studio-plugins.obs-shaderfilter
-        ];
-      })
-
-      pkgs.ffmpeg-full
-      pkgs.inkscape
-      pkgs.gimp
-      pkgs.blender
-      pkgs.reaper
-      pkgs.vlc
-      pkgs.prusa-slicer
-      pkgs.fmodex
-      pkgs.unityhub
-      pkgs.alcom
-      # pkgs.audacity
-
-      # pkgs.mongodb-compass
-      # (pkgs.callPackage ./dbvisualizer/package.nix { })
-
-      pkgs.nil
-      pkgs.nixd
-      pkgs.alejandra
-      pkgs.dotnet-runtime
-      pkgs.cloc
-      pkgs.jdk21
     ];
   };
 
