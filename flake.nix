@@ -79,7 +79,7 @@
           hostname = "nginx-reverse-proxy";
           pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv";
           configDir = ./machines/nginx-reverse-proxy;
-          system = "x86_64-linux";
+          system = "aarch64-linux";
         };
 
         "hydra" = mkNixosSystem {
