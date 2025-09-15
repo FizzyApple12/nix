@@ -72,15 +72,15 @@
           };
           locations."/admin".return = 403;
         };
-      };
 
-      "jellyfin.fizzyapple12.com" =  {
-        enableACME = true;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "https://100.123.249.125:8096";
-          recommendedProxySettings = true;
-          proxyWebsockets = true;
+        "jellyfin.fizzyapple12.com" =  {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "https://100.123.249.125:8096";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
         };
       };
     };
