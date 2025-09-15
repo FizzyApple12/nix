@@ -35,12 +35,12 @@
           include ${config.age.secrets.hydraOIDC.path}
 
           <oidc_role_mapping>
-            "Hydra Admins" = admin
-            "Hydra Admins" = bump-to-front
-            "Hydra Users" = cancel-build
-            "Hydra Users" = eval-jobset
-            "Hydra Users" = create-projects
-            "Hydra Users" = restart-jobs
+            HydraAdmins = admin
+            HydraAdmins = bump-to-front
+            HydraUsers = cancel-build
+            HydraUsers = eval-jobset
+            HydraUsers = create-projects
+            HydraUsers = restart-jobs
           </oidc_role_mapping>
         '';
     };
