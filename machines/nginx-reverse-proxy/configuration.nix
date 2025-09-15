@@ -6,6 +6,8 @@
   imports = [
     "${modulesPath}/virtualisation/amazon-image.nix"
 
+    ../../global.nix
+
     ./nginx.nix
   ];
 

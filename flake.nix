@@ -63,22 +63,29 @@
       nixosConfigurations = {
         "fizzy-desktop" = mkNixosSystem {
           hostname = "fizzy-desktop";
-          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm fizzyapple12@FizzyApple12-PC";
+          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm";
           configDir = ./machines/fizzy-desktop;
           system = "x86_64-linux";
         };
 
         "fizzy-laptop" = mkNixosSystem {
           hostname = "fizzy-laptop";
-          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJCSwxmRvJpmHG0JZjWaFJDKxXZTGGvAs/NrVZfUwwM fizzyapple12@FizzyApple12-LA";
+          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJCSwxmRvJpmHG0JZjWaFJDKxXZTGGvAs/NrVZfUwwM";
           configDir = ./machines/fizzy-laptop;
           system = "x86_64-linux";
         };
 
         "nginx-reverse-proxy" = mkNixosSystem {
           hostname = "nginx-reverse-proxy";
-          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv fizzyapple12@ip-172-31-18-248.ec2.internal";
+          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv";
           configDir = ./machines/nginx-reverse-proxy;
+          system = "x86_64-linux";
+        };
+
+        "hydra" = mkNixosSystem {
+          hostname = "hydra";
+          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0T1oIz1NSRFObv1dcLzI2S15ZGcO3uspYn7g8NWbBe";
+          configDir = ./machines/hydra;
           system = "x86_64-linux";
         };
       };
@@ -98,6 +105,8 @@
 
             # TODO: see if the EC2 dependencies break this
             # "nginx-reverse-proxy"
+
+            "hydra"
           ];
       };
     }
