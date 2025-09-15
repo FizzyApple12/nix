@@ -30,13 +30,19 @@
     # };
   };
 
-    services = {
-      tailscale = {
-        enable = true;
-      };
-
-      openssh = {
-        enable = true;
-      };
+  services = {
+    tailscale = {
+      enable = true;
     };
+
+    hydra = {
+      enable = true;
+      port = 3000;
+      hydraURL = "https://hydra.fizzyapple12.com";
+    };
+
+    openssh = {
+      enable = true;
+    };
+  };
 }
