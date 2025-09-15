@@ -47,7 +47,7 @@
           enableACME = true;
           forceSSL = true;
           locations."/" = {
-            proxyPass = "https://100.125.181.109:3000";
+            proxyPass = "http://100.125.181.109:3000";
             recommendedProxySettings = true;
             proxyWebsockets = true;
           };
@@ -57,7 +57,7 @@
           enableACME = true;
           forceSSL = true;
           locations."/" = {
-            proxyPass = "https://100.121.99.3:80";
+            proxyPass = "http://100.121.99.3:80";
             recommendedProxySettings = true;
             proxyWebsockets = true;
           };
@@ -77,7 +77,7 @@
           enableACME = true;
           forceSSL = true;
           locations."/" = {
-            proxyPass = "https://100.123.249.125:8096";
+            proxyPass = "http://100.123.249.125:8096";
             recommendedProxySettings = true;
             proxyWebsockets = true;
           };
@@ -87,7 +87,7 @@
           enableACME = true;
           forceSSL = true;
           locations."/" = {
-            proxyPass = "https://100.106.21.82:3000";
+            proxyPass = "http://100.106.21.82:3000";
             recommendedProxySettings = true;
             proxyWebsockets = true;
           };
