@@ -12,6 +12,11 @@
   nix = {
     settings = {
       experimental-features = ["flakes" "nix-command"];
+      substituters = [
+        "https://hydra.fizzyapple12.com?priority=8"
+        "https://hydra.nixos.org?priority=9"
+        "https://cache.nixos.org?priority=10"
+      ];
     };
     gc = {
       automatic = true;
