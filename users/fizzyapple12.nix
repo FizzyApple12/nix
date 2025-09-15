@@ -34,7 +34,9 @@
         shellAliases = {
           ll = "ls -l";
 
+          # TODO: check for file and do this optionally
           update = "nix-prefetch-url --type sha256 file:///etc/nixos/cider-linux-x64.AppImage && sudo nixos-rebuild switch --flake .#";
+          update-server = "sudo nixos-rebuild switch --flake .#";
           cleanup-configuration = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
           configure = "zeditor /etc/nixos";
 

@@ -32,13 +32,35 @@
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
 
-      virtualHosts."auth.fizzyapple12.com" =  {
-        enableACME = true;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "https://100.89.225.120:30141";
-          recommendedProxySettings = true;
-          proxyWebsockets = true;
+      virtualHosts = {
+        "auth.fizzyapple12.com" =  {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "https://100.89.225.120:30141";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
+        };
+
+        "hydra.fizzyapple12.com" =  {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "https://100.125.181.109:3000";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
+        };
+
+        "inventree.fizzyapple12.com" =  {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "https://100.121.99.3:80";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
         };
       };
     };
