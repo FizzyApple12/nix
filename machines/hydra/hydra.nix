@@ -36,14 +36,10 @@
 
           <oidc_role_mapping>
             <Hydra Admins>
-              role = admin
-              role = bump-to-front
+              role = admin, bump-to-front
             </Hydra Admins>
             <Hydra Users>
-              role = cancel-build
-              role = eval-jobset
-              role = create-projects
-              role = restart-jobs
+              role = cancel-build, eval-jobset, create-projects, restart-jobs
             </Hydra Users>
           </oidc_role_mapping>
 
