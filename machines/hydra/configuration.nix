@@ -23,11 +23,11 @@
   networking = {
     hostName = "hydra";
 
-    # firewall = {
-    #   enable = true;
-    #   allowedTCPPorts = [80 443];
-    #   allowedUDPPorts = [80 443];
-    # };
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [3000];
+      allowedUDPPorts = [3000];
+    };
   };
 
   services = {
