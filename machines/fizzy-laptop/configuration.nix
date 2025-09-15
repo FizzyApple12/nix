@@ -128,6 +128,16 @@
     #     HandleLidSwitchExternalPower=suspend-then-hibernate
     #   '';
     # };
+
+    fwupd = {
+      enable = true;
+      extraRemotes = [
+        "lvfs-testing"
+      ];
+      uefiCapsuleSettings = {
+        DisableCapsuleUpdateOnDisk = "true";
+      };
+    };
   };
 
   environment = {

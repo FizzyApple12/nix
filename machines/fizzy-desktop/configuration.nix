@@ -89,6 +89,18 @@
     hostName = "fizzy-desktop";
   };
 
+  services = {
+    fwupd = {
+      enable = true;
+      extraRemotes = [
+        "lvfs-testing"
+      ];
+      uefiCapsuleSettings = {
+        DisableCapsuleUpdateOnDisk = "true";
+      };
+    };
+  };
+
   environment = {
     systemPackages = [
       pkgs.scarlett2

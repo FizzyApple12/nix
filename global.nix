@@ -91,16 +91,6 @@
         KERNEL=="uinput", MODE="0666"
       '';
     };
-
-    fwupd = {
-      enable = true;
-      extraRemotes = [
-        "lvfs-testing"
-      ];
-      uefiCapsuleSettings = {
-        DisableCapsuleUpdateOnDisk = "true";
-      };
-    };
   };
 
   programs = {
