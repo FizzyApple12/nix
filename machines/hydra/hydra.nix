@@ -42,6 +42,8 @@
             HydraUsers = create-projects
             HydraUsers = restart-jobs
           </oidc_role_mapping>
+
+          allow_import_from_derivation = true
         '';
     };
   };
