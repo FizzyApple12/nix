@@ -82,6 +82,16 @@
             proxyWebsockets = true;
           };
         };
+
+        "grafana.fizzyapple12.com" =  {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "https://100.106.21.82:3000";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
+        };
       };
     };
   };
