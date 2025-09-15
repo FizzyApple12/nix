@@ -34,14 +34,14 @@
           oidc_userinfo_uri = "https://auth.fizzyapple12.com/application/o/userinfo/"
           include ${config.age.secrets.hydraOIDC.path}
 
-          #<oidc_role_mapping>
-          #  hydra.admins@auth.fizzyapple12.com = admin
-          #  hydra.admins@auth.fizzyapple12.com = bump-to-front
-          #  hydra.users@auth.fizzyapple12.com = cancel-build
-          #  hydra.users@auth.fizzyapple12.com = eval-jobset
-          #  hydra.users@auth.fizzyapple12.com = create-projects
-          #  hydra.users@auth.fizzyapple12.com = restart-jobs
-          #</oidc_role_mapping>
+          <oidc_role_mapping>
+            Hydra Admins = admin
+            Hydra Admins = bump-to-front
+            Hydra Users = cancel-build
+            Hydra Users = eval-jobset
+            Hydra Users = create-projects
+            Hydra Users = restart-jobs
+          </oidc_role_mapping>
         '';
     };
   };
