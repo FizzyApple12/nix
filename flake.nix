@@ -16,6 +16,9 @@
     agenix.url = "github:ryantm/agenix";
     agenix-rekey.url = "github:oddlama/agenix-rekey";
     agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
+
+    hydra.url = "github:ners/hydra/oidc";
+    hydra.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -27,6 +30,7 @@
     flake-utils,
     agenix,
     agenix-rekey,
+    hydra,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
