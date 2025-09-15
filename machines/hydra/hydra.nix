@@ -13,7 +13,7 @@
   age.secrets.hydraOIDC = {
     file = ../../secrets/age-files/hydraOIDC.age;
     mode = "770";
-    user = "hydra";
+    owner = "hydra";
     group = "hydra";
   };
 
