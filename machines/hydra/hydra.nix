@@ -10,7 +10,10 @@
     ];
   };
 
-  age.secrets.hydraOIDC.file = ../../secrets/age-files/hydraOIDC.age;
+  age.secrets.hydraOIDC = {
+    file = ../../secrets/age-files/hydraOIDC.age;
+    group = "hydra";
+  };
 
   services = {
     hydra = {
