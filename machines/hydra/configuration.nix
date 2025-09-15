@@ -10,6 +10,8 @@
     ../../global.nix
 
     ../../hardware/networking.nix
+
+    ./hydra.nix
   ];
 
   nixpkgs = {
@@ -34,14 +36,6 @@
     tailscale = {
       enable = true;
     };
-
-    hydra = {
-      enable = true;
-      port = 3000;
-      hydraURL = "https://hydra.fizzyapple12.com";
-      notificationSender = "hydra@fizzyapple12.com";
-    };
-
     openssh = {
       enable = true;
     };
