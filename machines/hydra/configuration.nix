@@ -39,6 +39,7 @@
       enable = true;
       port = 3000;
       hydraURL = "https://hydra.fizzyapple12.com";
+      notificationSender = "hydra@fizzyapple12.com";
     };
 
     openssh = {
