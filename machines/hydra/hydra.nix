@@ -29,9 +29,9 @@
           enable_oidc_login = 1
           oidc_client_id = "zmeo51vVMdMbyMaHOOCP1jIFpyGLLB2YMHlhcBRP"
           oidc_scope = "openid email profile groups"
-          oidc_auth_uri = "https://auth.fizzyapple12.com/application/o/authorize"
-          oidc_token_uri = "https://auth.fizzyapple12.com/application/o/token"
-          oidc_userinfo_uri = "https://auth.fizzyapple12.com/application/o/userinfo"
+          oidc_auth_uri = "https://auth.fizzyapple12.com/application/o/authorize/"
+          oidc_token_uri = "https://auth.fizzyapple12.com/application/o/token/"
+          oidc_userinfo_uri = "https://auth.fizzyapple12.com/application/o/userinfo/"
           include ${config.age.secrets.hydraOIDC.path}
 
           #<oidc_role_mapping>
