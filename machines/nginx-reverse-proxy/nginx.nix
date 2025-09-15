@@ -62,6 +62,26 @@
             proxyWebsockets = true;
           };
         };
+
+        "vaultwarden.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "http://100.109.77.65:8000";
+            proxyWebsockets = true;
+          };
+          locations."/admin".return = 403;
+        };
+      };
+
+      "jellyfin.fizzyapple12.com" =  {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = {
+          proxyPass = "https://100.123.249.125:8096";
+          recommendedProxySettings = true;
+          proxyWebsockets = true;
+        };
       };
     };
   };
