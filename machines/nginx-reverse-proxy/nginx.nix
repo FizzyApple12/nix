@@ -92,6 +92,16 @@
             proxyWebsockets = true;
           };
         };
+
+        "forgejo.fizzyapple12.com" =  {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "http://100.103.195.8:3000";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
+        };
       };
     };
   };
