@@ -13,10 +13,13 @@
     settings = {
       experimental-features = ["flakes" "nix-command"];
       substituters = [
-        "https://hydra.fizzyapple12.com?priority=8"
-        "https://hydra.nixos.org?priority=9"
+        "https://hydra.fizzyapple12.com?priority=9"
         "https://cache.nixos.org?priority=10"
       ];
+      # trusted-public-keys = [
+      #   "hydra.fizzyapple12.com-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      #   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      # ];
     };
     gc = {
       automatic = true;
