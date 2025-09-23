@@ -23,6 +23,8 @@
     systemPackages = [
       #pkgs.lutris
       pkgs.gamemode
+
+      pkgs.xivlauncher
     ];
   };
 }
