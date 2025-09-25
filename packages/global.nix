@@ -53,6 +53,7 @@
       pkgs.samba
       pkgs.jmtpfs
       pkgs.cifs-utils
+      pkgs.nfs-utils
 
       pkgs.gitFull
       pkgs.git-lfs
