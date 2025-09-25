@@ -102,6 +102,16 @@
             proxyWebsockets = true;
           };
         };
+
+        "nextcloud.fizzyapple12.com" =  {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "http://100.74.252.69:80";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
+        };
       };
     };
   };
