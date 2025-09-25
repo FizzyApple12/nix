@@ -8,7 +8,7 @@
     openssh.authorizedKeys.keys = let
         authorizedKeys = pkgs.fetchurl {
           url = "https://github.com/fizzyapple12.keys";
-          sha256 = "sha256-EyCjCv9voKPJLsXoRlaxPzEHp9TtaOdB8a7LSZvlclA==";
+          sha256 = "sha256-i3/54Ytj7QEaRjDoeIr6fub3kE5v143Cw0hSuJnkvAU=";
         };
       in pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
   };
