@@ -107,7 +107,7 @@
           enableACME = true;
           forceSSL = true;
           locations."/" = {
-            proxyPass = "http://100.74.252.69:80";
+            proxyPass = "https://100.74.252.69";
             recommendedProxySettings = true;
             proxyWebsockets = true;
           };
