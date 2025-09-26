@@ -21,7 +21,6 @@
         "root"
       ];
       extra-trusted-public-keys = [
-        # "hydra.fizzyapple12.com:L8cbX4AGgPJdO07bRVeq2NoLMsLvKfdU+r329Hh76JQ="
         "hydra.fizzyapple12.com:rqpV2RMBKGGE2a++9ZJkCtQyO83j0m+2NfGlJPsh494="
       ];
     };
@@ -31,7 +30,7 @@
         hostName = "hydra";
         sshUser = "fizzyapple12";
         protocol = "ssh";
-        maxJobs = 12;
+        maxJobs = 48;
         system = pkgs.stdenv.hostPlatform.system;
         supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
         mandatoryFeatures = [];
