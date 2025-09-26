@@ -107,8 +107,8 @@
             "fizzy-desktop"
             "fizzy-laptop"
 
-            # TODO: see if the EC2 dependencies break this
-            "nginx-reverse-proxy"
+            # TODO: get an aarch64 machine to build on
+            # "nginx-reverse-proxy"
 
             "hydra"
           ];
