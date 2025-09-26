@@ -108,7 +108,7 @@
             "fizzy-laptop"
 
             # TODO: see if the EC2 dependencies break this
-            # "nginx-reverse-proxy"
+            "nginx-reverse-proxy"
 
             "hydra"
           ];
