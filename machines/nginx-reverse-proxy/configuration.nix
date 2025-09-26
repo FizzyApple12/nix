@@ -31,8 +31,6 @@
   };
 
   networking = {
-    hostName = "NGINX-Reverse-Proxy";
-
     firewall = {
       enable = true;
       allowedTCPPorts = [80 443];

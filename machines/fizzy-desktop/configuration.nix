@@ -85,9 +85,6 @@
     timeZone = "America/Indiana/Indianapolis";
   };
 
-  networking = {
-    hostName = "fizzy-desktop";
-  };
 
   services = {
     fwupd = {

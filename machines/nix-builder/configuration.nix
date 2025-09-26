@@ -10,8 +10,6 @@
     ../../global.nix
 
     ../../hardware/networking.nix
-
-    ./hydra.nix
   ];
 
   nixpkgs = {

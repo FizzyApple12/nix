@@ -103,9 +103,6 @@
     timeZone = "America/Indiana/Indianapolis";
   };
 
-  networking = {
-    hostName = "fizzy-laptop";
-  };
 
   services = {
     xserver = {

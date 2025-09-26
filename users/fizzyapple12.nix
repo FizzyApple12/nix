@@ -1,8 +1,24 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}: {
   users.users.fizzyapple12 = {
     isNormalUser = true;
     description = "FizzyApple12";
-    extraGroups = ["networkmanager" "wheel" "libvirtd" "dialout" "kvm" "video" "plugdev" "input" "wireshark" "docker" "render"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "dialout"
+      "kvm"
+      "video"
+      "plugdev"
+      "input"
+      "wireshark"
+      "docker"
+      "render"
+      "remotebuild"
+    ];
     packages = [];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = let

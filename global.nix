@@ -2,6 +2,7 @@
   pubkey,
   pkgs,
   lib,
+  hostname,
   ...
 }: {
   imports = [
@@ -16,11 +17,27 @@
         "https://hydra.fizzyapple12.com?priority=9"
         "https://cache.nixos.org?priority=10"
       ];
+      trusted-users = [
+        "@remotebuild"
+        "root"
+      ];
       # trusted-public-keys = [
       #   "hydra.fizzyapple12.com-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       #   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       # ];
     };
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "hydra";
+        sshUser = "fizzyapple12";
+        sshKey = "/home/fizzyapple12/.ssh/id_ed25519";
+        system = pkgs.stdenv.hostPlatform.system;
+      }
+      # {
+      #   hostName = "nix-builder-1";
+      # }
+    ];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -56,6 +73,10 @@
       enable = true;
       allowReboot = false;
     };
+  };
+
+  networking = {
+    hostName = hostname;
   };
 
   i18n = {

@@ -8,6 +8,12 @@
     ./fizzyapple12.nix
   ];
 
+  users = {
+    groups = {
+      remotebuild = {};
+    };
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     sharedModules = [
