@@ -31,6 +31,7 @@
         hostName = "hydra";
         sshUser = "fizzyapple12";
         protocol = "ssh";
+        maxJobs = 12;
         system = pkgs.stdenv.hostPlatform.system;
         supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
         mandatoryFeatures = [];
