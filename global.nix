@@ -29,7 +29,7 @@
     buildMachines = [
       {
         hostName = "hydra";
-        # sshUser = "fizzyapple12";
+        sshUser = "fizzyapple12";
         protocol = "ssh";
         system = pkgs.stdenv.hostPlatform.system;
         supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
