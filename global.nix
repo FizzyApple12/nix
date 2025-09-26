@@ -21,18 +21,20 @@
         "@remotebuild"
         "root"
       ];
-      # trusted-public-keys = [
-      #   "hydra.fizzyapple12.com-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      #   "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      # ];
+      trusted-public-keys = [
+        "hydra.fizzyapple12.com:L8cbX4AGgPJdO07bRVeq2NoLMsLvKfdU+r329Hh76JQ="
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
     };
     distributedBuilds = true;
     buildMachines = [
       {
         hostName = "hydra";
-        sshUser = "fizzyapple12";
-        sshKey = "/home/fizzyapple12/.ssh/id_ed25519";
-        system = pkgs.stdenv.hostPlatform.system;
+        # sshUser = "fizzyapple12";
+        protocol = "ssh";
+        system = "pkgs.stdenv.hostPlatform.system";
+        supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+        mandatoryFeatures = [];
       }
       # {
       #   hostName = "nix-builder-1";
@@ -43,6 +45,9 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+    extraOptions = ''
+      builders-use-substitutes = true
+    '';
   };
 
   # janky hack to fix agenix

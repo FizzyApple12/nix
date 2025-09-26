@@ -22,6 +22,12 @@
     timeZone = "America/Indiana/Indianapolis";
   };
 
+  nix = {
+    extraOptions = ''
+      secret-key-files = /home/fizzyapple12/cache-priv-key.pem
+    '';
+  };
+
   networking = {
     firewall = {
       enable = true;
