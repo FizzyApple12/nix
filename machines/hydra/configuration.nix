@@ -23,8 +23,9 @@
   };
 
   nix = {
+    # secret-key-files = /home/fizzyapple12/cache-priv-key.pem
     extraOptions = ''
-      secret-key-files = /home/fizzyapple12/cache-priv-key.pem
+      secret-key-files = /cache-priv-key.pem
     '';
   };
 

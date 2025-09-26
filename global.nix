@@ -13,17 +13,16 @@
   nix = {
     settings = {
       experimental-features = ["flakes" "nix-command"];
-      substituters = [
-        "https://hydra.fizzyapple12.com?priority=9"
-        "https://cache.nixos.org?priority=10"
+      extra-substituters = [
+        "https://hydra.fizzyapple12.com"
       ];
       trusted-users = [
         "@remotebuild"
         "root"
       ];
-      trusted-public-keys = [
-        "hydra.fizzyapple12.com:L8cbX4AGgPJdO07bRVeq2NoLMsLvKfdU+r329Hh76JQ="
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      extra-trusted-public-keys = [
+        # "hydra.fizzyapple12.com:L8cbX4AGgPJdO07bRVeq2NoLMsLvKfdU+r329Hh76JQ="
+        "hydra.fizzyapple12.com:rqpV2RMBKGGE2a++9ZJkCtQyO83j0m+2NfGlJPsh494="
       ];
     };
     distributedBuilds = true;
