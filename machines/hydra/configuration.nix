@@ -26,21 +26,19 @@
     extraOptions = ''
       secret-key-files = /cache-priv-key.pem
     '';
-    nix = {
-      buildMachines = [
-        {
-          hostName = "localhost";
-          protocol = null;
-          maxJobs = 48;
-          systems = [
-            "x86_64-linux"
-            "aarch64-linux"
-          ];
-          supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-          mandatoryFeatures = [];
-        }
-      ];
-    };
+    buildMachines = [
+      {
+        hostName = "localhost";
+        protocol = null;
+        maxJobs = 48;
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+        supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+        mandatoryFeatures = [];
+      }
+    ];
   };
 
   networking = {
