@@ -3,12 +3,15 @@
   pkgs,
   lib,
   hostname,
+  config,
   ...
 }: {
   imports = [
     ./users
     ./packages/global.nix
   ];
+
+  age.secrets.packageSigningKey.file = secrets/age-files/packageSigningKey.age;
 
   nix = {
     settings = {
@@ -23,6 +26,7 @@
       extra-trusted-public-keys = [
         "hydra.fizzyapple12.com:rqpV2RMBKGGE2a++9ZJkCtQyO83j0m+2NfGlJPsh494="
       ];
+      secret-key-files = config.age.secrets.packageSigningKey.path;
     };
     distributedBuilds = true;
     buildMachines = [
@@ -36,7 +40,7 @@
           # TODO: this causes package build problems, need to find a solution (maybe acquire an arm mac?)
           # "aarch64-linux"
         ];
-        supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
         mandatoryFeatures = [];
       }
       # {

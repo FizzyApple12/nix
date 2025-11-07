@@ -45,6 +45,8 @@
         </oidc_role_mapping>
 
         allow_import_from_derivation = true
+
+        binary_cache_secret_key_file = ${config.age.secrets.packageSigningKey.path}
       '';
     };
   };
