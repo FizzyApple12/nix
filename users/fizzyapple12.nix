@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   users.users.fizzyapple12 = {
     isNormalUser = true;
     description = "FizzyApple12";
@@ -22,11 +19,12 @@
     packages = [];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = let
-        authorizedKeys = pkgs.fetchurl {
-          url = "https://github.com/fizzyapple12.keys";
-          sha256 = "sha256-Z9B8nUDcYT/S3I/Eg3F1wl5goHWtTICqelgHGSBIOnU=";
-        };
-      in pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
+      authorizedKeys = pkgs.fetchurl {
+        url = "https://github.com/fizzyapple12.keys";
+        sha256 = "sha256-LzASc9B0ebv4bZRkEMa6n4Lgi4CEMjwQyTOQCpa4n4Y=";
+      };
+    in
+      pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
   };
 
   home-manager.users.fizzyapple12 = {
