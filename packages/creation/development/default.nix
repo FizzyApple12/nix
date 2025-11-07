@@ -11,22 +11,19 @@
   ];
 
   nixpkgs = {
-    overlays =
-      [
-        (
-          self: super:
-          (
-            let
+    overlays = [
+      (
+        self: super: (
+          let
             nixpkgs-unstable = import inputs.nixpkgs-unstable {
               inherit (self) system;
             };
-            in
-            {
-              zed-editor = nixpkgs-unstable.zed-editor;
-            }
-          )
+          in {
+            zed-editor = nixpkgs-unstable.zed-editor;
+          }
         )
-      ];
+      )
+    ];
   };
 
   programs = {
@@ -43,6 +40,7 @@
 
       # pkgs.mongodb-compass
       # (pkgs.callPackage ./dbvisualizer/package.nix { })
+      (pkgs.callPackage ./darling/package.nix {})
     ];
   };
 }
