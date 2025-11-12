@@ -6,7 +6,7 @@
     systemPackages = [
       pkgs.inkscape
       pkgs.gimp
-      pkgs.blender
+      pkgs.blender-hip
     ];
   };
 }

@@ -22,6 +22,7 @@
     systemPackages = [
       pkgs.glib
       pkgs.xwayland
+      pkgs.kdePackages.powerdevil
     ];
   };
   #qt = {

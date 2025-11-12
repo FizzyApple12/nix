@@ -41,6 +41,7 @@
     graphics = {
       extraPackages = [
         pkgs.mesa
+        pkgs.rocmPackages.clr.icd
       ];
     };
   };
@@ -72,5 +73,13 @@
       pkgs.lact
       pkgs.btop-rocm
     ];
+  };
+
+  systemd = {
+    tmpfiles = {
+      rules = [
+        "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+      ];
+    };
   };
 }
