@@ -40,7 +40,7 @@
 
       # pkgs.mongodb-compass
       # (pkgs.callPackage ./dbvisualizer/package.nix { })
-      (pkgs.callPackage ./darling/package.nix {})
+      # (pkgs.callPackage ./darling/package.nix {})
     ];
   };
 }
