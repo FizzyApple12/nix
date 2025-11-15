@@ -6,9 +6,10 @@ let
   users = [fizzyapple12-desktop fizzyapple12-laptop fizzyapple12-nginx-reverse-proxy fizzyapple12-hydra];
 
   desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmvWcVtdJ73qfmxAbvQi2DS7K/XRISSrIqs3IKuHEQU root@FizzyApple12-PC";
+  laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA39CCD3lIYAeXcToQ25/nBhO3RXmU8738QVfKU92tIg root@fizzy-laptop"; # host key
   nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWbnWJlW5chwVtcVcrpg5Do2P7ArvoxmMS4dETUzMsq root@ip-172-31-18-248.ec2.internal";
   hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0UW6UueGaqZPfyUyVwFJBoGC21mJyyBsH3+fUkZGIn root@hydra";
-  systems = [desktop nginx-reverse-proxy hydra];
+  systems = [desktop laptop nginx-reverse-proxy hydra];
 in {
   "secrets/age-files/cfAPIToken.age".publicKeys = users ++ systems;
   "secrets/age-files/hydraOIDC.age".publicKeys = users ++ systems;
