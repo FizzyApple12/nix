@@ -119,6 +119,8 @@
       };
     };
 
+    openssh.enable = true;
+
     udev = {
       extraRules = ''
         SUBSYSTEM=="usb", ATTRS{idVendor}=="2e3c", ATTRS{idProduct}=="df11", MODE="0666"
