@@ -40,6 +40,7 @@
       pkgs.vim
       pkgs.wget
       pkgs.unzip
+      pkgs.ripgrep
 
       pkgs.btop
 
