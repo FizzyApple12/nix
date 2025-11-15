@@ -5,10 +5,10 @@ let
   fizzyapple12-hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEPLS5l1cKACH+DNwzRJUaABNpU1ALoUh0KHaJwLNY76 fizzyapple12@hydra";
   users = [fizzyapple12-desktop fizzyapple12-laptop fizzyapple12-nginx-reverse-proxy fizzyapple12-hydra];
 
-  desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmvWcVtdJ73qfmxAbvQi2DS7K/XRISSrIqs3IKuHEQU root@FizzyApple12-PC";
+  desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmvWcVtdJ73qfmxAbvQi2DS7K/XRISSrIqs3IKuHEQU root@FizzyApple12-PC"; # not host key
   laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA39CCD3lIYAeXcToQ25/nBhO3RXmU8738QVfKU92tIg root@fizzy-laptop"; # host key
-  nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWbnWJlW5chwVtcVcrpg5Do2P7ArvoxmMS4dETUzMsq root@ip-172-31-18-248.ec2.internal";
-  hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0UW6UueGaqZPfyUyVwFJBoGC21mJyyBsH3+fUkZGIn root@hydra";
+  nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWbnWJlW5chwVtcVcrpg5Do2P7ArvoxmMS4dETUzMsq root@ip-172-31-18-248.ec2.internal"; # not host key
+  hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0UW6UueGaqZPfyUyVwFJBoGC21mJyyBsH3+fUkZGIn root@hydra"; # not host key
   systems = [desktop laptop nginx-reverse-proxy hydra];
 in {
   "secrets/age-files/cfAPIToken.age".publicKeys = users ++ systems;
