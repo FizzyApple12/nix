@@ -3,7 +3,7 @@ let
   fizzyapple12-laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJCSwxmRvJpmHG0JZjWaFJDKxXZTGGvAs/NrVZfUwwM fizzyapple12@fizzy-laptop";
   fizzyapple12-nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv fizzyapple12@ip-172-31-18-248.ec2.internal";
   fizzyapple12-hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEPLS5l1cKACH+DNwzRJUaABNpU1ALoUh0KHaJwLNY76 fizzyapple12@hydra";
-  users = [fizzyapple12-desktop fizzyapple12-nginx-reverse-proxy fizzyapple12-hydra];
+  users = [fizzyapple12-desktop fizzyapple12-laptop fizzyapple12-nginx-reverse-proxy fizzyapple12-hydra];
 
   desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAmvWcVtdJ73qfmxAbvQi2DS7K/XRISSrIqs3IKuHEQU root@FizzyApple12-PC";
   nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWbnWJlW5chwVtcVcrpg5Do2P7ArvoxmMS4dETUzMsq root@ip-172-31-18-248.ec2.internal";
