@@ -31,6 +31,12 @@
       enable = true;
       package = pkgs.wireshark;
     };
+    git = {
+      enable = true;
+      lfs = {
+        enable = true;
+      };
+    };
   };
 
   environment = {
