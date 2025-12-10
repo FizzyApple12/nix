@@ -23,6 +23,7 @@
       pkgs.glib
       pkgs.xwayland
       pkgs.kdePackages.powerdevil
+      # pkgs.quickshell
     ];
   };
   #qt = {

@@ -19,6 +19,9 @@
 
     hydra.url = "github:ners/hydra/oidc";
     hydra.inputs.nixpkgs.follows = "nixpkgs";
+
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -31,6 +34,7 @@
     agenix,
     agenix-rekey,
     hydra,
+    quickshell,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -117,10 +121,15 @@
     // flake-utils.lib.eachDefaultSystem (system: rec {
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [agenix-rekey.overlays.default];
+        overlays = [
+          agenix-rekey.overlays.default
+          quickshell.overlays.default
+        ];
       };
       devShells.default = pkgs.mkShell {
-        packages = [pkgs.agenix-rekey];
+        packages = [
+          pkgs.agenix-rekey
+        ];
       };
     });
 }
