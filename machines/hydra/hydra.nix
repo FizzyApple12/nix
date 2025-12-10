@@ -18,7 +18,7 @@
       group = "hydra";
     };
     packageSigningKey = {
-      file = secrets/age-files/packageSigningKey.age;
+      # file = secrets/age-files/packageSigningKey.age;
       mode = "770";
       owner = "hydra";
       group = "hydra";
