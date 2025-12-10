@@ -10,11 +10,19 @@
     ];
   };
 
-  age.secrets.hydraOIDC = {
-    file = ../../secrets/age-files/hydraOIDC.age;
-    mode = "770";
-    owner = "hydra";
-    group = "hydra";
+  age.secrets = {
+    hydraOIDC = {
+      file = ../../secrets/age-files/hydraOIDC.age;
+      mode = "770";
+      owner = "hydra";
+      group = "hydra";
+    };
+    packageSigningKey = {
+      file = secrets/age-files/packageSigningKey.age;
+      mode = "770";
+      owner = "hydra";
+      group = "hydra";
+    };
   };
 
   services = {

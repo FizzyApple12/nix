@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   services = {
     xserver = {
       enable = true;
@@ -23,6 +27,8 @@
       pkgs.glib
       pkgs.xwayland
       pkgs.kdePackages.powerdevil
+
+      inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
       # pkgs.quickshell
     ];
   };
