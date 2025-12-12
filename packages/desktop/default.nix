@@ -12,23 +12,20 @@
   ];
 
   nixpkgs = {
-    overlays =
-      [
-        (
-          self: super:
-          (
-            let
+    overlays = [
+      (
+        self: super: (
+          let
             nixpkgs-unstable = import inputs.nixpkgs-unstable {
               inherit (self) system;
               config.allowUnfree = true;
             };
-            in
-            {
-              cider-2 = nixpkgs-unstable.cider-2;
-            }
-          )
+          in {
+            cider-2 = nixpkgs-unstable.cider-2;
+          }
         )
-      ];
+      )
+    ];
   };
   programs = {
     firefox = {
@@ -53,7 +50,7 @@
       pkgs.alacritty
       #pkgs.gnome-terminal
 
-      (pkgs.discord-canary.override { withVencord = true; })
+      (pkgs.discord-canary.override {withVencord = true;})
       pkgs.element-desktop
       pkgs.thunderbird
       pkgs.teams-for-linux
@@ -65,6 +62,8 @@
 
       # pkgs.spotify
       pkgs.cider-2
+
+      pkgs.waypipe
     ];
   };
 
