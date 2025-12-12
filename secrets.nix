@@ -10,7 +10,7 @@ let
   desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm";
   laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJCSwxmRvJpmHG0JZjWaFJDKxXZTGGvAs/NrVZfUwwM";
   nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWbnWJlW5chwVtcVcrpg5Do2P7ArvoxmMS4dETUzMsq root@ip-172-31-18-248.ec2.internal"; # not host key
-  hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0UW6UueGaqZPfyUyVwFJBoGC21mJyyBsH3+fUkZGIn root@hydra"; # not host key
+  hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0T1oIz1NSRFObv1dcLzI2S15ZGcO3uspYn7g8NWbBe";
   nix-builder-1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtAN6YOHIK2ODfBLN8NVUKV8Boq2aw4xi0jt35EVvqs";
   nix-builder-2 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI4FnwXCGejKjX8hMRDHTPgQFKkzm2UlkMy50gGBnf0";
   systems = [desktop laptop nginx-reverse-proxy hydra nix-builder-1 nix-builder-2];
