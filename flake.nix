@@ -88,7 +88,7 @@
 
         # nginx-reverse-proxy
         "ip-172-31-18-248.ec2.internal" = mkNixosSystem {
-          hostname = "ip-172-31-18-248.ec2.internal";
+          hostname = "nginx-reverse-proxy";
           pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv";
           configDir = ./machines/nginx-reverse-proxy;
           system = "aarch64-linux";
