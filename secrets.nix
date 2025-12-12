@@ -7,8 +7,8 @@ let
   fizzyapple12-nix-builder-2 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJfR3YdJK0AQak330jFU5roeNsBn6+nISGzgYUi4xI4U fizzyapple12@nix-builder-2";
   users = [fizzyapple12-desktop fizzyapple12-laptop fizzyapple12-nginx-reverse-proxy fizzyapple12-hydra fizzyapple12-nix-builder-1 fizzyapple12-nix-builder-2];
 
-  desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm"; # not host key
-  laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA39CCD3lIYAeXcToQ25/nBhO3RXmU8738QVfKU92tIg root@fizzy-laptop"; # host key
+  desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm";
+  laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJCSwxmRvJpmHG0JZjWaFJDKxXZTGGvAs/NrVZfUwwM";
   nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWbnWJlW5chwVtcVcrpg5Do2P7ArvoxmMS4dETUzMsq root@ip-172-31-18-248.ec2.internal"; # not host key
   hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0UW6UueGaqZPfyUyVwFJBoGC21mJyyBsH3+fUkZGIn root@hydra"; # not host key
   nix-builder-1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtAN6YOHIK2ODfBLN8NVUKV8Boq2aw4xi0jt35EVvqs";
