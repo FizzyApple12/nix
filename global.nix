@@ -1,5 +1,5 @@
 {
-  pubkey,
+  hostPubkey,
   pkgs,
   lib,
   hostname,
@@ -65,7 +65,7 @@
       masterIdentities = [
         /home/fizzyapple12/.ssh/id_ed25519.pub
       ];
-      hostPubkey = pubkey;
+      hostPubkey = hostPubkey;
     };
   };
 
