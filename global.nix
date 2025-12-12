@@ -4,6 +4,7 @@
   lib,
   hostname,
   config,
+  useRemoteBuilders,
   ...
 }: {
   imports = [
@@ -29,7 +30,7 @@
       secret-key-files = config.age.secrets.packageSigningKey.path;
     };
     distributedBuilds = true;
-    buildMachines = [
+    buildMachines = lib.mkIf (useRemoteBuilders == true) [
       {
         hostName = "hydra";
         sshUser = "fizzyapple12";

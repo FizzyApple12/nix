@@ -45,6 +45,7 @@
       system ? "x86_64-linux",
       specialArgs ? {},
       modules ? [],
+      useRemoteBuilders ? true,
     }: let
       mainConfigPath = "${toString configDir}/configuration.nix";
     in
@@ -53,7 +54,7 @@
 
         specialArgs =
           {
-            inherit inputs hostname pubkey configDir;
+            inherit inputs hostname pubkey configDir useRemoteBuilders;
           }
           // specialArgs;
 
@@ -74,6 +75,7 @@
           pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm";
           configDir = ./machines/fizzy-desktop;
           system = "x86_64-linux";
+          useRemoteBuilders = true;
         };
 
         "fizzy-laptop" = mkNixosSystem {
@@ -81,6 +83,7 @@
           pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJCSwxmRvJpmHG0JZjWaFJDKxXZTGGvAs/NrVZfUwwM";
           configDir = ./machines/fizzy-laptop;
           system = "x86_64-linux";
+          useRemoteBuilders = true;
         };
 
         "nginx-reverse-proxy" = mkNixosSystem {
@@ -88,6 +91,7 @@
           pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv";
           configDir = ./machines/nginx-reverse-proxy;
           system = "aarch64-linux";
+          useRemoteBuilders = true;
         };
 
         "hydra" = mkNixosSystem {
@@ -95,6 +99,23 @@
           pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0T1oIz1NSRFObv1dcLzI2S15ZGcO3uspYn7g8NWbBe";
           configDir = ./machines/hydra;
           system = "x86_64-linux";
+          useRemoteBuilders = false;
+        };
+
+        "nix-builder-1" = mkNixosSystem {
+          hostname = "nix-builder-1";
+          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtAN6YOHIK2ODfBLN8NVUKV8Boq2aw4xi0jt35EVvqs";
+          configDir = ./machines/nix-builder;
+          system = "x86_64-linux";
+          useRemoteBuilders = false;
+        };
+
+        "nix-builder-2" = mkNixosSystem {
+          hostname = "nix-builder-2";
+          pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI4FnwXCGejKjX8hMRDHTPgQFKkzm2UlkMy50gGBnf0";
+          configDir = ./machines/nix-builder;
+          system = "x86_64-linux";
+          useRemoteBuilders = false;
         };
       };
 

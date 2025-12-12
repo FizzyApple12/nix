@@ -9,7 +9,9 @@ let
   laptop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA39CCD3lIYAeXcToQ25/nBhO3RXmU8738QVfKU92tIg root@fizzy-laptop"; # host key
   nginx-reverse-proxy = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWbnWJlW5chwVtcVcrpg5Do2P7ArvoxmMS4dETUzMsq root@ip-172-31-18-248.ec2.internal"; # not host key
   hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0UW6UueGaqZPfyUyVwFJBoGC21mJyyBsH3+fUkZGIn root@hydra"; # not host key
-  systems = [desktop laptop nginx-reverse-proxy hydra];
+  nix-builder-1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtAN6YOHIK2ODfBLN8NVUKV8Boq2aw4xi0jt35EVvqs";
+  nix-builder-2 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI4FnwXCGejKjX8hMRDHTPgQFKkzm2UlkMy50gGBnf0";
+  systems = [desktop laptop nginx-reverse-proxy hydra nix-builder-1 nix-builder-2];
 in {
   "secrets/age-files/cfAPIToken.age".publicKeys = users ++ systems;
   "secrets/age-files/hydraOIDC.age".publicKeys = users ++ systems;

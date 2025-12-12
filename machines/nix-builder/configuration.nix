@@ -36,5 +36,10 @@
     openssh = {
       enable = true;
     };
+    # nix-serve = {
+    #   enable = true;
+    #   openFirewall = true;
+    #   secretKeyFile = config.age.secrets.packageSigningKey.path;
+    # };
   };
 }
