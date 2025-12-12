@@ -46,7 +46,6 @@
       specialArgs ? {},
       modules ? [],
       overlays ? [],
-      useRemoteBuilders ? true,
     }: let
       mainConfigPath = "${toString configDir}/configuration.nix";
     in
@@ -55,7 +54,7 @@
 
         specialArgs =
           {
-            inherit inputs hostname hostPubkey configDir useRemoteBuilders;
+            inherit inputs hostname hostPubkey configDir;
           }
           // specialArgs;
 
@@ -79,7 +78,6 @@
           overlays = [
             quickshell.overlays.default
           ];
-          useRemoteBuilders = true;
         };
 
         "fizzy-laptop" = mkNixosSystem {
@@ -90,7 +88,6 @@
           overlays = [
             quickshell.overlays.default
           ];
-          useRemoteBuilders = true;
         };
 
         # nginx-reverse-proxy
@@ -99,7 +96,6 @@
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv";
           configDir = ./machines/nginx-reverse-proxy;
           system = "aarch64-linux";
-          useRemoteBuilders = true;
         };
 
         "hydra" = mkNixosSystem {
@@ -107,7 +103,6 @@
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0T1oIz1NSRFObv1dcLzI2S15ZGcO3uspYn7g8NWbBe";
           configDir = ./machines/hydra;
           system = "x86_64-linux";
-          useRemoteBuilders = false;
         };
 
         "nix-builder-1" = mkNixosSystem {
@@ -115,7 +110,6 @@
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtAN6YOHIK2ODfBLN8NVUKV8Boq2aw4xi0jt35EVvqs";
           configDir = ./machines/nix-builder;
           system = "x86_64-linux";
-          useRemoteBuilders = false;
         };
 
         "nix-builder-2" = mkNixosSystem {
@@ -123,7 +117,6 @@
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI4FnwXCGejKjX8hMRDHTPgQFKkzm2UlkMy50gGBnf0";
           configDir = ./machines/nix-builder;
           system = "x86_64-linux";
-          useRemoteBuilders = false;
         };
       };
 

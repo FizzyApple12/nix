@@ -4,7 +4,6 @@
   lib,
   hostname,
   config,
-  useRemoteBuilders,
   ...
 }: {
   imports = [
@@ -30,7 +29,7 @@
       secret-key-files = config.age.secrets.packageSigningKey.path;
     };
     distributedBuilds = true;
-    buildMachines = lib.mkIf (useRemoteBuilders == true) [
+    buildMachines = [
       {
         hostName = "hydra";
         sshUser = "fizzyapple12";
@@ -44,9 +43,28 @@
         supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
         mandatoryFeatures = [];
       }
-      # {
-      #   hostName = "nix-builder-1";
-      # }
+      {
+        hostName = "nix-builder-1";
+        sshUser = "fizzyapple12";
+        protocol = "ssh";
+        maxJobs = 48;
+        systems = [
+          "x86_64-linux"
+        ];
+        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+        mandatoryFeatures = [];
+      }
+      {
+        hostName = "nix-builder-2";
+        sshUser = "fizzyapple12";
+        protocol = "ssh";
+        maxJobs = 48;
+        systems = [
+          "x86_64-linux"
+        ];
+        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+        mandatoryFeatures = [];
+      }
     ];
     gc = {
       automatic = true;
