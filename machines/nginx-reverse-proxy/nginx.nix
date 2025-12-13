@@ -29,11 +29,15 @@
     nginx = {
       enable = true;
 
+      serverTokens = false;
+
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
 
+      clientMaxBodySize = "100G";
+
       virtualHosts = {
-        "auth.fizzyapple12.com" =  {
+        "auth.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
@@ -43,7 +47,7 @@
           };
         };
 
-        "hydra.fizzyapple12.com" =  {
+        "hydra.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
@@ -53,7 +57,7 @@
           };
         };
 
-        "inventree.fizzyapple12.com" =  {
+        "inventree.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
@@ -73,7 +77,7 @@
           locations."/admin".return = 403;
         };
 
-        "jellyfin.fizzyapple12.com" =  {
+        "jellyfin.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
@@ -83,7 +87,7 @@
           };
         };
 
-        "grafana.fizzyapple12.com" =  {
+        "grafana.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
@@ -93,7 +97,7 @@
           };
         };
 
-        "forgejo.fizzyapple12.com" =  {
+        "forgejo.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
@@ -103,7 +107,7 @@
           };
         };
 
-        "nextcloud.fizzyapple12.com" =  {
+        "nextcloud.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations."/" = {
