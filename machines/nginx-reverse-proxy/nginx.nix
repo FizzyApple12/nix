@@ -117,6 +117,23 @@
           };
         };
       };
+
+      streamConfig = ''
+        server {
+          listen 22;
+
+          ssl_preread on;
+          proxy_pass $upstream;
+        }
+
+        ustream git-ssh {
+          server 100.103.195.8:22;
+        }
+
+        map $ssl_preread_protocol $upstream {
+          "" git-ssh;
+        }
+      '';
     };
   };
 }
