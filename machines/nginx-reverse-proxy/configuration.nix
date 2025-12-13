@@ -22,7 +22,7 @@
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 4*1024; # 4 GB
+      size = 4 * 1024; # 4 GB
     }
   ];
 
@@ -33,8 +33,8 @@
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [80 443];
-      allowedUDPPorts = [80 443];
+      allowedTCPPorts = [22 80 443];
+      allowedUDPPorts = [22 80 443];
     };
   };
 
@@ -46,11 +46,12 @@
 
     openssh = {
       enable = true;
+      ports = [222];
       settings = {
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
         PermitRootLogin = "prohibit-password";
-        AllowUsers = [ "fizzyapple12" ];
+        AllowUsers = ["fizzyapple12"];
       };
     };
   };

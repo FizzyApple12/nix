@@ -126,7 +126,7 @@
           proxy_pass $upstream;
         }
 
-        ustream git-ssh {
+        upstream git-ssh {
           server 100.103.195.8:22;
         }
 
