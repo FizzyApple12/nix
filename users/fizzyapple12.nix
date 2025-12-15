@@ -66,8 +66,12 @@
       };
       git = {
         enable = true;
-        userName = "FizzyApple12";
-        userEmail = "github@fizzyapple12.com";
+        settings = {
+          user = {
+            name = "FizzyApple12";
+            email = "github@fizzyapple12.com";
+          };
+        };
       };
     };
 

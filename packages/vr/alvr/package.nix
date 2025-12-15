@@ -36,6 +36,8 @@
   wayland,
   x264,
   xvidcore,
+  gmp,
+  openapv,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -57,6 +59,7 @@ rustPlatform.buildRustPackage rec {
       ffmpeg = lib.getDev ffmpeg;
       x264 = lib.getDev x264;
     })
+    ./fix-vaapi.patch
   ];
 
   env = {
@@ -114,6 +117,8 @@ rustPlatform.buildRustPackage rec {
     wayland
     x264
     xvidcore
+    gmp
+    openapv
   ];
 
   postBuild = ''

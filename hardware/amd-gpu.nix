@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/hardware/lact.nix"
+    # "${inputs.nixpkgs-unstable}/nixos/modules/services/hardware/lact.nix"
   ];
 
   nixpkgs = {
