@@ -27,9 +27,7 @@
 
   services = {
     hydra = {
-      package = inputs.hydra.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (finalAttrs: previousAttrs: {
-        postgresql_13 = pkgs.postgresql;
-      });
+      package = inputs.hydra.packages.${pkgs.stdenv.hostPlatform.system}.default;
       enable = true;
       port = 3000;
       hydraURL = "https://hydra.fizzyapple12.com";

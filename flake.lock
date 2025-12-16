@@ -218,13 +218,13 @@
       "locked": {
         "lastModified": 1762962812,
         "narHash": "sha256-Mhi3avp4xUcs73WRXm/sSmrBdfCAHDFaBZxuKA/9DCs=",
-        "owner": "ners",
+        "owner": "FizzyApple12",
         "repo": "hydra",
         "rev": "a9c16a19518a238d74fce789e27dd166ef7058b1",
         "type": "github"
       },
       "original": {
-        "owner": "ners",
+        "owner": "FizzyApple12",
         "ref": "oidc",
         "repo": "hydra",
         "type": "github"
