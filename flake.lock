@@ -216,16 +216,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1762962812,
-        "narHash": "sha256-Mhi3avp4xUcs73WRXm/sSmrBdfCAHDFaBZxuKA/9DCs=",
+        "lastModified": 1765873114,
+        "narHash": "sha256-4X+pQRsiZUcPHD3Q4R+p9KCq+zMERaHyIAVzCzHVbyc=",
         "owner": "FizzyApple12",
         "repo": "hydra",
-        "rev": "a9c16a19518a238d74fce789e27dd166ef7058b1",
+        "rev": "24c821154a08c6dbab9b6c79b97c0397c341c26b",
         "type": "github"
       },
       "original": {
         "owner": "FizzyApple12",
-        "ref": "oidc",
+        "ref": "oidc-fixes",
         "repo": "hydra",
         "type": "github"
       }
