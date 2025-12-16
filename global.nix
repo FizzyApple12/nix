@@ -13,7 +13,9 @@
 
   age.secrets.packageSigningKey.file = secrets/age-files/packageSigningKey.age;
 
+
   nix = {
+    package = pkgs.lixPackageSets.stable.lix;
     settings = {
       experimental-features = ["flakes" "nix-command"];
       extra-substituters = [
@@ -76,7 +78,19 @@
     '';
   };
 
-  # janky hack to fix agenix
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        inherit (prev.lixPackageSets.stable)
+          nix-direnv
+          nix-eval-jobs
+          nix-fast-build
+          colmena;
+      })
+    ];
+  };
+
+  # janky hack to fix agenix (is this even needed anymore?)
   age = {
     identityPaths = ["/etc/ssh/ssh_host_ed25519_key" "/root/.ssh/id_ed25519" "/home/fizzyapple12/.ssh/id_ed25519"];
     rekey = {
