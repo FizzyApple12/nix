@@ -42,6 +42,8 @@
       extraPackages = [
         pkgs.mesa
         pkgs.rocmPackages.clr.icd
+        pkgs.libva
+        pkgs.libva-vdpau-driver
       ];
     };
   };
