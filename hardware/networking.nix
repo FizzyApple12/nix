@@ -13,6 +13,10 @@
           from = 1716;
           to = 1764;
         }
+        {
+          from = 27036;
+          to = 27037;
+        }
       ];
       allowedUDPPortRanges = [
         {
@@ -38,6 +42,10 @@
         {
           from = 27014;
           to = 27030;
+        }
+        {
+          from = 10400;
+          to = 10401;
         }
       ];
       trustedInterfaces = [
