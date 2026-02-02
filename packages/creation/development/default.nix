@@ -8,6 +8,7 @@
     ./java.nix
     ./nix.nix
     ./unity.nix
+    ./godot.nix
   ];
 
   nixpkgs = {
