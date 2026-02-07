@@ -28,6 +28,13 @@
     };
   };
 
+  boot = {
+  	binfmt = {
+      emulatedSystems = [ "aarch64-linux" ];
+  	  addEmulatedSystemsToNixSandbox = true;
+    };
+  };
+
   services = {
     tailscale = {
       enable = true;
