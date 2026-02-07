@@ -126,21 +126,26 @@
       };
 
       hydraJobs = {
-        nixosConfigurations.x86_64-linux =
-          lib.flip lib.genAttrs
-          (name: {toplevel = self.nixosConfigurations.${name}.config.system.build.toplevel;})
-          [
-            "fizzy-desktop"
-            "fizzy-laptop"
+        nixosConfigurations = {
+          x86_64-linux =
+            lib.flip lib.genAttrs
+            (name: {toplevel = self.nixosConfigurations.${name}.config.system.build.toplevel;})
+            [
+              "fizzy-desktop"
+              "fizzy-laptop"
 
-            # TODO: get an aarch64 machine to build on
-            # "ip-172-31-18-248.ec2.internal"
+              "hydra"
 
-            "hydra"
-
-            "nix-builder-1"
-            "nix-builder-2"
+              "nix-builder-1"
+              "nix-builder-2"
           ];
+          aarch64-linux =
+            lib.flip lib.genAttrs
+            (name: {toplevel = self.nixosConfigurations.${name}.config.system.build.toplevel;})
+            [
+              "ip-172-31-18-248.ec2.internal"
+          ];
+        };
       };
     }
     // flake-utils.lib.eachDefaultSystem (system: rec {
