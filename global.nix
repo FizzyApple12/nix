@@ -39,8 +39,7 @@
         maxJobs = 48;
         systems = [
           "x86_64-linux"
-          # TODO: this causes package build problems, need to find a solution (maybe acquire an arm mac?)
-          # "aarch64-linux"
+          "aarch64-linux"
         ];
         supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
         mandatoryFeatures = [];
@@ -52,6 +51,7 @@
         maxJobs = 48;
         systems = [
           "x86_64-linux"
+          "aarch64-linux"
         ];
         supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
         mandatoryFeatures = [];
@@ -63,6 +63,7 @@
         maxJobs = 48;
         systems = [
           "x86_64-linux"
+          "aarch64-linux"
         ];
         supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
         mandatoryFeatures = [];
