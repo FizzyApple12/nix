@@ -5,6 +5,7 @@
   imports = [
     ./minecraft.nix
     ./vrchat.nix
+    ./emulation
   ];
 
   programs = {

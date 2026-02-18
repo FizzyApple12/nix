@@ -41,6 +41,8 @@
       pkgs.google-fonts
       pkgs.corefonts
 
+      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+
       pkgs.spacenavd
       pkgs.libspnav
       pkgs.spnavcfg
