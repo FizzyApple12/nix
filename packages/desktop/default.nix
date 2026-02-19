@@ -47,6 +47,8 @@
       pkgs.libspnav
       pkgs.spnavcfg
 
+      pkgs.nicotine-plus
+
       pkgs.filezilla
 
       pkgs.alacritty
