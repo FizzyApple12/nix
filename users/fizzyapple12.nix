@@ -54,7 +54,7 @@
           cleanup-configuration = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
           configure = "zeditor /etc/nixos";
 
-          windows = "rdesktop -A \"C:\\\\SeamlessRDP\\\\seamlessrdpshell.exe\" -K -s \"explorer.exe\" -u AD\\\\Administrator 100.81.140.43 -v";
+          windows = "rdesktop -A \"C:\\\\SeamlessRDP\\\\seamlessrdpshell.exe\" -K -s \"explorer.exe\" -u AD\\\\Administrator 100.81.140.43 -v -0";
 
           configuration-git = "git -C /etc/nixos/ ";
         };
@@ -66,6 +66,9 @@
       };
       git = {
         enable = true;
+        lfs = {
+          enable = true;
+        };
         settings = {
           user = {
             name = "FizzyApple12";

@@ -116,6 +116,16 @@
             proxyWebsockets = true;
           };
         };
+
+        "rustdesk.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "http://100.102.46.42:21116";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
+        };
       };
 
       streamConfig = ''

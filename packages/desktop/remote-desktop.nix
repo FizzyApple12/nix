@@ -6,6 +6,7 @@
     systemPackages = [
       pkgs.parsec-bin
       pkgs.moonlight-qt
+      pkgs.rustdesk-flutter
     ];
   };
 
@@ -16,5 +17,12 @@
       capSysAdmin = true;
       openFirewall = true;
     };
+    # rustdesk-server = {
+    #   enable = true;
+    #   openFirewall = true;
+    #   # signal = {
+    #     # relayHosts = ["rustdesk.fizzyapple12.com"];
+    #   # };
+    # };
   };
 }
