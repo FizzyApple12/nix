@@ -103,7 +103,6 @@
     timeZone = "America/Indiana/Indianapolis";
   };
 
-
   services = {
     xserver = {
       videoDrivers = ["displaylink"];
@@ -140,6 +139,8 @@
   environment = {
     systemPackages = [
       pkgs.fprintd
+      pkgs.scarlett2
+      pkgs.alsa-scarlett-gui
     ];
   };
 
