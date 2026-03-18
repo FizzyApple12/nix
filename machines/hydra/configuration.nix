@@ -35,7 +35,7 @@
           "x86_64-linux"
           "aarch64-linux"
         ];
-        supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
         mandatoryFeatures = [];
       }
     ];
@@ -49,10 +49,12 @@
     };
   };
 
+  systemd.automounts."proc-sys-fs-binfmt_misc".unitConfig.ConditionPathIsReadWrite = "";
+
   boot = {
-  	binfmt = {
-      emulatedSystems = [ "aarch64-linux" ];
-  	  addEmulatedSystemsToNixSandbox = true;
+    binfmt = {
+      emulatedSystems = ["aarch64-linux"];
+      addEmulatedSystemsToNixSandbox = true;
     };
   };
 
