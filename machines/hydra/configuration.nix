@@ -49,13 +49,6 @@
     };
   };
 
-  systemd.automounts = [
-    {
-      where = "/proc/sys/fs/binfmt_misc";
-      unitConfig.ConditionPathIsReadWrite = "";
-    }
-  ];
-
   boot = {
     binfmt = {
       emulatedSystems = ["aarch64-linux"];
