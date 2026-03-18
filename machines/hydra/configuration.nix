@@ -49,7 +49,12 @@
     };
   };
 
-  systemd.automounts."proc-sys-fs-binfmt_misc".unitConfig.ConditionPathIsReadWrite = "";
+  systemd.automounts = [
+    {
+      where = "/proc/sys/fs/binfmt_misc";
+      unitConfig.ConditionPathIsReadWrite = "";
+    }
+  ];
 
   boot = {
     binfmt = {
