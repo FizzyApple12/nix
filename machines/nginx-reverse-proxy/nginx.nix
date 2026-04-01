@@ -126,6 +126,15 @@
             proxyWebsockets = true;
           };
         };
+
+        "watch-a-printer.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/vt-shinano" = {
+            proxyPass = "http://100.108.19.3/webcam/?action=stream";
+            recommendedProxySettings = true;
+          };
+        };
       };
 
       streamConfig = ''

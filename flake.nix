@@ -45,7 +45,7 @@
       hostname,
       hostPubkey,
       configDir,
-      system ? "x86_64-linux",
+      system,
       specialArgs ? {},
       modules ? [],
       overlays ? [],
