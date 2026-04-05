@@ -43,6 +43,8 @@
 
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
 
+      pkgs.obsidian
+
       pkgs.spacenavd
       pkgs.libspnav
       pkgs.spnavcfg
