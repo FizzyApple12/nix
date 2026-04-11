@@ -25,6 +25,18 @@
           }
         )
       )
+      (
+        self: super: (
+          let
+            nixpkgs-master = import inputs.nixpkgs-master {
+              inherit (self) system;
+              config.allowUnfree = true;
+            };
+          in {
+            icu78 = nixpkgs-master.icu78;
+          }
+        )
+      )
     ];
   };
   programs = {
@@ -42,6 +54,7 @@
       pkgs.corefonts
 
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # (pkgs.callPackage ./ladybird/package.nix { })
 
       pkgs.obsidian
 

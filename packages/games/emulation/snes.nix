@@ -4,7 +4,7 @@
 }: {
   environment = {
     systemPackages = [
-      pkgs.snes9x-gtk
+      # pkgs.snes9x-gtk
     ];
   };
 }
