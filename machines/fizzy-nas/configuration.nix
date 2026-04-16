@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -65,6 +64,11 @@
     "/" = {
       device = "/dev/disk/by-uuid/ec891261-d957-4e47-8859-964fcd3e6ccc";
       fsType = "ext4";
+    };
+
+    "/mnt/storage" = {
+      device = "/dev/disk/by-uuid/9c922ed6-0afc-491c-b95e-3a8787344487";
+      fsType = "btrfs";
     };
 
     "/boot" = {
