@@ -94,6 +94,13 @@
           ];
         };
 
+        "fizzy-nas" = mkNixosSystem {
+          hostname = "fizzy-nas";
+          hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHn6Ee1OVJB1iEn61epRSCJPO9Rxsd90ydu1kVLw7wzL";
+          configDir = ./machines/fizzy-nas;
+          system = "x86_64-linux";
+        };
+
         # nginx-reverse-proxy
         "ip-172-31-18-248.ec2.internal" = mkNixosSystem {
           hostname = "nginx-reverse-proxy";
@@ -142,13 +149,13 @@
 
               "nix-builder-1"
               "nix-builder-2"
-          ];
+            ];
           aarch64-linux =
             lib.flip lib.genAttrs
             (name: {toplevel = self.nixosConfigurations.${name}.config.system.build.toplevel;})
             [
               "ip-172-31-18-248.ec2.internal"
-          ];
+            ];
         };
       };
     }
