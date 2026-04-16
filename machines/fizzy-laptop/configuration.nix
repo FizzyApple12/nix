@@ -136,6 +136,36 @@
     };
   };
 
+  security = let
+    addFPrintDLidBypass = {service}: {
+      rules.auth = {
+        fprintd-only-if-lid-open = {
+          enable = true;
+          order = config.security.pam.services.${service}.rules.auth.fprintd.order - 1;
+          control = "[success=ok default=1]";
+          modulePath = "${config.security.pam.package}/lib/security/pam_exec.so";
+          args = [
+            "quiet"
+            "quiet_log"
+            "${pkgs.writeShellScript "is-lid-open" ''
+
+              set -eoui pipefail
+              lidstate="$(${config.systemd.package}/bin/busctl get-property org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager LidClosed 2>/dev/null)"
+
+              if [ "''${lidstate}" = "b false" ]; then
+                exit 0
+              fi
+
+              exit 1
+            ''}"
+          ];
+        };
+      };
+    };
+  in {
+    pam.services.sudo_local = addFPrintDLidBypass {service = "sudo_local";};
+  };
+
   environment = {
     systemPackages = [
       pkgs.fprintd
