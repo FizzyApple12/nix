@@ -18,55 +18,55 @@
     settings = {
       experimental-features = ["flakes" "nix-command"];
       extra-substituters = [
-        "https://hydra.fizzyapple12.com"
+        #"https://hydra.fizzyapple12.com"
       ];
       trusted-users = [
         "@remotebuild"
         "root"
       ];
       extra-trusted-public-keys = [
-        "hydra.fizzyapple12.com:rqpV2RMBKGGE2a++9ZJkCtQyO83j0m+2NfGlJPsh494="
+        #"hydra.fizzyapple12.com:rqpV2RMBKGGE2a++9ZJkCtQyO83j0m+2NfGlJPsh494="
       ];
       secret-key-files = config.age.secrets.packageSigningKey.path;
     };
     distributedBuilds = true;
     buildMachines = [
-      {
-        hostName = "hydra";
-        sshUser = "fizzyapple12";
-        protocol = "ssh";
-        maxJobs = 48;
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
-        ];
-        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
-        mandatoryFeatures = [];
-      }
-      {
-        hostName = "nix-builder-1";
-        sshUser = "fizzyapple12";
-        protocol = "ssh";
-        maxJobs = 48;
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
-        ];
-        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
-        mandatoryFeatures = [];
-      }
-      {
-        hostName = "nix-builder-2";
-        sshUser = "fizzyapple12";
-        protocol = "ssh";
-        maxJobs = 48;
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
-        ];
-        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
-        mandatoryFeatures = [];
-      }
+      #{
+      #  hostName = "hydra";
+      #  sshUser = "fizzyapple12";
+      #  protocol = "ssh";
+      #  maxJobs = 48;
+      #  systems = [
+      #    "x86_64-linux"
+      #    "aarch64-linux"
+      #  ];
+      #  supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      #  mandatoryFeatures = [];
+      #}
+      #{
+      #  hostName = "nix-builder-1";
+      #  sshUser = "fizzyapple12";
+      #  protocol = "ssh";
+      #  maxJobs = 48;
+      #  systems = [
+      #    "x86_64-linux"
+      #    "aarch64-linux"
+      #  ];
+      #  supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      #  mandatoryFeatures = [];
+      #}
+      #{
+      #  hostName = "nix-builder-2";
+      #  sshUser = "fizzyapple12";
+      #  protocol = "ssh";
+      #  maxJobs = 48;
+      #  systems = [
+      #    "x86_64-linux"
+      #    "aarch64-linux"
+      #  ];
+      #  supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+      #  mandatoryFeatures = [];
+      #}
     ];
     gc = {
       automatic = true;
