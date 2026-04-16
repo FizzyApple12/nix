@@ -13,6 +13,8 @@
     ../../hardware/networking.nix
 
     ../../packages/virtualisation
+
+    ../../users/theshadoweevee.nix
   ];
 
   nixpkgs = {
