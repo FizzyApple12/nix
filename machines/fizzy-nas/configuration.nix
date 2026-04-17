@@ -33,6 +33,10 @@
     };
   };
 
+  networking = {
+    hostID = "68ac30cd";
+  };
+
   boot = {
     initrd = {
       availableKernelModules = [
