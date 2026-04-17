@@ -34,7 +34,7 @@
   };
 
   networking = {
-    hostID = "68ac30cd";
+    hostId = "68ac30cd";
   };
 
   boot = {
