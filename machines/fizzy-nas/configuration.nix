@@ -86,7 +86,7 @@
     };
 
     "/storage" = {
-      device = "zpool/storage";
+      device = "storage";
       fsType = "zfs";
     };
 
