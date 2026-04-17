@@ -85,10 +85,10 @@
       fsType = "ext4";
     };
 
-    # "/mnt/storage" = {
-    #   device = "/dev/disk/by-uuid/9c922ed6-0afc-491c-b95e-3a8787344487";
-    #   fsType = "zsh";
-    # };
+    "/storage" = {
+      device = "zpool/storage";
+      fsType = "zfs";
+    };
 
     "/boot" = {
       device = "/dev/disk/by-uuid/E60C-D1C6";
