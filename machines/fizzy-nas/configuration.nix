@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -42,6 +43,14 @@
         "sd_mod"
         "sr_mod"
       ];
+
+      supportedFilesystems = {
+        zfs = true;
+      };
+    };
+
+    supportedFilesystems = {
+      zfs = true;
     };
 
     extraModulePackages = [
@@ -60,6 +69,10 @@
         canTouchEfiVariables = true;
       };
     };
+
+    zfs = {
+      forceImportRoot = false;
+    };
   };
 
   fileSystems = {
@@ -68,10 +81,10 @@
       fsType = "ext4";
     };
 
-    "/mnt/storage" = {
-      device = "/dev/disk/by-uuid/9c922ed6-0afc-491c-b95e-3a8787344487";
-      fsType = "btrfs";
-    };
+    # "/mnt/storage" = {
+    #   device = "/dev/disk/by-uuid/9c922ed6-0afc-491c-b95e-3a8787344487";
+    #   fsType = "zsh";
+    # };
 
     "/boot" = {
       device = "/dev/disk/by-uuid/E60C-D1C6";
@@ -95,5 +108,11 @@
         DisableCapsuleUpdateOnDisk = "true";
       };
     };
+  };
+
+  environment = {
+    systemPackages = [
+      pkgs.zfs
+    ];
   };
 }
