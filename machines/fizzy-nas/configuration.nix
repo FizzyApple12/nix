@@ -16,6 +16,9 @@
     ../../packages/virtualisation
 
     ../../users/theshadoweevee.nix
+
+    ./postgres.nix
+    ./authentik.nix
   ];
 
   nixpkgs = {

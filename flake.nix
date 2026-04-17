@@ -26,6 +26,9 @@
 
     helium.url = "github:AlvaroParker/helium-nix";
     helium.inputs.nixpkgs.follows = "nixpkgs";
+
+    authentik-nix.url = "github:nix-community/authentik-nix";
+    authentik-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -39,6 +42,7 @@
     agenix-rekey,
     hydra,
     quickshell,
+    authentik-nix,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -99,6 +103,9 @@
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHn6Ee1OVJB1iEn61epRSCJPO9Rxsd90ydu1kVLw7wzL";
           configDir = ./machines/fizzy-nas;
           system = "x86_64-linux";
+          modules = [
+            authentik-nix.nixosModules
+          ];
         };
 
         # nginx-reverse-proxy
