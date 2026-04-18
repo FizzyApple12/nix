@@ -12,7 +12,7 @@
       ensureUsers = [
         {
           name = "postgres";
-          ensureClasses = {
+          ensureClauses = {
             superuser = true;
             createrole = true;
             createdb = true;
