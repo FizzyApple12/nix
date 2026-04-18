@@ -104,7 +104,7 @@
           configDir = ./machines/fizzy-nas;
           system = "x86_64-linux";
           modules = [
-            authentik-nix.nixosModules
+            authentik-nix.nixosModules.default
           ];
         };
 
