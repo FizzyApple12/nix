@@ -20,4 +20,5 @@ in {
   "secrets/age-files/cfAPIToken.age".publicKeys = users ++ systems;
   "secrets/age-files/hydraOIDC.age".publicKeys = users ++ systems;
   "secrets/age-files/packageSigningKey.age".publicKeys = users ++ systems;
+  "secrets/age-files/authentik-env.age".publicKeys = users ++ systems;
 }
