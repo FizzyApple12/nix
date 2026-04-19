@@ -8,7 +8,11 @@
       trustedInterfaces = [
         "virbr0"
         "vnet8"
+        "incusbr0"
       ];
+    };
+    nftables = {
+      enable = true;
     };
   };
   services = {

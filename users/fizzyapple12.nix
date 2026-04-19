@@ -15,6 +15,7 @@
       "docker"
       "render"
       "remotebuild"
+      "incus-admin"
     ];
     packages = [];
     shell = pkgs.zsh;

@@ -16,7 +16,7 @@
 
     ./postgres.nix
     ./authentik.nix
-    ./proxmox-backup-server.nix
+    ./incus.nix
   ];
 
   nixpkgs = {
