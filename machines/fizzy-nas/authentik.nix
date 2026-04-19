@@ -15,7 +15,7 @@
           from = "authentik@fizzyapple12.com";
         };
         disable_startup_analytics = true;
-        avatars = "initials";
+        avatars = "gravatar";
       };
     };
   };
