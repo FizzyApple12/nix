@@ -27,7 +27,7 @@
     helium.url = "github:AlvaroParker/helium-nix";
     helium.inputs.nixpkgs.follows = "nixpkgs";
 
-    authentik-nix.url = "github:nix-community/authentik-nix/367332e56eed4525cb676125c65c8a005c476785";
+    authentik-nix.url = "github:nix-community/authentik-nix/e929253deddb8398c7010b28187d9d43603db950";
     authentik-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
