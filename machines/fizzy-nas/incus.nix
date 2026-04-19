@@ -6,7 +6,7 @@
         networks = [
           {
             config = {
-              "ipv4.address" = "192.168.1.90/24";
+              "ipv4.address" = "192.168.1.100/24";
               "ipv4.nat" = "true";
             };
             name = "incusbr0";
