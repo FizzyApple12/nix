@@ -41,7 +41,7 @@
           enableACME = true;
           forceSSL = true;
           locations."/" = {
-            proxyPass = "https://100.89.225.120:30141";
+            proxyPass = "https://100.99.234.2:30141";
             recommendedProxySettings = true;
             proxyWebsockets = true;
           };
