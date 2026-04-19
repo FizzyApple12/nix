@@ -10,8 +10,6 @@
     ../generic/audio.nix
     ./networking.nix
 
-    ../../packages/virtualisation
-
     ../../users/theshadoweevee.nix
 
     ./postgres.nix
