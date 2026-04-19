@@ -7,6 +7,8 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-25.05";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager.url = "github:nix-community/home-manager/release-25.11";
@@ -27,8 +29,8 @@
     helium.url = "github:AlvaroParker/helium-nix";
     helium.inputs.nixpkgs.follows = "nixpkgs";
 
-    authentik-nix.url = "github:nix-community/authentik-nix/6ae9b507c803d25870e3a7f55729261761cdbb1b";
-    authentik-nix.inputs.nixpkgs.follows = "nixpkgs";
+    authentik-nix.url = "github:nix-community/authentik-nix/ea1e06f9fe7cbf59c61b2ec4f2979801ff395d8e";
+    authentik-nix.inputs.nixpkgs.follows = "nixpkgs-old";
   };
 
   outputs = {
