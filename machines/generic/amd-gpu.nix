@@ -10,14 +10,12 @@
   nixpkgs = {
     overlays = [
       (
-        self: super:
-        (
+        self: super: (
           let
-          nixpkgs-unstable = import inputs.nixpkgs-unstable {
-            inherit (self) system;
-          };
-          in
-          {
+            nixpkgs-unstable = import inputs.nixpkgs-unstable {
+              inherit (self) system;
+            };
+          in {
             lact = nixpkgs-unstable.lact;
           }
         )
@@ -25,7 +23,7 @@
     ];
   };
 
-	hardware = {
+  hardware = {
     amdgpu = {
       initrd = {
         enable = true;

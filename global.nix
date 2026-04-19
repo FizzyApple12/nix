@@ -25,7 +25,7 @@
         "root"
       ];
       extra-trusted-public-keys = [
-        #"hydra.fizzyapple12.com:rqpV2RMBKGGE2a++9ZJkCtQyO83j0m+2NfGlJPsh494="
+        "hydra.fizzyapple12.com:rqpV2RMBKGGE2a++9ZJkCtQyO83j0m+2NfGlJPsh494="
       ];
       secret-key-files = config.age.secrets.packageSigningKey.path;
     };

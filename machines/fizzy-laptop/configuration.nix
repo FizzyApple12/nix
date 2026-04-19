@@ -3,21 +3,19 @@
   config,
   lib,
   pkgs,
-  modulesPath,
   ...
 }: {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     (inputs.nixos-hardware + "/framework/13-inch/7040-amd")
 
     ../../global.nix
 
-    ../../hardware/amd-cpu.nix
-    ../../hardware/amd-gpu.nix
-    ../../hardware/bluetooth.nix
-    ../../hardware/audio.nix
-    ../../hardware/networking.nix
-    ../../hardware/printing
+    ../generic/amd-cpu.nix
+    ../generic/amd-gpu.nix
+    ../generic/bluetooth.nix
+    ../generic/audio.nix
+    ./networking.nix
+    ../generic/printing
 
     ../../packages/desktop
     ../../packages/vr

@@ -1,0 +1,53 @@
+{lib, ...}: {
+  imports = [
+    ../generic/networking.nix
+  ];
+
+  networking = {
+    useDHCP = lib.mkDefault true;
+    firewall = {
+      allowedTCPPorts = [80 443 57621 9943 9944 9942 8082 25565 47984 47989 47990 48010 27036 27015 4226];
+      allowedUDPPorts = [80 443 5353 9943 9944 9942 8082 25565 4380 27015 3478 4379 4380 4226];
+      allowedTCPPortRanges = [
+        {
+          from = 1716;
+          to = 1764;
+        }
+        {
+          from = 27036;
+          to = 27037;
+        }
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1716;
+          to = 1764;
+        }
+        {
+          from = 47998;
+          to = 48000;
+        }
+        {
+          from = 8000;
+          to = 8010;
+        }
+        {
+          from = 27000;
+          to = 27100;
+        }
+        {
+          from = 27031;
+          to = 27036;
+        }
+        {
+          from = 27014;
+          to = 27030;
+        }
+        {
+          from = 10400;
+          to = 10401;
+        }
+      ];
+    };
+  };
+}

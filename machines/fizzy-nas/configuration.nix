@@ -1,17 +1,14 @@
 {
   config,
   lib,
-  modulesPath,
   pkgs,
   ...
 }: {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-
     ../../global.nix
 
-    ../../hardware/audio.nix
-    ../../hardware/networking.nix
+    ../generic/audio.nix
+    ./networking.nix
 
     ../../packages/virtualisation
 
@@ -19,6 +16,7 @@
 
     ./postgres.nix
     ./authentik.nix
+    ./proxmox-backup-server.nix
   ];
 
   nixpkgs = {

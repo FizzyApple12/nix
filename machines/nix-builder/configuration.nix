@@ -4,12 +4,11 @@
   ...
 }: {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/virtualisation/proxmox-lxc.nix")
 
     ../../global.nix
 
-    ../../hardware/networking.nix
+    ./networking.nix
   ];
 
   nixpkgs = {
@@ -29,9 +28,9 @@
   };
 
   boot = {
-  	binfmt = {
-      emulatedSystems = [ "aarch64-linux" ];
-  	  addEmulatedSystemsToNixSandbox = true;
+    binfmt = {
+      emulatedSystems = ["aarch64-linux"];
+      addEmulatedSystemsToNixSandbox = true;
     };
   };
 

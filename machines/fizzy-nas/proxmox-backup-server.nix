@@ -1,0 +1,7 @@
+{...}: {
+  virtualisation = {
+    lxc = {
+      enable = true;
+    };
+  };
+}

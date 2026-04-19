@@ -4,12 +4,11 @@
   ...
 }: {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/virtualisation/proxmox-lxc.nix")
 
     ../../global.nix
 
-    ../../hardware/networking.nix
+    ./networking.nix
 
     ./hydra.nix
   ];
