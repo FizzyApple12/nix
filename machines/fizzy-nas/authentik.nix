@@ -1,4 +1,9 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   age.secrets.authentik-env.file = ../../secrets/age-files/authentik-env.age;
 
   services = {
