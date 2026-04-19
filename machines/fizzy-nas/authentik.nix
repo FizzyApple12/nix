@@ -1,30 +1,8 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   age.secrets.authentik-env.file = ../../secrets/age-files/authentik-env.age;
 
   services = {
-    authentik = let
-      customAuthentikScope = inputs.authentik-nix.lib.mkAuthentikScope {
-        inherit pkgs;
-      };
-
-      # Override the scope to change gopkgs
-      overriddenScope = customAuthentikScope.overrideScope (
-        final: prev: {
-          authentikComponents =
-            prev.authentikComponents
-            // {
-              gopkgs = prev.authentikComponents.gopkgs.override {
-                buildGo124Module = pkgs.buildGo125Module;
-              };
-            };
-        }
-      );
-    in {
+    authentik = {
       enable = true;
       environmentFile = config.age.secrets.authentik-env.path;
       settings = {
@@ -39,7 +17,6 @@
         disable_startup_analytics = true;
         avatars = "initials";
       };
-      inherit (overriddenScope) authentikComponents;
     };
   };
 }
