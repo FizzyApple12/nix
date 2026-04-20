@@ -3,14 +3,21 @@
     incus = {
       enable = true;
       preseed = {
-        networks = [];
+        networks = [
+          {
+            name = "incusbr0";
+            type = "physical";
+            config = {
+              "parent" = "br0";
+            };
+          }
+        ];
         profiles = [
           {
             devices = {
               eth0 = {
                 name = "eth0";
-                nictype = "bridged";
-                parent = "br0";
+                network = "incusbr0";
                 type = "nic";
               };
               root = {
