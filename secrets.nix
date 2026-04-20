@@ -17,7 +17,6 @@ let
   nix-builder-2 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI4FnwXCGejKjX8hMRDHTPgQFKkzm2UlkMy50gGBnf0";
   systems = [desktop laptop nas nginx-reverse-proxy hydra nix-builder-1 nix-builder-2];
 in {
-  "secrets/age-files/cfAPIToken.age".publicKeys = users ++ systems;
   "secrets/age-files/hydraOIDC.age".publicKeys = users ++ systems;
   "secrets/age-files/packageSigningKey.age".publicKeys = users ++ systems;
   "secrets/age-files/authentik-env.age".publicKeys = users ++ systems;
