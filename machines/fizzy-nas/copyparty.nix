@@ -18,8 +18,8 @@
         no-reload = true;
         ignored-flag = false;
         xff-src = "100.116.200.80/16, lan";
-        chmod-f = "664";
-        chmod-d = "775";
+        chmod-f = "777";
+        chmod-d = "777";
         fk = 4;
         re-maxage = 60;
         e2dsa = true;
