@@ -1,5 +1,10 @@
 {config, ...}: {
-  age.secrets.copyparty-password-fizzyapple12.file = ../../secrets/age-files/copyparty-password-fizzyapple12.age;
+  age.secrets.copyparty-password-fizzyapple12 = {
+    file = ../../secrets/age-files/copyparty-password-fizzyapple12.age;
+    mode = "440";
+    owner = "copyparty";
+    group = "copyparty";
+  };
 
   services = {
     copyparty = {
