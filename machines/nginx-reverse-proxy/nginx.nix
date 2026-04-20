@@ -47,6 +47,16 @@
           };
         };
 
+        "files.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/" = {
+            proxyPass = "https://100.99.234.2:3210";
+            recommendedProxySettings = true;
+            proxyWebsockets = true;
+          };
+        };
+
         "hydra.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;

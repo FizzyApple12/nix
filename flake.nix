@@ -29,6 +29,9 @@
 
     authentik-nix.url = "github:nix-community/authentik-nix";
     authentik-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    copyparty.url = "github:9001/copyparty";
+    copyparty.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -43,6 +46,7 @@
     hydra,
     quickshell,
     authentik-nix,
+    copyparty,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -105,6 +109,7 @@
           system = "x86_64-linux";
           modules = [
             authentik-nix.nixosModules.default
+            copyparty.nixosModules.default
           ];
         };
 

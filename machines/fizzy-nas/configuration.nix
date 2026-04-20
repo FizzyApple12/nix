@@ -15,6 +15,7 @@
     ./postgres.nix
     ./authentik.nix
     ./incus.nix
+    ./copyparty.nix
   ];
 
   nixpkgs = {
