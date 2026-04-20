@@ -8,7 +8,7 @@
       trustedInterfaces = [
         "virbr0"
         "vnet8"
-        "incusbr0"
+        "br0"
       ];
     };
     nftables = {
