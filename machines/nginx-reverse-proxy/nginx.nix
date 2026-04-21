@@ -20,7 +20,7 @@
         "auth.fizzyapple12.com" = {group = config.services.nginx.group;};
         "files.fizzyapple12.com" = {group = config.services.nginx.group;};
         "hydra.fizzyapple12.com" = {group = config.services.nginx.group;};
-        "inventree.fizzyapple12.com" = {group = config.services.nginx.group;};
+        "homebox.fizzyapple12.com" = {group = config.services.nginx.group;};
         "vaultwarden.fizzyapple12.com" = {group = config.services.nginx.group;};
         "jellyfin.fizzyapple12.com" = {group = config.services.nginx.group;};
         "grafana.fizzyapple12.com" = {group = config.services.nginx.group;};
@@ -83,12 +83,12 @@
           };
         };
 
-        "inventree.fizzyapple12.com" = {
+        "homebox.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations = {
             "/" = {
-              proxyPass = "http://100.121.99.3:80";
+              proxyPass = "http://100.117.151.76:7745";
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
