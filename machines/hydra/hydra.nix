@@ -35,22 +35,22 @@
       useSubstitutes = true;
       extraConfig = ''
         enable_hydra_login = 0
-        enable_oidc_login = 1
-        oidc_client_id = "zmeo51vVMdMbyMaHOOCP1jIFpyGLLB2YMHlhcBRP"
-        oidc_scope = "openid email profile groups"
-        oidc_auth_uri = "https://auth.fizzyapple12.com/application/o/authorize/"
-        oidc_token_uri = "https://auth.fizzyapple12.com/application/o/token/"
-        oidc_userinfo_uri = "https://auth.fizzyapple12.com/application/o/userinfo/"
-        include ${config.age.secrets.hydraOIDC.path}
 
-        <oidc_role_mapping>
-          Hydra-Admins = admin
-          Hydra-Admins = bump-to-front
-          Hydra-Users = cancel-build
-          Hydra-Users = eval-jobset
-          Hydra-Users = create-projects
-          Hydra-Users = restart-jobs
-        </oidc_role_mapping>
+        <oidc>
+          enable = 1
+
+          client_id = "zmeo51vVMdMbyMaHOOCP1jIFpyGLLB2YMHlhcBRP"
+          client_secret_file = ${config.age.secrets.hydraOIDC.path}
+
+          scopes = openid email profile groups
+
+          config_uri = "https://auth.fizzyapple12.com/application/o/hydra/.well-known/openid-configuration"
+
+          <groups_to_roles>
+            Hydra Admins = admin, bump-to-front
+            Hydra Users = cancel-build, eval-jobset, create-projects, restart-jobs
+          </groups_to_roles>
+        </oidc>
 
         allow_import_from_derivation = true
 
