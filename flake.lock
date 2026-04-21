@@ -220,6 +220,21 @@
         "type": "github"
       }
     },
+    "flake-compat_4": {
+      "locked": {
+        "lastModified": 1761640442,
+        "narHash": "sha256-AtrEP6Jmdvrqiv4x2xa5mrtaIp3OEe8uBYCDZDS+hu8=",
+        "owner": "nix-community",
+        "repo": "flake-compat",
+        "rev": "4a56054d8ffc173222d09dad23adf4ba946c8884",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -419,25 +434,53 @@
     },
     "hydra": {
       "inputs": {
-        "nix": "nix",
-        "nix-eval-jobs": "nix-eval-jobs",
+        "flake-compat": "flake-compat_4",
+        "lix": "lix",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1765873114,
-        "narHash": "sha256-4X+pQRsiZUcPHD3Q4R+p9KCq+zMERaHyIAVzCzHVbyc=",
-        "owner": "FizzyApple12",
-        "repo": "hydra",
-        "rev": "24c821154a08c6dbab9b6c79b97c0397c341c26b",
-        "type": "github"
+        "lastModified": 1775721246,
+        "narHash": "sha256-/QV85IVKZTYsVsK/StT7Vu/1KMT4AJyW280tObXpRtA=",
+        "rev": "ead6172b5b7583b78774b10837b99ee1aa556138",
+        "type": "tarball",
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/hydra/archive/ead6172b5b7583b78774b10837b99ee1aa556138.tar.gz?rev=ead6172b5b7583b78774b10837b99ee1aa556138"
       },
       "original": {
-        "owner": "FizzyApple12",
-        "ref": "oidc-fixes",
-        "repo": "hydra",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://git.lix.systems/lix-project/hydra/archive/ead6172b5b7583b78774b10837b99ee1aa556138.zip"
+      }
+    },
+    "lix": {
+      "inputs": {
+        "flake-compat": [
+          "hydra",
+          "flake-compat"
+        ],
+        "nix2container": "nix2container",
+        "nix_2_18": [
+          "hydra"
+        ],
+        "nixpkgs": [
+          "hydra",
+          "nixpkgs"
+        ],
+        "nixpkgs-regression": "nixpkgs-regression",
+        "pre-commit-hooks": "pre-commit-hooks_2"
+      },
+      "locked": {
+        "lastModified": 1776701302,
+        "narHash": "sha256-4HJtk+dDvfW8ZXsMTbptNJwj2UUDTgixuIMIBgvgXQA=",
+        "ref": "refs/heads/main",
+        "rev": "0a09782cc8205397b3ff9d3787136394d77f19a7",
+        "revCount": 19138,
+        "type": "git",
+        "url": "https://git.lix.systems/lix-project/lix"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.lix.systems/lix-project/lix"
       }
     },
     "napalm": {
@@ -466,37 +509,19 @@
         "type": "github"
       }
     },
-    "nix": {
+    "nix2container": {
       "flake": false,
       "locked": {
-        "lastModified": 1760573252,
-        "narHash": "sha256-mcvNeNdJP5R7huOc8Neg0qZESx/0DMg8Fq6lsdx0x8U=",
-        "owner": "NixOS",
-        "repo": "nix",
-        "rev": "3c39583e5512729f9c5a44c3b03b6467a2acd963",
+        "lastModified": 1767195068,
+        "narHash": "sha256-+OMnL79ZjqM/PCz2hoQ12MnXNoSSfBGnsYBOZnA9XbI=",
+        "owner": "nlewo",
+        "repo": "nix2container",
+        "rev": "bb6801be998ba857a62c002cb77ece66b0a57298",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "2.32-maintenance",
-        "repo": "nix",
-        "type": "github"
-      }
-    },
-    "nix-eval-jobs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1760478325,
-        "narHash": "sha256-hA+NOH8KDcsuvH7vJqSwk74PyZP3MtvI/l+CggZcnTc=",
-        "owner": "nix-community",
-        "repo": "nix-eval-jobs",
-        "rev": "daa42f9e9c84aeff1e325dd50fda321f53dfd02c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "ref": "v2.32.1",
-        "repo": "nix-eval-jobs",
+        "owner": "nlewo",
+        "repo": "nix2container",
         "type": "github"
       }
     },
@@ -563,6 +588,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-regression": {
+      "locked": {
+        "lastModified": 1643052045,
+        "narHash": "sha256-uGJ0VXIhWKGXxkeNnq4TvV3CIOkUJ3PAoLZ3HMzNVMw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "215d4d0fd80ca5163643b03a33fde804a29cc1e2",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1775036866,
@@ -615,6 +656,22 @@
       "original": {
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
+        "type": "github"
+      }
+    },
+    "pre-commit-hooks_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769939035,
+        "narHash": "sha256-Fok2AmefgVA0+eprw2NDwqKkPGEI5wvR+twiZagBvrg=",
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "rev": "a8ca480175326551d6c4121498316261cbb5b260",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
         "type": "github"
       }
     },

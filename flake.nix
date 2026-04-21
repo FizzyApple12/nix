@@ -18,7 +18,8 @@
     agenix-rekey.url = "github:oddlama/agenix-rekey";
     agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
 
-    hydra.url = "github:FizzyApple12/hydra/oidc-fixes";
+    # hydra.url = "github:FizzyApple12/hydra/oidc-fixes";
+    hydra.url = "https://git.lix.systems/lix-project/hydra/archive/ead6172b5b7583b78774b10837b99ee1aa556138.zip";
     hydra.inputs.nixpkgs.follows = "nixpkgs";
 
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
