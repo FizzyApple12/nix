@@ -22,9 +22,6 @@
   };
 
   nix = {
-    extraOptions = ''
-      secret-key-files = /cache-priv-key.pem
-    '';
     buildMachines = [
       {
         hostName = "localhost";
