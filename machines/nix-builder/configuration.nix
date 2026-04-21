@@ -15,6 +15,22 @@
     hostPlatform = lib.mkDefault "x86_64-linux";
   };
 
+  nix = {
+    buildMachines = [
+      {
+        hostName = "localhost";
+        protocol = null;
+        maxJobs = 48;
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+        supportedFeatures = ["nixos-test" "benchmark" "big-parallel" "kvm"];
+        mandatoryFeatures = [];
+      }
+    ];
+  };
+
   time = {
     timeZone = "America/Indiana/Indianapolis";
   };
