@@ -62,7 +62,7 @@
           forceSSL = true;
           locations = {
             "/" = {
-              proxyPass = "https://100.99.234.2:3210";
+              proxyPass = "https://100.99.234.2:30141";
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };

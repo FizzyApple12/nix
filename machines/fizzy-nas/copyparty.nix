@@ -40,7 +40,7 @@
         idp-h-grp = "x-authentik-groups";
         idp-adm = ["fizzyapple12"];
         idp-login = "https://files.fizzyapple12.com/oauth/authorize";
-        idp-login-t = "login with fizzyapple12's auth";
+        idp-login-t = "sign in with authentik";
         idp-store = 3;
         auth-ord = "pw,idp,ipu";
       };
