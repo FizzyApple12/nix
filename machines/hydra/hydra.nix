@@ -47,8 +47,8 @@
           config_uri = "https://auth.fizzyapple12.com/application/o/hydra/.well-known/openid-configuration"
 
           <groups_to_roles>
-            Hydra Admins = admin, bump-to-front
-            Hydra Users = cancel-build, create-projects, restart-jobs
+            Hydra-Admins = admin, bump-to-front
+            Hydra-Users = cancel-build, create-projects, restart-jobs
           </groups_to_roles>
         </oidc>
 
