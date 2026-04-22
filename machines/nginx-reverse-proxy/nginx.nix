@@ -67,7 +67,7 @@
               proxyWebsockets = true;
             };
             "/outpost.goauthentik.io" = {
-              proxyPass = "http://100.99.234.2:30141/outpost.goauthentik.io";
+              proxyPass = "https://100.99.234.2:30141/outpost.goauthentik.io";
               extraConfig = ''
                 client_max_body_size 0;
 
