@@ -94,6 +94,10 @@
               '';
             };
           };
+          extraConfig = ''
+            proxy_buffers 8 16k;
+            proxy_buffer_size 32k;
+          '';
         };
 
         "hydra.fizzyapple12.com" = {
