@@ -62,9 +62,27 @@
           forceSSL = true;
           locations = {
             "/" = {
-              proxyPass = "https://100.99.234.2:30141";
+              proxyPass = "https://100.99.234.2:3210";
               recommendedProxySettings = true;
               proxyWebsockets = true;
+            };
+            "/outpost.goauthentik.io" = {
+              proxyPass = "http://100.99.234.2:30141/outpost.goauthentik.io";
+              extraConfig = ''
+                client_max_body_size 0;
+
+                proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
+                add_header Set-Cookie $auth_cookie;
+                auth_request_set $auth_cookie $upstream_http_set_cookie;
+                proxy_pass_request_body off;
+                proxy_set_header Content-Length "";
+              '';
+            };
+            "/oauth/authorize" = {
+              extraConfig = ''
+                add_header Set-Cookie $auth_cookie;
+                return 302 /outpost.goauthentik.io/start?rd=/;
+              '';
             };
             "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
