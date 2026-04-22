@@ -53,7 +53,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -94,7 +93,6 @@
                 return 302 /outpost.goauthentik.io/start?rd=/;
               '';
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -107,7 +105,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -120,7 +117,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -133,7 +129,6 @@
               proxyWebsockets = true;
             };
             "/admin" = {return = 403;};
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -146,7 +141,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -159,7 +153,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -172,7 +165,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -185,7 +177,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -198,7 +189,6 @@
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
 
@@ -210,7 +200,6 @@
               proxyPass = "http://100.108.19.3/webcam/?action=stream";
               recommendedProxySettings = true;
             };
-            "/.well-known/" = {root = "/var/lib/acme/acme-challenge/";};
           };
         };
       };
