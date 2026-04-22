@@ -17,7 +17,7 @@
         rproxy = 1;
         no-reload = true;
         ignored-flag = false;
-        xff-src = "100.116.200.80/16, lan";
+        xff-src = "100.116.200.80/16, 100.99.234.2/16, lan";
         chmod-f = "777";
         chmod-d = "777";
         fk = 4;
