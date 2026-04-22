@@ -48,7 +48,7 @@
 
           <groups_to_roles>
             Hydra Admins = admin, bump-to-front
-            Hydra Users = cancel-build, eval-jobset, create-projects, restart-jobs
+            Hydra Users = cancel-build, create-projects, restart-jobs
           </groups_to_roles>
         </oidc>
 
