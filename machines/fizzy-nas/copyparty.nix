@@ -30,7 +30,7 @@
         ls = "**,*,ln,p,r";
         name = "fizzyapple12's copyparty";
         name-url = "https://files.fizzyapple12.com";
-        site = "https://files.fizzyapple12.com";
+        # site = "https://files.fizzyapple12.com";
         rss = true;
 
         shr = "/share";
