@@ -62,11 +62,11 @@
           forceSSL = true;
           locations = {
             "/" = {
-              proxyPass = "https://100.99.234.2:3210";
+              proxyPass = "http://100.99.234.2:3210";
               recommendedProxySettings = true;
               proxyWebsockets = true;
               extraConfig = ''
-                auth_request /outpost.goauthentik.io/auth/copyparty;
+                auth_request /outpost.goauthentik.io/auth/nginx;
                 auth_request_set $auth_cookie $upstream_http_set_cookie;
                 add_header Set-Cookie $auth_cookie;
 
