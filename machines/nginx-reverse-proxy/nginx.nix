@@ -65,6 +65,16 @@
               proxyPass = "https://100.99.234.2:3210";
               recommendedProxySettings = true;
               proxyWebsockets = true;
+              extraConfig = ''
+                auth_request /outpost.goauthentik.io/auth/copyparty;
+                auth_request_set $auth_cookie $upstream_http_set_cookie;
+                add_header Set-Cookie $auth_cookie;
+
+                auth_request_set $authentik_username $upstream_http_x_authentik_username;
+                auth_request_set $authentik_groups $upstream_http_x_authentik_groups;
+                proxy_set_header x-authentik-username $authentik_username;
+                proxy_set_header x-authentik-groups $authentik_groups;
+              '';
             };
             "/outpost.goauthentik.io" = {
               proxyPass = "https://100.99.234.2:30141/outpost.goauthentik.io";
