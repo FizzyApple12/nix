@@ -6,7 +6,7 @@
   networking = {
     useDHCP = lib.mkDefault false;
     firewall = {
-      allowedTCPPorts = [80 443 3210 8443 30140 30141];
+      allowedTCPPorts = [80 443 3210 5232 8443 30140 30141];
       allowedUDPPorts = [3210];
     };
     bridges = {
