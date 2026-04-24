@@ -16,6 +16,7 @@
     ./authentik.nix
     ./incus.nix
     ./copyparty.nix
+    ./radicale.nix
   ];
 
   nixpkgs = {
