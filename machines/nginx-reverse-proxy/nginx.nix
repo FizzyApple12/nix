@@ -19,6 +19,7 @@
       certs = {
         "auth.fizzyapple12.com" = {group = config.services.nginx.group;};
         "files.fizzyapple12.com" = {group = config.services.nginx.group;};
+        "calendar.fizzyapple12.com" = {group = config.services.nginx.group;};
         "hydra.fizzyapple12.com" = {group = config.services.nginx.group;};
         "homebox.fizzyapple12.com" = {group = config.services.nginx.group;};
         "vaultwarden.fizzyapple12.com" = {group = config.services.nginx.group;};
@@ -28,6 +29,7 @@
         "nextcloud.fizzyapple12.com" = {group = config.services.nginx.group;};
         "rustdesk.fizzyapple12.com" = {group = config.services.nginx.group;};
         "watch-a-printer.fizzyapple12.com" = {group = config.services.nginx.group;};
+        "wazuh.fizzyapple12.com" = {group = config.services.nginx.group;};
       };
     };
   };
@@ -98,6 +100,18 @@
             proxy_buffers 8 16k;
             proxy_buffer_size 32k;
           '';
+        };
+
+        "calendar.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations = {
+            "/" = {
+              proxyPass = "http://100.99.234.2:5232";
+              recommendedProxySettings = true;
+              proxyWebsockets = true;
+            };
+          };
         };
 
         "hydra.fizzyapple12.com" = {
@@ -206,6 +220,18 @@
             };
           };
         };
+
+        "wazuh.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations = {
+            "/" = {
+              proxyPass = "https://100.104.108.99";
+              recommendedProxySettings = true;
+              proxyWebsockets = true;
+            };
+          };
+        };
       };
 
       streamConfig = ''
@@ -222,6 +248,27 @@
 
         map $ssl_preread_protocol $upstream {
           "" git-ssh;
+        }
+
+        server {
+          listen 1414;
+
+          ssl_preread on;
+          proxy_pass 100.104.108.99:1414;
+        }
+
+        server {
+          listen 1415;
+
+          ssl_preread on;
+          proxy_pass 100.104.108.99:1415;
+        }
+
+        server {
+          listen 55000;
+
+          ssl_preread on;
+          proxy_pass 100.104.108.99:55000;
         }
       '';
     };
