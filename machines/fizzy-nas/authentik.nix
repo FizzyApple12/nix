@@ -1,5 +1,6 @@
 {config, ...}: {
   age.secrets.authentik-env.file = ../../secrets/age-files/authentik-env.age;
+  age.secrets.authentik-ldap-env.file = ../../secrets/age-files/authentik-ldap-env.age;
 
   services = {
     authentik = {
@@ -17,6 +18,10 @@
         disable_startup_analytics = true;
         avatars = "gravatar";
       };
+    };
+    authentik-ldap = {
+      enable = true;
+      environmentFile = config.age.secrets.authentik-ldap-env.path;
     };
   };
 }

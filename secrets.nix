@@ -20,6 +20,7 @@ in {
   "secrets/age-files/hydraOIDC.age".publicKeys = users ++ systems;
   "secrets/age-files/packageSigningKey.age".publicKeys = users ++ systems;
   "secrets/age-files/authentik-env.age".publicKeys = users ++ systems;
+  "secrets/age-files/authentik-ldap-env.age".publicKeys = users ++ systems;
   "secrets/age-files/copyparty-password-fizzyapple12.age".publicKeys = users ++ systems;
   "secrets/age-files/radicale-secret.age".publicKeys = users ++ systems;
 }
