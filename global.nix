@@ -19,7 +19,7 @@
     settings = {
       experimental-features = ["flakes" "nix-command"];
       extra-substituters = [
-        "https://hydra.fizzyapple12.com"
+        # "https://hydra.fizzyapple12.com"
       ];
       trusted-users = [
         "@remotebuild"
