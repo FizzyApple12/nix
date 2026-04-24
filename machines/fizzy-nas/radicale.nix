@@ -41,7 +41,7 @@
           type = "ldap";
           ldap_uri = "ldap://auth.fizzyapple12.com:389";
           ldap_base = "dc=auth,dc=fizzyapple12,dc=com";
-          ldap_reader_dn = "cn=radicale,ou=users,DC=auth,DC=fizzyapple12,DC=com";
+          ldap_reader_dn = "cn=radicale-service,ou=users,DC=auth,DC=fizzyapple12,DC=com";
           ldap_secret_file = config.age.secrets.radicale-secret.path;
           ldap_filter = "(&(objectClass=user)(cn={0}))";
           lc_username = true;
