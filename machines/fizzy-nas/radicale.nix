@@ -1,4 +1,25 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
+  nixpkgs = {
+    overlays = [
+      (
+        self: super: (
+          let
+            nixpkgs-unstable = import inputs.nixpkgs-unstable {
+              inherit (self) system;
+              config.allowUnfree = true;
+            };
+          in {
+            radicale = nixpkgs-unstable.radicale;
+          }
+        )
+      )
+    ];
+  };
+
   age.secrets.radicale-secret = {
     file = ../../secrets/age-files/radicale-secret.age;
     mode = "440";
