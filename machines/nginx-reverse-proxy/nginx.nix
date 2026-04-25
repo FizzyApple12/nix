@@ -270,6 +270,20 @@
           ssl_preread on;
           proxy_pass 100.104.108.99:55000;
         }
+
+        server {
+          listen 389;
+
+          ssl_preread on;
+          proxy_pass 100.99.234.2:3389;
+        }
+
+        server {
+          listen 636;
+
+          ssl_preread on;
+          proxy_pass 100.99.234.2:6636;
+        }
       '';
     };
   };
