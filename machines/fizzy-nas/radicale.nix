@@ -39,7 +39,7 @@
         };
         auth = {
           type = "ldap";
-          ldap_uri = "ldap://100.99.234.2";
+          ldap_uri = "ldap://100.99.234.2:3389";
           ldap_base = "dc=auth,dc=fizzyapple12,dc=com";
           ldap_reader_dn = "cn=radicale-service,ou=users,dc=auth,dc=fizzyapple12,dc=com";
           ldap_secret_file = config.age.secrets.radicale-secret.path;
