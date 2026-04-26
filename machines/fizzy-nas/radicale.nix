@@ -44,6 +44,7 @@
           ldap_reader_dn = "cn=radicale-service,ou=users,dc=auth,dc=fizzyapple12,dc=com";
           ldap_secret_file = config.age.secrets.radicale-secret.path;
           ldap_filter = "(&(objectClass=user)(|(cn={0})(mail={0})))";
+          ldap_user_attribute = "cn";
           lc_username = true;
         };
         storage = {
