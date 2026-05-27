@@ -17,7 +17,7 @@
         };
         soulseek = {
           description = "FizzyApple12's NAS";
-          port = 50300;
+          listen_port = 50300;
         };
         web = {
           port = 5030;
