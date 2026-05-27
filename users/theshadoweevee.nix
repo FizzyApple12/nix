@@ -18,7 +18,7 @@
     openssh.authorizedKeys.keys = let
       authorizedKeys = pkgs.fetchurl {
         url = "https://github.com/TheShadowEevee.keys";
-        sha256 = "sha256-b8LZvyqHoye49qFhuo8GEY+VSuef3LnRLDQwtpO1Gd4=";
+        sha256 = "sha256-q7KzvF477GILMLBdrkY2joNExRcbV5zP4MJUgFqK6Zk=";
       };
     in
       pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
