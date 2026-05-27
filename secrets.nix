@@ -23,4 +23,5 @@ in {
   "secrets/age-files/authentik-ldap-env.age".publicKeys = users ++ systems;
   "secrets/age-files/copyparty-password-fizzyapple12.age".publicKeys = users ++ systems;
   "secrets/age-files/radicale-secret.age".publicKeys = users ++ systems;
+  "secrets/age-files/soulseek-env.age".publicKeys = users ++ systems;
 }
