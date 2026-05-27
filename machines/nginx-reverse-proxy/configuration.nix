@@ -33,8 +33,8 @@
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 80 443 5030];
-      allowedUDPPorts = [22 80 443 5030];
+      allowedTCPPorts = [22 80 443 50300];
+      allowedUDPPorts = [22 80 443 50300];
     };
   };
 
