@@ -30,6 +30,7 @@
         "rustdesk.fizzyapple12.com" = {group = config.services.nginx.group;};
         "watch-a-printer.fizzyapple12.com" = {group = config.services.nginx.group;};
         "wazuh.fizzyapple12.com" = {group = config.services.nginx.group;};
+        "soulseek.fizzyapple12.com" = {group = config.services.nginx.group;};
       };
     };
   };
@@ -232,6 +233,18 @@
             };
           };
         };
+
+        "soulseek.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations = {
+            "/" = {
+              proxyPass = "http://100.99.234.2:5030";
+              recommendedProxySettings = true;
+              proxyWebsockets = true;
+            };
+          };
+        };
       };
 
       streamConfig = ''
@@ -276,6 +289,13 @@
 
           ssl_preread on;
           proxy_pass 100.99.234.2:3389;
+        }
+
+        server {
+          listen 50300;
+
+          ssl_preread on;
+          proxy_pass 100.99.234.2:50300;
         }
 
         server {

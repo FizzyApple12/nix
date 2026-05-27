@@ -17,6 +17,7 @@
     ./incus.nix
     ./copyparty.nix
     ./radicale.nix
+    ./soulseek.nix
   ];
 
   nixpkgs = {
