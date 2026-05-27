@@ -12,7 +12,7 @@
         };
         web = {
           port = 5030;
-          url_base = "/";
+          # url_base = "/";
           https = {
             disabled = true;
           };
