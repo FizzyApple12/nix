@@ -2,6 +2,7 @@
   services = {
     slskd = {
       enable = true;
+      domain = "soulseek.fizzyapple12.com";
       settings = {
         shares = {
           directories = ["/storage/files/fizzyapple12/soulseek"];
@@ -12,7 +13,7 @@
         };
         web = {
           port = 5030;
-          # url_base = "/";
+          url_base = "/";
           https = {
             disabled = true;
           };
