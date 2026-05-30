@@ -21,6 +21,9 @@
         )
       )
     ];
+    config = {
+      rocmSupport = true;
+    };
   };
 
   hardware = {

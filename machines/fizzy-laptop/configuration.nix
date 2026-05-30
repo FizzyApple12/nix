@@ -69,16 +69,18 @@
 
   systemd = {
     sleep = {
-      extraConfig = ''
-        AllowSuspend=yes
-        AllowHibernation=yes
-        AllowSuspendThenHibernate=yes
-        HibernateDelaySec=10m
-        HibernateOnACPower=no
-        SuspendState=mem
-        SuspendMode=suspend-then-hibernate
-        suspend=suspend-then-hibernate
-      '';
+      settings = {
+        Sleep = {
+          AllowSuspend = true;
+          AllowHibernation = true;
+          AllowSuspendThenHibernate = true;
+          HibernateDelaySec = "10m";
+          HibernateOnACPower = false;
+          SuspendState = "mem";
+          SuspendMode = "suspend-then-hibernate";
+          suspend = "suspend-then-hibernate";
+        };
+      };
     };
   };
 

@@ -1,12 +1,9 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment = {
     systemPackages = [
       pkgs.winetricks
       pkgs.wineasio
-      pkgs.wineWowPackages.waylandFull
+      pkgs.wineWow64Packages.waylandFull
       (pkgs.bottles.override {
         removeWarningPopup = true;
       })

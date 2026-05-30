@@ -1,12 +1,9 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment = {
     systemPackages = [
       pkgs.inkscape
       pkgs.krita
-      pkgs.blender-hip
+      pkgs.blender
     ];
   };
 }

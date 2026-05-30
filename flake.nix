@@ -3,13 +3,13 @@
   description = "";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-utils.url = "github:numtide/flake-utils";
@@ -19,7 +19,7 @@
     agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
 
     # hydra.url = "github:FizzyApple12/hydra/oidc-fixes";
-    hydra.url = "https://git.lix.systems/lix-project/hydra/archive/ead6172b5b7583b78774b10837b99ee1aa556138.zip";
+    hydra.url = "https://git.lix.systems/lix-project/hydra/archive/756f7f5ee6cdcd46696e3ee0d143e65f4ca5dd42.zip";
     hydra.inputs.nixpkgs.follows = "nixpkgs";
 
     quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";

@@ -6,9 +6,8 @@
   nixpkgs = {
     overlays = [
       (
-        self: super:
-        {
-          ndi-6 = (pkgs.callPackage ./ndi-6/package.nix {});
+        self: super: {
+          ndi-6 = pkgs.callPackage ./ndi-6/package.nix {};
         }
       )
     ];
@@ -19,7 +18,7 @@
       pkgs.ffmpeg-full
 
       pkgs.sonobus
-      pkgs.helvum
+      pkgs.crosspipe
       pkgs.ndi-6
       (pkgs.wrapOBS {
         plugins = [
