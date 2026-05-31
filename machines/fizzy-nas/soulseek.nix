@@ -15,6 +15,9 @@
         shares = {
           directories = ["/storage/files/fizzyapple12/soulseek"];
         };
+        directories = {
+          downloads = "/storage/files/fizzyapple12/soulseek/downloads";
+        };
         soulseek = {
           description = "FizzyApple12's NAS";
           listen_port = 50300;
