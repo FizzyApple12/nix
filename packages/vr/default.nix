@@ -3,10 +3,6 @@
     steam = {
       enable = true;
     };
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
   };
 
   hardware = {
@@ -17,8 +13,6 @@
 
   environment = {
     systemPackages = [
-      # pkgs.alvr
-      # (pkgs.callPackage ./alvr/package.nix {})
       pkgs.wayvr
       pkgs.lighthouse-steamvr
     ];
