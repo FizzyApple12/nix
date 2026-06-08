@@ -1,10 +1,8 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./minecraft.nix
     ./vrchat.nix
+    ./deadlock.nix
     ./emulation
   ];
 
