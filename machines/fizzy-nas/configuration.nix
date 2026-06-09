@@ -76,6 +76,11 @@
       };
     };
 
+    binfmt = {
+      emulatedSystems = ["aarch64-linux"];
+      addEmulatedSystemsToNixSandbox = true;
+    };
+
     zfs = {
       forceImportRoot = false;
     };

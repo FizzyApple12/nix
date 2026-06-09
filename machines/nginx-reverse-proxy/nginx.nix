@@ -245,6 +245,18 @@
             };
           };
         };
+
+        "stream.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations = {
+            "/" = {
+              proxyPass = "http://127.0.0.1:9998";
+              recommendedProxySettings = true;
+              proxyWebsockets = true;
+            };
+          };
+        };
       };
 
       streamConfig = ''
@@ -303,6 +315,41 @@
 
           ssl_preread on;
           proxy_pass 100.99.234.2:6636;
+        }
+
+        server {
+          listen 554;
+
+          ssl_preread on;
+          proxy_pass 127.0.0.1:554;
+        }
+
+        server {
+          listen 1935;
+
+          ssl_preread on;
+          proxy_pass 127.0.0.1:1935;
+        }
+
+        server {
+          listen 8888;
+
+          ssl_preread on;
+          proxy_pass 127.0.0.1:8888;
+        }
+
+        server {
+          listen 8889;
+
+          ssl_preread on;
+          proxy_pass 127.0.0.1:8889;
+        }
+
+        server {
+          listen 8189;
+
+          ssl_preread on;
+          proxy_pass 127.0.0.1:8189;
         }
       '';
     };

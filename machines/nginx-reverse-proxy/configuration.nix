@@ -9,6 +9,7 @@
     ../../global.nix
 
     ./nginx.nix
+    ./mediamtx.nix
   ];
 
   nixpkgs = {
