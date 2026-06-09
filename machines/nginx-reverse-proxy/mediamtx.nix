@@ -1,7 +1,9 @@
 {config, ...}: {
   age.secrets.mediamtx-password-fizzyapple12 = {
     file = ../../secrets/age-files/mediamtx-password-fizzyapple12.age;
+    mode = "440";
     owner = "mediamtx";
+    group = "mediamtx";
   };
 
   services = {

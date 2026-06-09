@@ -31,6 +31,7 @@
         "watch-a-printer.fizzyapple12.com" = {group = config.services.nginx.group;};
         "wazuh.fizzyapple12.com" = {group = config.services.nginx.group;};
         "soulseek.fizzyapple12.com" = {group = config.services.nginx.group;};
+        "stream.fizzyapple12.com" = {group = config.services.nginx.group;};
       };
     };
   };
