@@ -1,11 +1,4 @@
-{config, ...}: {
-  age.secrets.mediamtx-password-fizzyapple12 = {
-    file = ../../secrets/age-files/mediamtx-password-fizzyapple12.age;
-    mode = "440";
-    owner = "mediamtx";
-    group = "mediamtx";
-  };
-
+{...}: {
   services = {
     mediamtx = {
       enable = true;
@@ -25,6 +18,7 @@
         udpMaxPayloadSize = 1472;
 
         authMethod = "internal";
+        # generate password strings with: `echo -n "mypass" | openssl dgst -binary -sha256 | openssl base64`
         authInternalUsers = [
           {
             user = "any";
@@ -43,7 +37,7 @@
           }
           {
             user = "fizzyapple12";
-            pass = config.age.secrets.mediamtx-password-fizzyapple12.path;
+            pass = "sha256:dDVYbM/5ohvBuIGh38GYCfIRK2uAXy3wZ34F7agELHE=";
             ips = [];
             permissions = [
               {
