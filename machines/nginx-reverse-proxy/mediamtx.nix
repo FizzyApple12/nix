@@ -74,7 +74,7 @@
 
         rtsp = true;
         rtspTransports = ["tcp"];
-        rtspEncryption = "optional";
+        rtspEncryption = "no";
         rtspAddress = ":554";
         rtspAuthMethods = ["basic"];
 
