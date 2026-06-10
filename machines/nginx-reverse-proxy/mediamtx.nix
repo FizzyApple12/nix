@@ -58,7 +58,7 @@
                 action = "metrics";
               }
               {
-                action = "pprof ";
+                action = "pprof";
               }
             ];
           }
