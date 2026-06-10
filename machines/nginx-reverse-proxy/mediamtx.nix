@@ -15,7 +15,7 @@
         logDestinations = ["stdout"];
         logFile = "mediamtx.log";
 
-        metrics = "yes";
+        metrics = true;
         metricsAddress = ":9998";
         metricsAllowOrigin = "\'*\'";
 
@@ -70,20 +70,20 @@
           }
         ];
 
-        rtsp = "yes";
+        rtsp = true;
         protocols = ["tcp"];
         encryption = "optional";
         rtspAddress = ":554";
         rtspAuthMethods = ["basic"];
 
-        rtmp = "yes";
+        rtmp = true;
         rtmpAddress = ":1935";
 
-        hls = "yes";
+        hls = true;
         hlsAddress = ":8888";
         hlsAllowOrigin = "*";
         hlsTrustedProxies = [];
-        hlsAlwaysRemux = "no";
+        hlsAlwaysRemux = false;
         hlsVariant = "lowLatency";
         hlsSegmentCount = 10;
         hlsSegmentDuration = "1s";
@@ -92,13 +92,13 @@
         hlsDirectory = "";
         hlsMuxerCloseAfter = "60s";
 
-        webrtc = "yes";
+        webrtc = true;
         webrtcAddress = ":8889";
         webrtcAllowOrigins = ["*"];
         webrtcTrustedProxies = [];
         webrtcLocalUDPAddress = ":8189";
         webrtcLocalTCPAddress = "";
-        webrtcIPsFromInterfaces = "yes";
+        webrtcIPsFromInterfaces = true;
         webrtcIPsFromInterfacesList = [];
         webrtcAdditionalHosts = [];
         webrtcICEServers2 = [
@@ -110,12 +110,12 @@
         webrtcTrackGatherTimeout = "2s";
         webrtcSTUNGatherTimeout = "5s";
 
-        srt = "no";
+        srt = false;
 
         pathDefaults = {
           source = "publisher";
           sourceFingerprint = null;
-          sourceOnDemand = "no";
+          sourceOnDemand = false;
           sourceOnDemandStartTimeout = "10s";
           sourceOnDemandCloseAfter = "10s";
           maxReaders = 0;
