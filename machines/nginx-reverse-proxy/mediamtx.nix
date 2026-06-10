@@ -10,7 +10,7 @@
 
         metrics = true;
         metricsAddress = ":9998";
-        metricsAllowOrigin = "\'*\'";
+        metricsAllowOrigins = ["*"];
 
         readTimeout = "10s";
         writeTimeout = "10s";
@@ -65,8 +65,8 @@
         ];
 
         rtsp = true;
-        protocols = ["tcp"];
-        encryption = "optional";
+        rtspTransports = ["tcp"];
+        rtspEncryption = "optional";
         rtspAddress = ":554";
         rtspAuthMethods = ["basic"];
 
@@ -75,7 +75,7 @@
 
         hls = true;
         hlsAddress = ":8888";
-        hlsAllowOrigin = "*";
+        hlsAllowOrigins = ["*"];
         hlsTrustedProxies = [];
         hlsAlwaysRemux = false;
         hlsVariant = "lowLatency";
