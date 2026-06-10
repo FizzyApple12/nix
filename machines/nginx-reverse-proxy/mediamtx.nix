@@ -1,4 +1,12 @@
 {...}: {
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [554 1935 8189 8888 8889 9998];
+      allowedUDPPorts = [554 1935 8189 8888 8889 9998];
+    };
+  };
+
   services = {
     mediamtx = {
       enable = true;
