@@ -67,7 +67,6 @@
       pkgs.filezilla
 
       pkgs.alacritty
-      #pkgs.gnome-terminal
 
       (pkgs.discord-canary.override {withVencord = true;})
       pkgs.element-desktop
@@ -76,10 +75,10 @@
       pkgs.signal-desktop
 
       pkgs.kdePackages.kclock
+      pkgs.kdePackages.kdeconnect-kde
 
       pkgs.vlc
 
-      # pkgs.spotify
       pkgs.cider-2
 
       pkgs.waypipe
