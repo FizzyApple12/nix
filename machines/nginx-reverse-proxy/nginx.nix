@@ -286,6 +286,7 @@
         }
 
         map $ssl_preread_protocol $upstream {
+          default git-ssh;
           "" git-ssh;
         }
 
