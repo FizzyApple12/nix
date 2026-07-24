@@ -37,6 +37,20 @@
           }
         )
       )
+      # (
+      #   self: super: (
+      #     let
+      #       nixpkgs-unstable = import inputs.nixpkgs-unstable {
+      #         inherit (self) system;
+      #         config.allowUnfree = true;
+      #       };
+      #     in {
+      #       ladybird = nixpkgs-unstable.callPackage ./ladybird/package.nix {
+      #         skia = nixpkgs-unstable.callPackage ./ladybird/skia.nix {};
+      #       };
+      #     }
+      #   )
+      # )
     ];
   };
   programs = {
@@ -54,7 +68,7 @@
       pkgs.corefonts
 
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-      # (pkgs.callPackage ./ladybird/package.nix { })
+      # pkgs.ladybird
 
       pkgs.obsidian
 
