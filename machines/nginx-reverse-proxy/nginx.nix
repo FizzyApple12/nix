@@ -282,7 +282,7 @@
         }
 
         upstream git-ssh {
-          server 100.99.234.2:22;
+          server 100.99.234.2:2200;
         }
 
         map $ssl_preread_protocol $upstream {

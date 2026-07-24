@@ -2,8 +2,8 @@
   age.secrets.forgejoServiceEmailPassword = {
     file = ../../secrets/age-files/service-email-password.age;
     mode = "440";
-    owner = "root";
-    group = "smtp";
+    owner = "forgejo";
+    group = "forgejo";
   };
 
   systemd.services.forgejo.serviceConfig.ReadWritePaths = ["/storage/forgejo"];
@@ -40,7 +40,7 @@
           SSH_DOMAIN = "git.fizzyapple12.com";
           START_SSH_SERVER = true;
           DISABLE_SSH = false;
-          SSH_PORT = 22;
+          SSH_PORT = 2200;
           LFS_START_SERVER = true;
           OFFLINE_MODE = false;
           LANDING_PAGE = "explore";
