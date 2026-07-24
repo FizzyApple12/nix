@@ -26,6 +26,7 @@
         "jellyfin.fizzyapple12.com" = {group = config.services.nginx.group;};
         "grafana.fizzyapple12.com" = {group = config.services.nginx.group;};
         "forgejo.fizzyapple12.com" = {group = config.services.nginx.group;};
+        "forgejo-old.fizzyapple12.com" = {group = config.services.nginx.group;};
         "nextcloud.fizzyapple12.com" = {group = config.services.nginx.group;};
         "rustdesk.fizzyapple12.com" = {group = config.services.nginx.group;};
         "watch-a-printer.fizzyapple12.com" = {group = config.services.nginx.group;};
@@ -177,6 +178,18 @@
         };
 
         "forgejo.fizzyapple12.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations = {
+            "/" = {
+              proxyPass = "http://100.99.234.2:3000";
+              recommendedProxySettings = true;
+              proxyWebsockets = true;
+            };
+          };
+        };
+
+        "forgejo-old.fizzyapple12.com" = {
           enableACME = true;
           forceSSL = true;
           locations = {
