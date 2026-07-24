@@ -6,6 +6,8 @@
     group = "smtp";
   };
 
+  systemd.services.forgejo.serviceConfig.ReadWritePaths = ["/storage/forgejo"];
+
   services = {
     forgejo = {
       enable = true;
