@@ -24,4 +24,5 @@ in {
   "secrets/age-files/copyparty-password-fizzyapple12.age".publicKeys = users ++ systems;
   "secrets/age-files/radicale-secret.age".publicKeys = users ++ systems;
   "secrets/age-files/soulseek-env.age".publicKeys = users ++ systems;
+  "secrets/age-files/service-email-password.age".publicKeys = users ++ systems;
 }

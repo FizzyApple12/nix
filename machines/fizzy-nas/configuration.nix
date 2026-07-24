@@ -13,6 +13,7 @@
     ../../users/theshadoweevee.nix
 
     ./postgres.nix
+    ./forgejo.nix
     ./authentik.nix
     ./incus.nix
     ./copyparty.nix
