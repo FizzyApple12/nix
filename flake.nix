@@ -115,8 +115,8 @@
           ];
         };
 
-        # nginx-reverse-proxy
-        "ip-172-31-18-248.ec2.internal" = mkNixosSystem {
+        # ip-172-31-18-248.ec2.internal
+        "nginx-reverse-proxy" = mkNixosSystem {
           hostname = "nginx-reverse-proxy";
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN7j6pEbZ1kiS8bJD1nShCaOY1c+YkD6tD6Ugr+1SDiv";
           configDir = ./machines/nginx-reverse-proxy;
