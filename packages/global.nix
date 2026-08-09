@@ -14,6 +14,21 @@
         "libxml2-2.13.8"
       ];
     };
+
+    overlays = [
+      (
+        self: super: (
+          let
+            nixpkgs-unstable = import inputs.nixpkgs-unstable {
+              inherit (self) system;
+              config.allowUnfree = true;
+            };
+          in {
+            nix-output-monitor = nixpkgs-unstable.nix-output-monitor;
+          }
+        )
+      )
+    ];
   };
 
   programs = {
@@ -41,6 +56,7 @@
       pkgs.wget
       pkgs.unzip
       pkgs.ripgrep
+      pkgs.nix-output-monitor
 
       pkgs.btop
 

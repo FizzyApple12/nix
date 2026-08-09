@@ -1,4 +1,21 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
+  nixpkgs = {
+    overlays = [
+      (
+        self: super: (
+          let
+            nixpkgs-unstable = import inputs.nixpkgs-unstable {
+              inherit (self) system;
+              config.allowUnfree = true;
+            };
+          in {
+            bottles = nixpkgs-unstable.bottles;
+          }
+        )
+      )
+    ];
+  };
+
   environment = {
     systemPackages = [
       pkgs.winetricks

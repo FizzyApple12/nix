@@ -40,6 +40,7 @@
         pkgs.zsh
         pkgs.oh-my-zsh
         pkgs.rdesktop
+        pkgs.nix-output-monitor
       ];
       stateVersion = "23.11";
     };

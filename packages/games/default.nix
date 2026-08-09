@@ -3,6 +3,7 @@
     ./minecraft.nix
     ./vrchat.nix
     ./deadlock.nix
+    ./beat-saber.nix
     ./emulation
   ];
 
