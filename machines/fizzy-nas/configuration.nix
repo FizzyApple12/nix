@@ -96,6 +96,7 @@
     "/storage" = {
       device = "storage";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
     "/boot" = {
