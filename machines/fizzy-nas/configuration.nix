@@ -122,6 +122,14 @@
     };
   };
 
+  systemd = {
+    services = {
+      zfs-mount = {
+        enable = false;
+      };
+    };
+  };
+
   environment = {
     systemPackages = [
       pkgs.zfs
