@@ -52,67 +52,67 @@
       zsh = {
         enable = true;
         initContent = ''
-            nixos-rebuild() {
-            	command nixos-rebuild "$@" --log-format internal-json -v |& nom --json
-            }
+	        nixos-rebuild() {
+	            command nixos-rebuild "$@" --log-format internal-json -v |& nom --json
+	        }
 
-       		nix-shell() {
-        		nix-shell "$@" --log-format internal-json -v |& nom --json
-         	}
+	        nix-shell() {
+	            nix-shell "$@" --log-format internal-json -v |& nom --json
+	        }
 
-            nix-build() {
-            	nix-build "$@" --log-format internal-json -v |& nom --json
-            }
+	        nix-build() {
+	            nix-build "$@" --log-format internal-json -v |& nom --json
+	        }
 
-            nix-env() {
-            	nix-env "$@" --log-format internal-json -v |& nom --json
-            }
+	        nix-env() {
+	            nix-env "$@" --log-format internal-json -v |& nom --json
+	        }
 
-       		nix() {
-        		nix "$@" --log-format internal-json -v |& nom --json
-        	}
+	        nix() {
+	            nix "$@" --log-format internal-json -v |& nom --json
+	        }
 
-         	nix-collect-garbage() {
-         		nix-collect-garbage "$@" --log-format internal-json -v |& nom --json
-         	}
+	        nix-collect-garbage() {
+	            nix-collect-garbage "$@" --log-format internal-json -v |& nom --json
+	        }
 
-          	sudo() {
-           		case "$1" in
-             		nixos-rebuild)
-               			shift
-                		command sudo -v || return 1
-                 		command sudo nixos-rebuild "$@" --log-format internal-json -v |& nom --json
-            	     	;;
-            	    nix-shell)
-            	    	shift
-                		command sudo -v || return 1
-            	        command sudo nix-shell "$@" --log-format internal-json -v |& nom --json
-            	        ;;
-            	    nix-build)
-            	    	shift
-                		command sudo -v || return 1
-            	        command sudo nix-build "$@" --log-format internal-json -v |& nom --json
-            	        ;;
-            	    nix-env)
-            	    	shift
-                		command sudo -v || return 1
-            	        command sudo nix-env "$@" --log-format internal-json -v |& nom --json
-            	        ;;
-            	    nix)
-            	    	shift
-                  		command sudo -v || return 1
-            	        command sudo nix "$@" --log-format internal-json -v |& nom --json
-            	        ;;
-            	    nix-collect-garbage)
-            	    	shift
-                		command sudo -v || return 1
-            	        command sudo nix-collect-garbage "$@" --log-format internal-json -v |& nom --json
-            	        ;;
-            	    *)
-            	    	command sudo "$@"
-            	     	;;
-                esac
-           	}
+	        sudo() {
+	            case "$1" in
+	                nixos-rebuild)
+	                    shift
+	                    command sudo -v || return 1
+	                    command sudo nixos-rebuild "$@" --log-format internal-json -v |& nom --json
+	                    ;;
+	                nix-shell)
+	                    shift
+	                    command sudo -v || return 1
+	                    command sudo nix-shell "$@" --log-format internal-json -v |& nom --json
+	                    ;;
+	                nix-build)
+	                    shift
+	                    command sudo -v || return 1
+	                    command sudo nix-build "$@" --log-format internal-json -v |& nom --json
+	                    ;;
+	                nix-env)
+	                    shift
+	                    command sudo -v || return 1
+	                    command sudo nix-env "$@" --log-format internal-json -v |& nom --json
+	                    ;;
+	                nix)
+	                    shift
+	                    command sudo -v || return 1
+	                    command sudo nix "$@" --log-format internal-json -v |& nom --json
+	                    ;;
+	                nix-collect-garbage)
+	                    shift
+	                    command sudo -v || return 1
+	                    command sudo nix-collect-garbage "$@" --log-format internal-json -v |& nom --json
+	                    ;;
+	                *)
+	                    command sudo "$@"
+	                    ;;
+	            esac
+	        }
         '';
         shellAliases = {
           ll = "ls -l";
