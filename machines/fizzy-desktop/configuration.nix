@@ -117,6 +117,10 @@
         ''}"
       '';
     };
+
+    flatpak = {
+      enable = true;
+    };
   };
 
   environment = {

@@ -192,10 +192,6 @@
         KERNEL=="uinput", MODE="0666"
       '';
     };
-
-    flatpak = {
-      enable = true;
-    };
   };
 
   programs = {

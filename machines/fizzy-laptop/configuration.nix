@@ -139,6 +139,10 @@
         DisableCapsuleUpdateOnDisk = "true";
       };
     };
+
+    flatpak = {
+      enable = true;
+    };
   };
 
   security = let
