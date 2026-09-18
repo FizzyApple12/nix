@@ -33,6 +33,8 @@
         "wazuh.fizzyapple12.com" = {group = config.services.nginx.group;};
         "soulseek.fizzyapple12.com" = {group = config.services.nginx.group;};
         "stream.fizzyapple12.com" = {group = config.services.nginx.group;};
+
+        "forgather.ing" = {group = config.services.nginx.group;};
       };
     };
   };
@@ -266,6 +268,18 @@
           locations = {
             "/" = {
               proxyPass = "http://127.0.0.1:9998";
+              recommendedProxySettings = true;
+              proxyWebsockets = true;
+            };
+          };
+        };
+
+        "forgather.ing" = {
+          enableACME = true;
+          forceSSL = true;
+          locations = {
+            "/" = {
+              proxyPass = "http://100.78.221.27:3000";
               recommendedProxySettings = true;
               proxyWebsockets = true;
             };
