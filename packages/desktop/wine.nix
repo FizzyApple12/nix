@@ -10,6 +10,7 @@
             };
           in {
             bottles = nixpkgs-unstable.bottles;
+            protonplus = nixpkgs-unstable.protonplus;
           }
         )
       )

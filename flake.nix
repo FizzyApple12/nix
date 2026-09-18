@@ -33,6 +33,8 @@
 
     copyparty.url = "github:9001/copyparty";
     copyparty.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/";
   };
 
   outputs = {
@@ -48,6 +50,7 @@
     quickshell,
     authentik-nix,
     copyparty,
+    nix-flatpak,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -59,6 +62,7 @@
       specialArgs ? {},
       modules ? [],
       overlays ? [],
+      is-desktop ? false,
       is-tiny ? false,
     }: let
       mainConfigPath = "${toString configDir}/configuration.nix";
@@ -68,7 +72,7 @@
 
         specialArgs =
           {
-            inherit inputs hostname hostPubkey configDir is-tiny;
+            inherit inputs hostname hostPubkey configDir is-tiny is-desktop;
           }
           // specialArgs;
 
@@ -89,9 +93,13 @@
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQD/shgJkC0oNWxPzuNtcHRVEEBogZ9btVyoElEJMJm";
           configDir = ./machines/fizzy-desktop;
           system = "x86_64-linux";
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
           overlays = [
             quickshell.overlays.default
           ];
+          is-desktop = true;
         };
 
         "fizzy-laptop" = mkNixosSystem {
@@ -99,9 +107,13 @@
           hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBJCSwxmRvJpmHG0JZjWaFJDKxXZTGGvAs/NrVZfUwwM";
           configDir = ./machines/fizzy-laptop;
           system = "x86_64-linux";
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
           overlays = [
             quickshell.overlays.default
           ];
+          is-desktop = true;
         };
 
         "fizzy-nas" = mkNixosSystem {

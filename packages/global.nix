@@ -74,6 +74,9 @@
 
       pkgs.gitFull
       pkgs.git-lfs
+
+      pkgs.rbw
+      pkgs.pinentry-all
     ];
   };
 }

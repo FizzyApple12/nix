@@ -2,6 +2,7 @@
   ...
 }: {
   imports = [
-    ./snes.nix
+    # ./snes.nix
+    ./wii
   ];
 }

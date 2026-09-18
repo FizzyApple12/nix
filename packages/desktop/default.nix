@@ -106,6 +106,7 @@
       [
         pkgs.google-fonts
         pkgs.corefonts
+        pkgs.adwaita-fonts
       ]
       ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };

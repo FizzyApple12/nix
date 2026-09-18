@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, is-desktop, ...}: {
   users.users.fizzyapple12 = {
     isNormalUser = true;
     description = "FizzyApple12";
@@ -35,13 +35,16 @@
   home-manager.users.fizzyapple12 = {
     home = {
       username = "fizzyapple12";
+
       homeDirectory = "/home/fizzyapple12";
+
       packages = [
         pkgs.zsh
         pkgs.oh-my-zsh
         pkgs.rdesktop
         pkgs.nix-output-monitor
       ];
+
       stateVersion = "23.11";
     };
 
@@ -49,6 +52,7 @@
       home-manager = {
         enable = true;
       };
+
       zsh = {
         enable = true;
         initContent = ''
@@ -66,10 +70,6 @@
 
 	        nix-env() {
 	            nix-env "$@" --log-format internal-json -v |& nom --json
-	        }
-
-	        nix() {
-	            nix "$@" --log-format internal-json -v |& nom --json
 	        }
 
 	        nix-collect-garbage() {
@@ -114,6 +114,7 @@
 	            esac
 	        }
         '';
+
         shellAliases = {
           ll = "ls -l";
 
@@ -127,17 +128,29 @@
 
           configuration-git = "git -C /etc/nixos/ ";
         };
+
         oh-my-zsh = {
           enable = true;
           plugins = ["git"];
           theme = "agnoster";
         };
       };
+
+      vicinae = {
+        enable = is-desktop;
+
+        systemd = {
+          enable = is-desktop;
+        };
+      };
+
       git = {
         enable = true;
+
         lfs = {
           enable = true;
         };
+
         settings = {
           user = {
             name = "FizzyApple12";
@@ -154,6 +167,7 @@
 
       "org/gnome/shell" = {
         disable-user-extensions = false;
+
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
           blur-my-shell.extensionUuid
