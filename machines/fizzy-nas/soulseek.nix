@@ -1,4 +1,21 @@
-{config, ...}: {
+{inputs, config, ...}: {
+  nixpkgs = {
+    overlays = [
+      (
+        self: super: (
+          let
+            nixpkgs-unstable = import inputs.nixpkgs-unstable {
+              inherit (self) system;
+              config.allowUnfree = true;
+            };
+          in {
+            slskd = nixpkgs-unstable.slskd;
+          }
+        )
+      )
+    ];
+  };
+
   age.secrets.soulseek-env = {
     file = ../../secrets/age-files/soulseek-env.age;
     mode = "440";
