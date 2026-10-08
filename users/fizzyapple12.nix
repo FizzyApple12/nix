@@ -24,7 +24,7 @@
         keys = let
           authorizedKeys = pkgs.fetchurl {
             url = "https://github.com/fizzyapple12.keys";
-            sha256 = "sha256-5tJRNjGB4eooaBWXllhLT5q4ZR4ALmLf9teN7CxqZMk=";
+            sha256 = "sha256-I0UaOYwjCFi6L18PIyVdWjyrTJ7zEyQ5hr7ppbxgqLk=";
           };
         in
           pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys);
@@ -60,20 +60,20 @@
 	            command nixos-rebuild "$@" --log-format internal-json -v |& nom --json
 	        }
 
-	        nix-shell() {
-	            nix-shell "$@" --log-format internal-json -v |& nom --json
-	        }
+	        # nix-shell() {
+	        #     command nix-shell "$@" --log-format internal-json -v |& nom --json
+	        # }
 
 	        nix-build() {
-	            nix-build "$@" --log-format internal-json -v |& nom --json
+	            command nix-build "$@" --log-format internal-json -v |& nom --json
 	        }
 
-	        nix-env() {
-	            nix-env "$@" --log-format internal-json -v |& nom --json
-	        }
+	        # nix-env() {
+	        #     command nix-env "$@" --log-format internal-json -v |& nom --json
+	        # }
 
 	        nix-collect-garbage() {
-	            nix-collect-garbage "$@" --log-format internal-json -v |& nom --json
+	            command nix-collect-garbage "$@" --log-format internal-json -v |& nom --json
 	        }
 
 	        sudo() {
@@ -83,21 +83,21 @@
 	                    command sudo -v || return 1
 	                    command sudo nixos-rebuild "$@" --log-format internal-json -v |& nom --json
 	                    ;;
-	                nix-shell)
-	                    shift
-	                    command sudo -v || return 1
-	                    command sudo nix-shell "$@" --log-format internal-json -v |& nom --json
-	                    ;;
+	                # nix-shell)
+	                #     shift
+	                #     command sudo -v || return 1
+	                #     command sudo nix-shell "$@" --log-format internal-json -v |& nom --json
+	                #     ;;
 	                nix-build)
 	                    shift
 	                    command sudo -v || return 1
 	                    command sudo nix-build "$@" --log-format internal-json -v |& nom --json
 	                    ;;
-	                nix-env)
-	                    shift
-	                    command sudo -v || return 1
-	                    command sudo nix-env "$@" --log-format internal-json -v |& nom --json
-	                    ;;
+	                # nix-env)
+	                #     shift
+	                #     command sudo -v || return 1
+	                #     command sudo nix-env "$@" --log-format internal-json -v |& nom --json
+	                #     ;;
 	                nix)
 	                    shift
 	                    command sudo -v || return 1
