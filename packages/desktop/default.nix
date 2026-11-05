@@ -25,18 +25,18 @@
           }
         )
       )
-      (
-        self: super: (
-          let
-            nixpkgs-master = import inputs.nixpkgs-master {
-              inherit (self) system;
-              config.allowUnfree = true;
-            };
-          in {
-            icu78 = nixpkgs-master.icu78;
-          }
-        )
-      )
+      # (
+      #   self: super: (
+      #     let
+      #       nixpkgs-master = import inputs.nixpkgs-master {
+      #         inherit (self) system;
+      #         config.allowUnfree = true;
+      #       };
+      #     in {
+      #       icu78 = nixpkgs-master.icu78;
+      #     }
+      #   )
+      # )
       # (
       #   self: super: (
       #     let

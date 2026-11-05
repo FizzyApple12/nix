@@ -3,6 +3,23 @@
     steam = {
       enable = true;
     };
+
+    nix-ld = {
+      libraries = [
+        pkgs.icu
+        pkgs.fontconfig
+        pkgs.libx11
+        pkgs.libice
+        pkgs.libsm
+        pkgs.openvino
+        pkgs.rocmPackages.clr
+        pkgs.libv4l
+        pkgs.gst_all_1.gstreamer
+        pkgs.gst_all_1.gst-plugins-base
+        pkgs.glib
+        pkgs.libuvc
+      ];
+    };
   };
 
   hardware = {
@@ -15,6 +32,8 @@
     systemPackages = [
       pkgs.wayvr
       pkgs.lighthouse-steamvr
+      # pkgs.baballonia
+      # pkgs.vrcft
     ];
   };
 

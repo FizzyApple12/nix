@@ -34,6 +34,8 @@
     copyparty.url = "github:9001/copyparty";
     copyparty.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-vrft.url = "github:Naraenda/nix-vrft/";
+
     nix-flatpak.url = "github:gmodena/nix-flatpak/";
   };
 
@@ -50,6 +52,7 @@
     quickshell,
     authentik-nix,
     copyparty,
+    nix-vrft,
     nix-flatpak,
     ...
   } @ inputs: let
@@ -82,6 +85,12 @@
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
             agenix-rekey.nixosModules.default
+            ({ ... }:
+            {
+              nixpkgs = {
+                overlays = overlays;
+              };
+            })
           ]
           ++ modules;
       };
@@ -98,6 +107,7 @@
           ];
           overlays = [
             quickshell.overlays.default
+            nix-vrft.overlays.pinned
           ];
           is-desktop = true;
         };
