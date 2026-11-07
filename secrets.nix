@@ -15,7 +15,9 @@ let
   hydra = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0T1oIz1NSRFObv1dcLzI2S15ZGcO3uspYn7g8NWbBe";
   nix-builder-1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtAN6YOHIK2ODfBLN8NVUKV8Boq2aw4xi0jt35EVvqs";
   nix-builder-2 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI4FnwXCGejKjX8hMRDHTPgQFKkzm2UlkMy50gGBnf0";
-  systems = [desktop laptop nas nginx-reverse-proxy hydra nix-builder-1 nix-builder-2];
+
+  temp-desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGhTLAcm280w3vNh1nmrcu5yHT256092Ag15HfP9L7zQ";
+  systems = [desktop laptop nas nginx-reverse-proxy hydra nix-builder-1 nix-builder-2 temp-desktop];
 in {
   "secrets/age-files/hydraOIDC.age".publicKeys = users ++ systems;
   "secrets/age-files/packageSigningKey.age".publicKeys = users ++ systems;
