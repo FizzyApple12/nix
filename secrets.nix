@@ -16,7 +16,7 @@ let
   nix-builder-1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtAN6YOHIK2ODfBLN8NVUKV8Boq2aw4xi0jt35EVvqs";
   nix-builder-2 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI4FnwXCGejKjX8hMRDHTPgQFKkzm2UlkMy50gGBnf0";
 
-  temp-desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGhTLAcm280w3vNh1nmrcu5yHT256092Ag15HfP9L7zQ";
+  temp-desktop = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILx16K2Qzti3+JDRE6GSq5YWApuxVjM4rVewaUO4Zg6C root@fizzy-desktop";
   systems = [desktop laptop nas nginx-reverse-proxy hydra nix-builder-1 nix-builder-2 temp-desktop];
 in {
   "secrets/age-files/hydraOIDC.age".publicKeys = users ++ systems;
