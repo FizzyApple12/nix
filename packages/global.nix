@@ -41,6 +41,23 @@
         enableSSHSupport = true;
       };
     };
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+  };
+
+  services = {
+  	tor = {
+   	  enable = true;
+      openFirewall = true;
+      torsocks = {
+        enable = true;
+      };
+      client = {
+        enable = true;
+      };
+    };
   };
 
   environment = {

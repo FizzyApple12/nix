@@ -25,6 +25,18 @@
           }
         )
       )
+      (
+        self: super: (
+          let
+            nixpkgs-master = import inputs.nixpkgs-master {
+              inherit (self) system;
+              config.allowUnfree = true;
+            };
+          in {
+            vencord = nixpkgs-master.vencord;
+          }
+        )
+      )
       # (
       #   self: super: (
       #     let
@@ -87,6 +99,8 @@
       pkgs.thunderbird
       pkgs.teams-for-linux
       pkgs.signal-desktop
+
+      (pkgs.callPackage ./stack-wallet/package.nix { } )
 
       pkgs.kdePackages.kclock
       pkgs.kdePackages.kdeconnect-kde
