@@ -15,7 +15,7 @@
   age.secrets.packageSigningKey.file = secrets/age-files/packageSigningKey.age;
 
   nix = {
-    package = pkgs.lixPackageSets.stable.lix;
+    package = pkgs.lixPackageSets.latest.lix;
     settings = {
       experimental-features = ["flakes" "nix-command"];
       extra-substituters = [
@@ -101,7 +101,7 @@
     overlays = [
       (final: prev: {
         inherit
-          (prev.lixPackageSets.stable)
+          (prev.lixPackageSets.latest)
           nix-direnv
           nix-eval-jobs
           nix-fast-build
