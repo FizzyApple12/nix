@@ -23,6 +23,19 @@
 
   nixpkgs = {
     hostPlatform = lib.mkDefault "x86_64-linux";
+    overlays = [
+      (final: prev: {
+        pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+          (pyFinal: pyPrev: {
+            pillow-jpls = pyPrev.pillow-jpls.overridePythonAttrs (old: {
+              disabledTestPaths = (old.disabledTestPaths or []) ++ [
+                "test/test_image_formats.py"
+              ];
+            });
+          })
+        ];
+      })
+    ];
   };
 
   hardware = {

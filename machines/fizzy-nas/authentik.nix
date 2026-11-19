@@ -7,6 +7,10 @@
       enable = true;
       environmentFile = config.age.secrets.authentik-env.path;
       settings = {
+        listen = {
+          http = [ "0.0.0.0:30140" ];
+          https = [ "0.0.0.0:30141" ];
+        };
         email = {
           host = "smtp.purelymail.com";
           port = 465;
